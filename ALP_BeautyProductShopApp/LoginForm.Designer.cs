@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TbStaffID = new System.Windows.Forms.TextBox();
@@ -36,24 +36,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TbPassword = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.BtnExit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ALP_BeautyProductShopApp.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 400);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 362);
+            this.label1.Location = new System.Drawing.Point(32, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 21);
             this.label1.TabIndex = 1;
@@ -63,7 +57,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 397);
+            this.label2.Location = new System.Drawing.Point(32, 354);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 21);
             this.label2.TabIndex = 2;
@@ -71,17 +65,19 @@
             // 
             // TbStaffID
             // 
+            this.TbStaffID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            this.TbStaffID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TbStaffID.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbStaffID.Location = new System.Drawing.Point(158, 359);
+            this.TbStaffID.Location = new System.Drawing.Point(158, 316);
             this.TbStaffID.Name = "TbStaffID";
-            this.TbStaffID.Size = new System.Drawing.Size(202, 28);
+            this.TbStaffID.Size = new System.Drawing.Size(202, 21);
             this.TbStaffID.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(127, 362);
+            this.label3.Location = new System.Drawing.Point(127, 317);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 21);
             this.label3.TabIndex = 4;
@@ -91,7 +87,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(127, 397);
+            this.label4.Location = new System.Drawing.Point(127, 354);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 21);
             this.label4.TabIndex = 5;
@@ -99,43 +95,100 @@
             // 
             // TbPassword
             // 
-            this.TbPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.TbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            this.TbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TbPassword.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbPassword.Location = new System.Drawing.Point(158, 394);
+            this.TbPassword.Location = new System.Drawing.Point(158, 354);
             this.TbPassword.Name = "TbPassword";
             this.TbPassword.PasswordChar = '*';
-            this.TbPassword.Size = new System.Drawing.Size(202, 28);
+            this.TbPassword.Size = new System.Drawing.Size(202, 21);
             this.TbPassword.TabIndex = 6;
             // 
             // BtnLogin
             // 
-            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLogin.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.Location = new System.Drawing.Point(285, 433);
+            this.BtnLogin.Location = new System.Drawing.Point(286, 399);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(75, 35);
             this.BtnLogin.TabIndex = 9;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(153, 322);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(207, 19);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "______________________";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(153, 358);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(207, 19);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "______________________";
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
+            this.BtnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnExit.BackgroundImage")));
+            this.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnExit.FlatAppearance.BorderSize = 0;
+            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Location = new System.Drawing.Point(329, 0);
+            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(60, 40);
+            this.BtnExit.TabIndex = 13;
+            this.BtnExit.TabStop = false;
+            this.BtnExit.UseVisualStyleBackColor = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ALP_BeautyProductShopApp.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, -13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(390, 390);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
-            this.ClientSize = new System.Drawing.Size(400, 500);
+            this.ClientSize = new System.Drawing.Size(390, 460);
             this.ControlBox = false;
-            this.Controls.Add(this.BtnLogin);
+            this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.TbPassword);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.TbStaffID);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.TbStaffID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(400, 500);
-            this.MinimumSize = new System.Drawing.Size(400, 500);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(390, 460);
+            this.MinimumSize = new System.Drawing.Size(390, 460);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
@@ -155,6 +208,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TbPassword;
         private System.Windows.Forms.Button BtnLogin;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button BtnExit;
     }
 }
 

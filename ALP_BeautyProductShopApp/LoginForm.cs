@@ -16,5 +16,18 @@ namespace ALP_BeautyProductShopApp
         {
             InitializeComponent();
         }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormMainMenu form = new FormMainMenu();
+            form.Show();
+        }
     }
 }

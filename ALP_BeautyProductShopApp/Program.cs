@@ -16,7 +16,9 @@ namespace ALP_BeautyProductShopApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            LoginForm form = new LoginForm();
+            form.ShowDialog();
+            Application.Run();
         }
     }
 }
