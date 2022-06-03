@@ -41,7 +41,6 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormMainMenu";
             this.Text = "FormMainMenu";
-            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.ResumeLayout(false);
 
         }

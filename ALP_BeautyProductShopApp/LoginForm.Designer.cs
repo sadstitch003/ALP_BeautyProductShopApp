@@ -153,7 +153,6 @@
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(60, 40);
             this.BtnExit.TabIndex = 13;
-            this.BtnExit.TabStop = false;
             this.BtnExit.UseVisualStyleBackColor = false;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
@@ -194,7 +193,7 @@
             this.Text = "FormLogin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
+            this.PerformLayout(); 
 
         }
 

@@ -17,7 +17,7 @@ namespace ALP_BeautyProductShopApp
             InitializeComponent();
         }
 
-        private void FormMainMenu_Load(object sender, EventArgs e)
+        public FormMainMenu(string staffID)
         {
 
         }
