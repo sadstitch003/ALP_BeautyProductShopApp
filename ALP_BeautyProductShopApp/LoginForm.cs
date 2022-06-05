@@ -17,7 +17,7 @@ namespace ALP_BeautyProductShopApp
         MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string sqlQuery;
+        string sqlQuery; 
 
         public LoginForm()
         {
@@ -30,7 +30,7 @@ namespace ALP_BeautyProductShopApp
 
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
+        [DllImportAttribute("user32.dll")] 
         public static extern bool ReleaseCapture();
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace ALP_BeautyProductShopApp
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             bool loginSucceed = Convert.ToBoolean(sqlCommand.ExecuteScalar());
             sqlConnect.Close();
-
+             
             if (loginSucceed)
             {
                 this.Close();
