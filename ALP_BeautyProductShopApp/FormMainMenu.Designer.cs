@@ -190,7 +190,7 @@
             this.lblBorder.ForeColor = System.Drawing.Color.LightCoral;
             this.lblBorder.Location = new System.Drawing.Point(2, 138);
             this.lblBorder.Name = "lblBorder";
-            this.lblBorder.Size = new System.Drawing.Size(203, 16);
+            this.lblBorder.Size = new System.Drawing.Size(232, 17);
             this.lblBorder.TabIndex = 21;
             this.lblBorder.Text = "____________________________";
             this.lblBorder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -346,6 +346,7 @@
             this.Controls.Add(this.pnlSizerBot);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

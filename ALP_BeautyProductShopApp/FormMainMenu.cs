@@ -95,6 +95,11 @@ namespace ALP_BeautyProductShopApp
             resetWarna();
             btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnProduct.Enabled = false;
+            Product product = new Product();
+            product.MdiParent = this;
+            product.Dock = DockStyle.Fill;
+            product.Show();
+
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
@@ -102,6 +107,10 @@ namespace ALP_BeautyProductShopApp
             resetWarna();
             btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnStaff.Enabled = false;
+            Staff staff = new Staff();
+            staff.MdiParent = this;
+            staff.Dock = DockStyle.Fill;
+            staff.Show();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
@@ -109,6 +118,10 @@ namespace ALP_BeautyProductShopApp
             resetWarna();
             btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnCustomer.Enabled = false;
+            Customer customer = new Customer();
+            customer.MdiParent = this;
+            customer.Dock = DockStyle.Fill;
+            customer.Show();
         }
          
         private void btnTransaction_Click(object sender, EventArgs e) 
