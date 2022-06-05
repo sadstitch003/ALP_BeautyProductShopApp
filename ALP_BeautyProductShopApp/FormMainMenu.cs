@@ -19,7 +19,6 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
 
-
         public FormMainMenu(string staffID)
         {
             InitializeComponent();
@@ -38,60 +37,99 @@ namespace ALP_BeautyProductShopApp
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-
-        private void BtnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Application.Exit();
-        }
-
-         void resetWarna()
-         {
-            pnlNavProduct.BackColor = Color.MistyRose;
-            pnlNavStaff.BackColor = Color.MistyRose;
-            pnlNavCustomer.BackColor = Color.MistyRose;
-            pnlNavTransaction.BackColor = Color.MistyRose;
-            pnlNavOrder.BackColor = Color.MistyRose;
-         }
-
-        private void btnProduct_Click(object sender, EventArgs e)
-        {
-            resetWarna();
-            pnlNavProduct.BackColor = Color.LightCoral;
-        }
-
-        private void btnStaff_Click(object sender, EventArgs e)
-        {
-            resetWarna();
-            pnlNavStaff.BackColor = Color.LightCoral;
-            
-        }
-
-        private void btnCustomer_Click(object sender, EventArgs e)
-        {
-            resetWarna();
-            pnlNavCustomer.BackColor = Color.LightCoral;
-        }
-
-        private void btnTransaction_Click(object sender, EventArgs e)
-        {
-            resetWarna();
-            pnlNavTransaction.BackColor = Color.LightCoral;
-        }
-
-        private void btnOrder_Click(object sender, EventArgs e)
-        {
-            resetWarna();
-            pnlNavOrder.BackColor = Color.LightCoral;
-        }
-
         private void pnlBorder_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            } 
+            }
+        }
+
+        int Mx;
+        int My;
+        int Sw;
+        int Sh;
+
+        bool mov;
+
+        void SizerMouseDown(object sender, MouseEventArgs e)
+        {
+            mov = true;
+            My = MousePosition.Y;
+            Mx = MousePosition.X;
+            Sw = Width;
+            Sh = Height;
+        }
+
+        void SizerMouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == true)
+            {
+                Width = MousePosition.X - Mx + Sw;
+                Height = MousePosition.Y - My + Sh;
+            }
+        }
+
+        void SizerMouseUp(object sender, MouseEventArgs e)
+        {
+            mov = false;
+        }
+
+        void resetWarna()
+         {
+            btnProduct.BackColor = Color.MistyRose;
+            btnStaff.BackColor = Color.MistyRose;
+            btnCustomer.BackColor = Color.MistyRose;
+            btnTransaction.BackColor = Color.MistyRose;
+            btnOrder.BackColor = Color.MistyRose;
+            btnOrder.Enabled = true;
+            btnTransaction.Enabled = true;
+            btnCustomer.Enabled = true;
+            btnStaff.Enabled = true;
+            btnProduct.Enabled = true;
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            resetWarna();
+            btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            btnProduct.Enabled = false;
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            resetWarna();
+            btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            btnStaff.Enabled = false;
+
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            resetWarna();
+            btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            btnCustomer.Enabled = false;
+        }
+
+        private void btnTransaction_Click(object sender, EventArgs e)
+        {
+            resetWarna();
+            btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            btnTransaction.Enabled = false;
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            resetWarna();
+            btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            btnOrder.Enabled = false;
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -112,6 +150,7 @@ namespace ALP_BeautyProductShopApp
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
     }
 }
 
