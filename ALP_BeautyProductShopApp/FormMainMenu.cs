@@ -8,20 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace ALP_BeautyProductShopApp
 {
     public partial class FormMainMenu : Form
     {
+        MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
+        MySqlCommand sqlCommand;
+        MySqlDataAdapter sqlAdapter;
+        string sqlQuery;
 
-         
+
         public FormMainMenu(string staffID)
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            sqlConnect.Open();
+            sqlQuery = $"SELECT staff_name FROM staff WHERE staff_id = '{staffID}';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            lblUsername.Text = Convert.ToString(sqlCommand.ExecuteScalar());
+            sqlConnect.Close();
         }
-
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -85,6 +92,25 @@ namespace ALP_BeautyProductShopApp
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             } 
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                btnMaximize.BackgroundImage = global::ALP_BeautyProductShopApp.Properties.Resources.collapse;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                btnMaximize.BackgroundImage = global::ALP_BeautyProductShopApp.Properties.Resources.maximize;
+            }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

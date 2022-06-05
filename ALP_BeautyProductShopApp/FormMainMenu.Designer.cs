@@ -170,11 +170,11 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(44, 106);
+            this.lblUsername.Location = new System.Drawing.Point(34, 106);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(137, 21);
+            this.lblUsername.Size = new System.Drawing.Size(103, 21);
             this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Hi, *username* !";
+            this.lblUsername.Text = "*username*";
             // 
             // pnlBorder
             // 
