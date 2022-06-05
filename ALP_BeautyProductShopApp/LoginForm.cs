@@ -44,7 +44,7 @@ namespace ALP_BeautyProductShopApp
             sqlConnect.Open();
             sqlQuery = $"SELECT COUNT(staff_id) FROM staff WHERE staff_id = '{TbStaffID.Text}' AND staff_password = '{TbPassword.Text}';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            bool loginSucceed = Convert.ToBoolean(sqlCommand.ExecuteScalar());
+            bool loginSucceed = Convert.ToBoolean(sqlCommand.ExecuteScalar()); 
             sqlConnect.Close();
              
             if (loginSucceed)

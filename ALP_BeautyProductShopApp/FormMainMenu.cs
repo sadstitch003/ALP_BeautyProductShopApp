@@ -115,7 +115,7 @@ namespace ALP_BeautyProductShopApp
         {
             resetWarna();
             btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
-            btnTransaction.Enabled = false;
+            btnTransaction.Enabled = false; 
         }
 
         private void btnOrder_Click(object sender, EventArgs e)

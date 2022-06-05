@@ -209,7 +209,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(37, 106);
+            this.lblUsername.Location = new System.Drawing.Point(38, 106);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(103, 21);
             this.lblUsername.TabIndex = 1;
@@ -333,7 +333,7 @@
             // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F); 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             this.ClientSize = new System.Drawing.Size(900, 600);
@@ -374,10 +374,10 @@
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Panel pnlBorder;
         private System.Windows.Forms.Button btnMinimize;
-        private System.Windows.Forms.Button btnMaximize;
+        private System.Windows.Forms.Button btnMaximize; 
         private System.Windows.Forms.Panel pnlSizerRight;
         private System.Windows.Forms.Panel pnlSizerLeft;
-        private System.Windows.Forms.Panel pnlBorder1;
+        private System.Windows.Forms.Panel pnlBorder1; 
         private System.Windows.Forms.Panel pnlSizerBot;
     }
 }
