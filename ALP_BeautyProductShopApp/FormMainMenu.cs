@@ -102,7 +102,6 @@ namespace ALP_BeautyProductShopApp
             resetWarna();
             btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnStaff.Enabled = false;
-
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
@@ -111,8 +110,8 @@ namespace ALP_BeautyProductShopApp
             btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnCustomer.Enabled = false;
         }
-
-        private void btnTransaction_Click(object sender, EventArgs e)
+         
+        private void btnTransaction_Click(object sender, EventArgs e) 
         {
             resetWarna();
             btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
