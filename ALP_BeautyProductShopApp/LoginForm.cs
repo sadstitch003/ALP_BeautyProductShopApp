@@ -36,7 +36,7 @@ namespace ALP_BeautyProductShopApp
         private void BtnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            Application.Exit();
+            Application.Exit(); 
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TbStaffID = new System.Windows.Forms.TextBox();
+            this.TbStaffID = new System.Windows.Forms.TextBox(); 
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TbPassword = new System.Windows.Forms.TextBox();
