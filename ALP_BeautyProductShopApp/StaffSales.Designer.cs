@@ -65,6 +65,7 @@ namespace ALP_BeautyProductShopApp
             this.dgv_StaffSales.RowTemplate.Height = 24;
             this.dgv_StaffSales.Size = new System.Drawing.Size(840, 440);
             this.dgv_StaffSales.TabIndex = 117;
+            this.dgv_StaffSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_StaffSales_CellContentClick);
             // 
             // tBox_Position
             // 
