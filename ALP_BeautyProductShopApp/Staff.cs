@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ALP_BeautyProductShopApp
 {
@@ -17,9 +18,22 @@ namespace ALP_BeautyProductShopApp
             InitializeComponent();
         }
 
+        MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
+        MySqlCommand sqlCommand;
+        MySqlDataAdapter sqlAdapter;
+        string sqlQuery;
+        DataTable dtStaff = new DataTable();
         private void Staff_Load(object sender, EventArgs e)
         {
-
+            sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtStaff);
+            dgv_Staff.DataSource = dtStaff;
+            cBox_Position.DataSource = dtStaff;
+            cBox_Position.DisplayMember = "staff_position";
+            cBox_Position.ValueMember = "staff_id";
+            
         }
 
         private void btnViewSales_Click(object sender, EventArgs e)
@@ -28,7 +42,56 @@ namespace ALP_BeautyProductShopApp
             StaffSales sales = new StaffSales();
             sales.MdiParent = this.ParentForm;
             sales.Dock = DockStyle.Fill;
-            sales.Show();
+            sales.ShowDialog();
+        }
+
+        private void dgv_Staff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_Staff_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            tBox_StaffID.Text = dgv_Staff.CurrentRow.Cells[0].Value.ToString();
+            tBox_StaffName.Text = dgv_Staff.CurrentRow.Cells[1].Value.ToString();
+            tBox_Password.Text = dgv_Staff.CurrentRow.Cells[2].Value.ToString();
+            cBox_Position.Text  = dgv_Staff.CurrentRow.Cells[3].Value.ToString();
+            tBox_Phone.Text = dgv_Staff.CurrentRow.Cells[4].Value.ToString();
+            dTP_dob.Text = dgv_Staff.CurrentRow.Cells[5].Value.ToString();
+           
+            
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            sqlQuery = " UPDATE staff SET staff_name = '" + tBox_StaffName.Text + "', staff_password = '"+ tBox_Password.Text + "', staff_position = '" + cBox_Position.Text + "', staff_phone = '" + tBox_Phone.Text + "', staff_dob = '" + dTP_dob.Value.ToString("yyyyMMdd") + "' WHERE staff_id = '" + tBox_StaffID.Text + "'; ";
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+
+            MessageBox.Show("Data telah terupdate");
+
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            sqlQuery = "UPDATE staff SET status_del = '1'WHERE staff_id = '" + tBox_StaffID.Text + "';";
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+            MessageBox.Show("Data telah terhapus");
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            sqlQuery = "insert into staff values ('" + tBox_StaffID.Text + "','" + tBox_StaffName.Text + "','"+tBox_Password.Text+"','"+ cBox_Position.Text + "','"+ tBox_Phone.Text + "','"+ dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+            MessageBox.Show("Data telah tersimpan");
         }
     }
 }
