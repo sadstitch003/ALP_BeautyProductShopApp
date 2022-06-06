@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TbStaffID = new System.Windows.Forms.TextBox(); 
-            this.label3 = new System.Windows.Forms.Label(); 
+            this.TbStaffID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TbPassword = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pnlBorder = new System.Windows.Forms.Panel();
             this.BtnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlBorder = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,7 +102,7 @@
             this.TbPassword.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbPassword.Location = new System.Drawing.Point(158, 354);
             this.TbPassword.Name = "TbPassword";
-            this.TbPassword.PasswordChar = '*'; 
+            this.TbPassword.PasswordChar = '*';
             this.TbPassword.Size = new System.Drawing.Size(202, 21);
             this.TbPassword.TabIndex = 6;
             // 
@@ -141,6 +141,16 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "______________________";
             // 
+            // pnlBorder
+            // 
+            this.pnlBorder.Controls.Add(this.BtnExit);
+            this.pnlBorder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBorder.Location = new System.Drawing.Point(0, 0);
+            this.pnlBorder.Name = "pnlBorder";
+            this.pnlBorder.Size = new System.Drawing.Size(390, 35);
+            this.pnlBorder.TabIndex = 14;
+            this.pnlBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove);
+            // 
             // BtnExit
             // 
             this.BtnExit.BackColor = System.Drawing.Color.Transparent;
@@ -161,22 +171,12 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ALP_BeautyProductShopApp.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -13); 
+            this.pictureBox1.Location = new System.Drawing.Point(0, -13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(390, 390);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // pnlBorder
-            // 
-            this.pnlBorder.Controls.Add(this.BtnExit);
-            this.pnlBorder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBorder.Location = new System.Drawing.Point(0, 0);
-            this.pnlBorder.Name = "pnlBorder";
-            this.pnlBorder.Size = new System.Drawing.Size(390, 35);
-            this.pnlBorder.TabIndex = 14;
-            this.pnlBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove);
             // 
             // LoginForm
             // 
@@ -203,8 +203,8 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlBorder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -19,6 +19,10 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
 
+        Customer customer = new Customer();
+        Product product = new Product();
+        Staff staff = new Staff();
+        TransactionList trans = new TransactionList();
         public FormMainMenu(string staffID)
         {
             InitializeComponent();
@@ -90,12 +94,21 @@ namespace ALP_BeautyProductShopApp
             btnProduct.Enabled = true;
         }
 
+        void closeForm()
+        {
+            product.Close();
+            staff.Close();
+            customer.Close();
+            trans.Close();
+        }
+
         private void btnProduct_Click(object sender, EventArgs e)
         {
             resetWarna();
+            closeForm();
             btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnProduct.Enabled = false;
-            Product product = new Product();
+            product = new Product();
             product.MdiParent = this;
             product.Dock = DockStyle.Fill;
             product.Show();
@@ -105,9 +118,10 @@ namespace ALP_BeautyProductShopApp
         private void btnStaff_Click(object sender, EventArgs e)
         {
             resetWarna();
+            closeForm();
             btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnStaff.Enabled = false;
-            Staff staff = new Staff();
+            staff = new Staff();
             staff.MdiParent = this;
             staff.Dock = DockStyle.Fill;
             staff.Show();
@@ -116,9 +130,10 @@ namespace ALP_BeautyProductShopApp
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             resetWarna();
+            closeForm();
             btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnCustomer.Enabled = false;
-            Customer customer = new Customer();
+            customer = new Customer();
             customer.MdiParent = this;
             customer.Dock = DockStyle.Fill;
             customer.Show();
@@ -127,13 +142,19 @@ namespace ALP_BeautyProductShopApp
         private void btnTransaction_Click(object sender, EventArgs e) 
         {
             resetWarna();
+            closeForm();
             btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
-            btnTransaction.Enabled = false; 
+            btnTransaction.Enabled = false;
+            trans = new TransactionList();
+            trans.MdiParent = this;
+            trans.Dock = DockStyle.Fill;
+            trans.Show();
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
             resetWarna();
+            closeForm();
             btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnOrder.Enabled = false;
         }
