@@ -123,7 +123,7 @@ namespace ALP_BeautyProductShopApp
             btnStaff.Enabled = false;
             staff = new Staff();
             staff.MdiParent = this;
-            staff.Dock = DockStyle.Fill;
+            staff.Dock = DockStyle.Fill; 
             staff.Show();
         }
 
