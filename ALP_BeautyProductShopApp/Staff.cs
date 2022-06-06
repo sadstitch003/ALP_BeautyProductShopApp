@@ -23,8 +23,11 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
         DataTable dtStaff = new DataTable();
+
+        public static string staffid;
         private void Staff_Load(object sender, EventArgs e)
         {
+            dtStaff = new DataTable();
             sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
@@ -33,7 +36,7 @@ namespace ALP_BeautyProductShopApp
             cBox_Position.DataSource = dtStaff;
             cBox_Position.DisplayMember = "staff_position";
             cBox_Position.ValueMember = "staff_id";
-            
+            staffid = dtStaff.Rows[0][0].ToString();
         }
 
         private void btnViewSales_Click(object sender, EventArgs e)
@@ -42,12 +45,14 @@ namespace ALP_BeautyProductShopApp
             StaffSales sales = new StaffSales();
             sales.MdiParent = this.ParentForm;
             sales.Dock = DockStyle.Fill;
-            sales.ShowDialog();
+            sales.Show();
         }
+
+        int staffke;
 
         private void dgv_Staff_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+          
         }
 
         private void dgv_Staff_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -92,6 +97,17 @@ namespace ALP_BeautyProductShopApp
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
             MessageBox.Show("Data telah tersimpan");
+
+
+            Staff_Load(sender, e);
+        }
+
+        private void dgv_Staff_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            staffke = dgv_Staff.CurrentCell.RowIndex;
+            staffid = dtStaff.Rows[staffke][0].ToString();
+            MessageBox.Show(staffid);
         }
     }
 }
