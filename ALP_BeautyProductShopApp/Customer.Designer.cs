@@ -29,20 +29,15 @@ namespace ALP_BeautyProductShopApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Search = new System.Windows.Forms.Button();
             this.tBox_Search = new System.Windows.Forms.TextBox();
             this.dgv_Customer = new System.Windows.Forms.DataGridView();
             this.cBox_City = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btn_View = new System.Windows.Forms.Button();
             this.dTP_dob = new System.Windows.Forms.DateTimePicker();
             this.tBox_Phone = new System.Windows.Forms.TextBox();
             this.tBox_Address = new System.Windows.Forms.TextBox();
             this.tBox_CustName = new System.Windows.Forms.TextBox();
             this.dTP_memberjoin = new System.Windows.Forms.DateTimePicker();
-            this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.btn_Save = new System.Windows.Forms.Button();
             this.tBox_memberID = new System.Windows.Forms.TextBox();
             this.tBox_CustID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,20 +49,13 @@ namespace ALP_BeautyProductShopApp
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tBox_Email = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Customer)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.btn_Search.Location = new System.Drawing.Point(542, 222);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(82, 26);
-            this.btn_Search.TabIndex = 174;
-            this.btn_Search.Text = "Search";
-            this.btn_Search.UseVisualStyleBackColor = true;
             // 
             // tBox_Search
             // 
@@ -115,18 +103,6 @@ namespace ALP_BeautyProductShopApp
             this.label6.TabIndex = 196;
             this.label6.Text = "City";
             // 
-            // btn_View
-            // 
-            this.btn_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.btn_View.Location = new System.Drawing.Point(230, 181);
-            this.btn_View.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_View.Name = "btn_View";
-            this.btn_View.Size = new System.Drawing.Size(82, 25);
-            this.btn_View.TabIndex = 195;
-            this.btn_View.Text = "View";
-            this.btn_View.UseVisualStyleBackColor = true;
-            this.btn_View.Click += new System.EventHandler(this.btnViewTrans_Click);
-            // 
             // dTP_dob
             // 
             this.dTP_dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,41 +147,6 @@ namespace ALP_BeautyProductShopApp
             this.dTP_memberjoin.Name = "dTP_memberjoin";
             this.dTP_memberjoin.Size = new System.Drawing.Size(159, 21);
             this.dTP_memberjoin.TabIndex = 189;
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.BackColor = System.Drawing.Color.Salmon;
-            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.btn_Delete.ForeColor = System.Drawing.Color.Black;
-            this.btn_Delete.Location = new System.Drawing.Point(327, 181);
-            this.btn_Delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(82, 25);
-            this.btn_Delete.TabIndex = 188;
-            this.btn_Delete.Text = "Delete";
-            this.btn_Delete.UseVisualStyleBackColor = false;
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.btn_Update.Location = new System.Drawing.Point(134, 181);
-            this.btn_Update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(82, 25);
-            this.btn_Update.TabIndex = 187;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.btn_Save.Location = new System.Drawing.Point(34, 181);
-            this.btn_Save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(82, 25);
-            this.btn_Save.TabIndex = 186;
-            this.btn_Save.Text = "Save";
-            this.btn_Save.UseVisualStyleBackColor = true;
             // 
             // tBox_memberID
             // 
@@ -322,24 +263,105 @@ namespace ALP_BeautyProductShopApp
             this.tBox_Email.Size = new System.Drawing.Size(182, 21);
             this.tBox_Email.TabIndex = 193;
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.LightCoral;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(131, 191);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(83, 24);
+            this.btnUpdate.TabIndex = 222;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightCoral;
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(20, 191);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 24);
+            this.btnSave.TabIndex = 223;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnView
+            // 
+            this.btnView.BackColor = System.Drawing.Color.LightCoral;
+            this.btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.ForeColor = System.Drawing.Color.White;
+            this.btnView.Location = new System.Drawing.Point(242, 191);
+            this.btnView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(83, 24);
+            this.btnView.TabIndex = 224;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.LightCoral;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(354, 191);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(83, 24);
+            this.btnDelete.TabIndex = 225;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.LightCoral;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(542, 222);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(83, 24);
+            this.btnSearch.TabIndex = 226;
+            this.btnSearch.Text = "Seaarch";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(648, 548);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnView);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.cBox_City);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btn_View);
             this.Controls.Add(this.dTP_dob);
             this.Controls.Add(this.tBox_Email);
             this.Controls.Add(this.tBox_Phone);
             this.Controls.Add(this.tBox_Address);
             this.Controls.Add(this.tBox_CustName);
             this.Controls.Add(this.dTP_memberjoin);
-            this.Controls.Add(this.btn_Delete);
-            this.Controls.Add(this.btn_Update);
-            this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.tBox_memberID);
             this.Controls.Add(this.tBox_CustID);
             this.Controls.Add(this.label9);
@@ -350,7 +372,6 @@ namespace ALP_BeautyProductShopApp
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.tBox_Search);
             this.Controls.Add(this.dgv_Customer);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -365,21 +386,15 @@ namespace ALP_BeautyProductShopApp
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox tBox_Search;
         private System.Windows.Forms.DataGridView dgv_Customer;
         private System.Windows.Forms.ComboBox cBox_City;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_View;
         private System.Windows.Forms.DateTimePicker dTP_dob;
         private System.Windows.Forms.TextBox tBox_Phone;
         private System.Windows.Forms.TextBox tBox_Address;
         private System.Windows.Forms.TextBox tBox_CustName;
         private System.Windows.Forms.DateTimePicker dTP_memberjoin;
-        private System.Windows.Forms.Button btn_Delete;
-        private System.Windows.Forms.Button btn_Update;
-        private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.TextBox tBox_memberID;
         private System.Windows.Forms.TextBox tBox_CustID;
         private System.Windows.Forms.Label label9;
@@ -391,5 +406,10 @@ namespace ALP_BeautyProductShopApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tBox_Email;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
