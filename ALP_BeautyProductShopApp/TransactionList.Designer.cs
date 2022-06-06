@@ -65,7 +65,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(845, 386);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.TabIndex = 8;
             // 
             // panel1
             // 
@@ -207,7 +207,7 @@
             this.comboBox1.Location = new System.Drawing.Point(428, 150);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(139, 29);
-            this.comboBox1.TabIndex = 16;
+            this.comboBox1.TabIndex = 6;
             // 
             // TransactionList
             // 
