@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ALP_BeautyProductShopApp
 {
-    public partial class TransactionDeletedcs : Form
+    public partial class TransactionDeleted : Form
     {
-        public TransactionDeletedcs()
+        public TransactionDeleted()
         {
             InitializeComponent();
         }
