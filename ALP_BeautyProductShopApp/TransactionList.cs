@@ -32,7 +32,7 @@ namespace ALP_BeautyProductShopApp
         void updateTable()
         {
             dtTransList = new DataTable();
-            sqlQuery = "select * from transaction where status_del ='0';";
+            sqlQuery = "select trans_id, staff_id, cust_id, trans_date, tax, discount, format(trans_total, 'C', 'id_ID') as trans_total, format(net_total, 'C', 'id-ID') from transaction where status_del ='0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtTransList);
