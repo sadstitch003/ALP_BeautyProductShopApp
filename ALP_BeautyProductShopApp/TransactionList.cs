@@ -66,6 +66,7 @@ namespace ALP_BeautyProductShopApp
         private void btnDelete_Click(object sender, EventArgs e)
         {
             sqlQuery = $"update transaction set status_del = '1' where trans_id = '{cellValue}';";
+            MessageBox.Show(cellValue);
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
 
