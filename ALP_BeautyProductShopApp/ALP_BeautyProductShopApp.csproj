@@ -85,11 +85,17 @@
     <Compile Include="StaffSales.Designer.cs">
       <DependentUpon>StaffSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransactionForm.cs">
+    <Compile Include="TransactionDeletedcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransactionForm.Designer.cs">
-      <DependentUpon>TransactionForm.cs</DependentUpon>
+    <Compile Include="TransactionDeletedcs.Designer.cs">
+      <DependentUpon>TransactionDeletedcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionDetails.Designer.cs">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="TransactionHistory.cs">
       <SubType>Form</SubType>
@@ -131,8 +137,8 @@
     <EmbeddedResource Include="StaffSales.resx">
       <DependentUpon>StaffSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransactionForm.resx">
-      <DependentUpon>TransactionForm.cs</DependentUpon>
+    <EmbeddedResource Include="TransactionDetails.resx">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionHistory.resx">
       <DependentUpon>TransactionHistory.cs</DependentUpon>
