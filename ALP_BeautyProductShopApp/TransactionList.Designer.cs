@@ -125,6 +125,7 @@
             this.btnDetails.TabIndex = 1;
             this.btnDetails.Text = "View Details";
             this.btnDetails.UseVisualStyleBackColor = false;
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // btnSearch
             // 

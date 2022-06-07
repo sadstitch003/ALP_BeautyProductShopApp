@@ -52,6 +52,11 @@ namespace ALP_BeautyProductShopApp
 
         private void btnNewTrans_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
             TransactionForm form = new TransactionForm(cellValue);
             form.Show();
         }
