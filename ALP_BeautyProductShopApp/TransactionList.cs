@@ -24,6 +24,9 @@ namespace ALP_BeautyProductShopApp
         string sqlQuery;
         DataTable dtTransList;
 
+        string cellValue;
+        int selectedrowindex;
+
         private void TransactionList_Load(object sender, EventArgs e)
         {
             updateTable();
@@ -32,19 +35,18 @@ namespace ALP_BeautyProductShopApp
         void updateTable()
         {
             dtTransList = new DataTable();
-            sqlQuery = "select trans_id, staff_id, cust_id, trans_date, tax, discount, concat('Rp.', format(trans_total, 'C', 'id_ID')) as trans_total, concat('Rp.',format(net_total, 'C', 'id-ID')) as net_total from transaction where status_del = '0';";
+            sqlQuery = "select trans_id, staff_id, cust_id, trans_date, tax, discount, concat('Rp.', format(trans_total, 'C', 'id_ID')) as trans_total, concat('Rp.', format(net_total, 'C', 'id-ID')) as net_total from transaction where status_del = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtTransList);
             dgvTransList.DataSource = dtTransList;
         }
 
-        string cellValue;
         private void dgvTransList_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvTransList.SelectedCells.Count > 0)
             {
-                int selectedrowindex = dgvTransList.SelectedCells[0].RowIndex;
+                selectedrowindex = dgvTransList.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvTransList.Rows[selectedrowindex];
                 cellValue = Convert.ToString(selectedRow.Cells["trans_id"].Value);
             }
@@ -59,6 +61,16 @@ namespace ALP_BeautyProductShopApp
         {
             TransactionForm form = new TransactionForm(cellValue);
             form.Show();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            sqlQuery = $"update transaction set status_del = '1' where trans_id = '{cellValue}';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+
+            dgvTransList.Rows.RemoveAt(selectedrowindex);
+            MessageBox.Show("Data deleted !");
         }
     }
 }
