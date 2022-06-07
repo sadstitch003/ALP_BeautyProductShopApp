@@ -41,7 +41,7 @@ namespace ALP_BeautyProductShopApp
             dgvTransProduct.DataSource = dtTransProduct;
 
             dtDetail = new DataTable();
-            sqlQuery = $"select t.trans_id, c.cust_name, s.staff_name, date_format(t.trans_date, '%y/%m/%d') as trans_date, format(t.trans_total, 'C', 'id-ID') as trans_total, format(t.trans_total, 'C', 'id-ID'), format((t.trans_total * t.discount / 100), 'C', 'id-ID') as discount_amount, format(((t.trans_total * (100 - t.discount) / 100) * t.tax / 100), 'C', 'id-ID') as tax_amount, t.discount, t.tax, format(t.net_total, 'C', 'id_ID') as 'net_total', c.membership_id from transaction t left join customer c on c.cust_id = t.cust_id left join staff s on s.staff_id = t.staff_id where t.trans_id = '{transID}' and t.status_del = '0';";
+            sqlQuery = $"select t.trans_id, c.cust_name, s.staff_name, date_format(t.trans_date, '%y/%m/%d') as trans_date, format(t.trans_total, 'C', 'id-ID') as trans_total, format(t.trans_total, 'C', 'id-ID'), format((t.trans_total * t.discount / 100), 'C', 'id-ID') as discount_amount, format(((t.trans_total * (100 - t.discount) / 100) * t.tax / 100), 'C', 'id-ID') as tax_amount, t.discount, t.tax, format(t.net_total, 'C', 'id_ID') as 'net_total', ifnull(c.membership_id, '-') as membership_id from transaction t left join customer c on c.cust_id = t.cust_id left join staff s on s.staff_id = t.staff_id where t.trans_id = '{transID}' and t.status_del = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtDetail);
