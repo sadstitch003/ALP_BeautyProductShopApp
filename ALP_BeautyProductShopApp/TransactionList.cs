@@ -59,7 +59,7 @@ namespace ALP_BeautyProductShopApp
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            TransactionForm form = new TransactionForm(cellValue);
+            TransactionDetails form = new TransactionDetails(cellValue);
             form.Show();
         }
 
@@ -72,6 +72,11 @@ namespace ALP_BeautyProductShopApp
 
             dgvTransList.Rows.RemoveAt(selectedrowindex);
             MessageBox.Show("Data deleted !");
+        }
+
+        private void btnTrash_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

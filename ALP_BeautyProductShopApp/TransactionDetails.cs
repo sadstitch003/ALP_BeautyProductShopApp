@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 namespace ALP_BeautyProductShopApp
 {
-    public partial class TransactionForm : Form
+    public partial class TransactionDetails : Form
     {
         MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
         MySqlCommand sqlCommand;
@@ -30,7 +30,7 @@ namespace ALP_BeautyProductShopApp
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public TransactionForm(string transID)
+        public TransactionDetails(string transID)
         {
             InitializeComponent();
             dtTransProduct = new DataTable();

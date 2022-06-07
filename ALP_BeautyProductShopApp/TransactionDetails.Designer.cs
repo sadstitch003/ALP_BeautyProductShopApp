@@ -1,6 +1,6 @@
 ﻿namespace ALP_BeautyProductShopApp
 {
-    partial class TransactionForm
+    partial class TransactionDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionDetails));
             this.pnlBorder = new System.Windows.Forms.Panel();
             this.lblTransID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -327,7 +327,7 @@
             this.BtnExit.UseVisualStyleBackColor = false;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
-            // TransactionForm
+            // TransactionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -358,7 +358,7 @@
             this.Controls.Add(this.pnlBorder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "TransactionForm";
+            this.Name = "TransactionDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionForm";
             this.pnlBorder.ResumeLayout(false);

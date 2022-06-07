@@ -161,6 +161,7 @@
             this.btnTrash.TabIndex = 4;
             this.btnTrash.Text = "Trash";
             this.btnTrash.UseVisualStyleBackColor = false;
+            this.btnTrash.Click += new System.EventHandler(this.btnTrash_Click);
             // 
             // tbSearch
             // 
