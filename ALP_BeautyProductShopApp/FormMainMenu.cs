@@ -87,6 +87,11 @@ namespace ALP_BeautyProductShopApp
             btnCustomer.BackColor = Color.MistyRose;
             btnTransaction.BackColor = Color.MistyRose;
             btnOrder.BackColor = Color.MistyRose;
+            pnlNavOrder.BackColor = Color.MistyRose;
+            pnlNavTrans.BackColor = Color.MistyRose;    
+            pnlNavCust.BackColor = Color.MistyRose;
+            pnlNavStaff.BackColor = Color.MistyRose;
+            pnlNavProd.BackColor = Color.MistyRose;
             btnOrder.Enabled = true;
             btnTransaction.Enabled = true;
             btnCustomer.Enabled = true;
@@ -105,6 +110,7 @@ namespace ALP_BeautyProductShopApp
         private void btnProduct_Click(object sender, EventArgs e)
         {
             resetWarna();
+            pnlNavProd.BackColor = Color.HotPink;
             closeForm();
             btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnProduct.Enabled = false;
@@ -118,6 +124,7 @@ namespace ALP_BeautyProductShopApp
         private void btnStaff_Click(object sender, EventArgs e)
         {
             resetWarna();
+            pnlNavStaff.BackColor = Color.HotPink;
             closeForm();
             btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnStaff.Enabled = false;
@@ -129,7 +136,9 @@ namespace ALP_BeautyProductShopApp
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
+            
             resetWarna();
+            pnlNavCust.BackColor = Color.HotPink;
             closeForm();
             btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnCustomer.Enabled = false;
@@ -141,7 +150,9 @@ namespace ALP_BeautyProductShopApp
          
         private void btnTransaction_Click(object sender, EventArgs e) 
         {
+             
             resetWarna();
+            pnlNavTrans.BackColor = Color.HotPink;
             closeForm();
             btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnTransaction.Enabled = false;
@@ -153,7 +164,9 @@ namespace ALP_BeautyProductShopApp
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            
             resetWarna();
+            pnlNavOrder.BackColor = Color.HotPink;
             closeForm();
             btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnOrder.Enabled = false;
@@ -184,6 +197,10 @@ namespace ALP_BeautyProductShopApp
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void pnlNavProd_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
