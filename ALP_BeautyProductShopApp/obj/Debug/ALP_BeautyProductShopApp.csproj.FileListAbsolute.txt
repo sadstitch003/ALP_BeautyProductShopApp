@@ -214,3 +214,4 @@ E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp6\ALP_BeautyProd
 E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp6\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.CopyComplete
 E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp6\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.exe
 E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp6\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.pdb
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp6\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionCreate.resources

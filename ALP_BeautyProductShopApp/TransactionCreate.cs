@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ALP_BeautyProductShopApp
 {
-    public partial class TransactionNew : Form
+    public partial class TransactionCreate : Form
     {
-        public TransactionNew()
+        public TransactionCreate()
         {
             InitializeComponent();
         }

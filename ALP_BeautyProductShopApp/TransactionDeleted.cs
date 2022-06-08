@@ -46,6 +46,7 @@ namespace ALP_BeautyProductShopApp
         {
             sqlConnect.Open();
             sqlQuery = $"update transaction set status_del = '0' where trans_id = '{cellValue}';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
 
