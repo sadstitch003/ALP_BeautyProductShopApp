@@ -36,7 +36,10 @@
             this.BtnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTransID = new System.Windows.Forms.Label();
+            this.dgvDeletedData = new System.Windows.Forms.DataGridView();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.pnlBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeletedData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -118,12 +121,41 @@
             this.lblTransID.TabIndex = 48;
             this.lblTransID.Text = "Deleted Transaction Data";
             // 
+            // dgvDeletedData
+            // 
+            this.dgvDeletedData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDeletedData.Location = new System.Drawing.Point(35, 109);
+            this.dgvDeletedData.Name = "dgvDeletedData";
+            this.dgvDeletedData.RowHeadersWidth = 51;
+            this.dgvDeletedData.RowTemplate.Height = 24;
+            this.dgvDeletedData.Size = new System.Drawing.Size(726, 284);
+            this.dgvDeletedData.TabIndex = 50;
+            this.dgvDeletedData.SelectionChanged += new System.EventHandler(this.dgvDeletedData_SelectionChanged);
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.BackColor = System.Drawing.Color.LightCoral;
+            this.btnRestore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestore.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.ForeColor = System.Drawing.Color.White;
+            this.btnRestore.Location = new System.Drawing.Point(650, 408);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(111, 28);
+            this.btnRestore.TabIndex = 51;
+            this.btnRestore.Text = "Restore";
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            // 
             // TransactionDeleted
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(795, 458);
+            this.Controls.Add(this.btnRestore);
+            this.Controls.Add(this.dgvDeletedData);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTransID);
             this.Controls.Add(this.panel4);
@@ -135,6 +167,7 @@
             this.Name = "TransactionDeleted";
             this.Text = "TransactionDeleted";
             this.pnlBorder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeletedData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +182,7 @@
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTransID;
+        private System.Windows.Forms.DataGridView dgvDeletedData;
+        private System.Windows.Forms.Button btnRestore;
     }
 }

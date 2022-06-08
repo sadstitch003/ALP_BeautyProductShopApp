@@ -65,10 +65,11 @@ namespace ALP_BeautyProductShopApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            sqlConnect.Open();
             sqlQuery = $"update transaction set status_del = '1' where trans_id = '{cellValue}';";
-            MessageBox.Show(cellValue);
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
 
             dgvTransList.Rows.RemoveAt(selectedrowindex);
             MessageBox.Show("Data deleted !");
@@ -76,7 +77,9 @@ namespace ALP_BeautyProductShopApp
 
         private void btnTrash_Click(object sender, EventArgs e)
         {
-
+            TransactionDeleted form = new TransactionDeleted();
+            form.ShowDialog();
+            updateTable();
         }
     }
 }
