@@ -82,6 +82,7 @@
             this.pnlBorder.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.pnlBorder.Size = new System.Drawing.Size(795, 35);
             this.pnlBorder.TabIndex = 43;
+            this.pnlBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove);
             // 
             // BtnExit
             // 
@@ -99,6 +100,7 @@
             this.BtnExit.Size = new System.Drawing.Size(60, 30);
             this.BtnExit.TabIndex = 6;
             this.BtnExit.UseVisualStyleBackColor = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // panel1
             // 
@@ -123,6 +125,9 @@
             // 
             // dgvDeletedData
             // 
+            this.dgvDeletedData.AllowUserToAddRows = false;
+            this.dgvDeletedData.AllowUserToDeleteRows = false;
+            this.dgvDeletedData.AllowUserToResizeRows = false;
             this.dgvDeletedData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDeletedData.Location = new System.Drawing.Point(35, 109);
             this.dgvDeletedData.Name = "dgvDeletedData";

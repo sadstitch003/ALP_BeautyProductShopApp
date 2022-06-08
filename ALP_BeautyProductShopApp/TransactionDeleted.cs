@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Runtime.InteropServices;
 
 namespace ALP_BeautyProductShopApp
 {
@@ -22,6 +23,14 @@ namespace ALP_BeautyProductShopApp
         string cellValue;
 
         DataTable dtDeletedData = new DataTable();
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
 
         public TransactionDeleted()
         {
@@ -40,8 +49,11 @@ namespace ALP_BeautyProductShopApp
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
 
-            dgvDeletedData.Rows.RemoveAt(selectedrowindex);
-            MessageBox.Show("Data restored !");
+            if (dgvDeletedData.Rows.Count > 0)
+            {
+                dgvDeletedData.Rows.RemoveAt(selectedrowindex);
+                MessageBox.Show("Data restored !");
+            }
         }
 
         private void dgvDeletedData_SelectionChanged(object sender, EventArgs e)
@@ -51,6 +63,20 @@ namespace ALP_BeautyProductShopApp
                 selectedrowindex = dgvDeletedData.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvDeletedData.Rows[selectedrowindex];
                 cellValue = Convert.ToString(selectedRow.Cells["trans_id"].Value);
+            }
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pnlBorder_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
     }

@@ -71,8 +71,11 @@ namespace ALP_BeautyProductShopApp
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
 
-            dgvTransList.Rows.RemoveAt(selectedrowindex);
-            MessageBox.Show("Data deleted !");
+            if (dgvTransList.Rows.Count > 0)
+            {
+                dgvTransList.Rows.RemoveAt(selectedrowindex);
+                MessageBox.Show("Data deleted !");
+            }
         }
 
         private void btnTrash_Click(object sender, EventArgs e)
