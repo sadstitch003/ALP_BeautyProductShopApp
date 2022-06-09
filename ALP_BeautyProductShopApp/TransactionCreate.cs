@@ -91,13 +91,15 @@ namespace ALP_BeautyProductShopApp
             else if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "DIA")
                 tbDiscountPercentage.Text = "15";
             else tbDiscountPercentage.Text = "0";
+
+            calculateTotal();
         }
 
         void calculateTotal()
         {
-            if (tbTotal.Text != "0" & tbDiscountPercentage.Text != "0") tbDiscountAmount.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) * Convert.ToInt32(tbDiscountPercentage.Text) / 100);
-            tbTaxTotal.Text = Convert.ToString((Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text)) * Convert.ToInt32(tbTaxPercentage.Text) / 100);
-            tbNetTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text) + Convert.ToInt32(tbTaxTotal.Text));
+            tbDiscountAmount.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) * Convert.ToInt32(tbDiscountPercentage.Text) / 100);
+            tbTaxAmount.Text = Convert.ToString((Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text)) * Convert.ToInt32(tbTaxPercentage.Text) / 100);
+            tbNetTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text) + Convert.ToInt32(tbTaxAmount.Text));
         }
 
         private void dtpTransDate_ValueChanged(object sender, EventArgs e)

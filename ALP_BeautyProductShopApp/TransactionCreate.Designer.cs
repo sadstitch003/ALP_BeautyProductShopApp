@@ -57,7 +57,7 @@
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.tbNetTotal = new System.Windows.Forms.TextBox();
             this.tbTaxPercentage = new System.Windows.Forms.TextBox();
-            this.tbTaxTotal = new System.Windows.Forms.TextBox();
+            this.tbTaxAmount = new System.Windows.Forms.TextBox();
             this.tbDiscountAmount = new System.Windows.Forms.TextBox();
             this.tbDiscountPercentage = new System.Windows.Forms.TextBox();
             this.dtpTransDate = new System.Windows.Forms.DateTimePicker();
@@ -356,6 +356,7 @@
             this.tbTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbTotal.Size = new System.Drawing.Size(201, 28);
             this.tbTotal.TabIndex = 70;
+            this.tbTotal.Text = "0";
             this.tbTotal.TextChanged += new System.EventHandler(this.tbTotal_TextChanged);
             // 
             // tbNetTotal
@@ -377,16 +378,17 @@
             this.tbTaxPercentage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbTaxPercentage.Size = new System.Drawing.Size(69, 28);
             this.tbTaxPercentage.TabIndex = 72;
+            this.tbTaxPercentage.Text = "10";
             // 
-            // tbTaxTotal
+            // tbTaxAmount
             // 
-            this.tbTaxTotal.Enabled = false;
-            this.tbTaxTotal.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTaxTotal.Location = new System.Drawing.Point(629, 155);
-            this.tbTaxTotal.Name = "tbTaxTotal";
-            this.tbTaxTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tbTaxTotal.Size = new System.Drawing.Size(126, 28);
-            this.tbTaxTotal.TabIndex = 73;
+            this.tbTaxAmount.Enabled = false;
+            this.tbTaxAmount.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTaxAmount.Location = new System.Drawing.Point(629, 155);
+            this.tbTaxAmount.Name = "tbTaxAmount";
+            this.tbTaxAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tbTaxAmount.Size = new System.Drawing.Size(126, 28);
+            this.tbTaxAmount.TabIndex = 73;
             // 
             // tbDiscountAmount
             // 
@@ -407,6 +409,7 @@
             this.tbDiscountPercentage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbDiscountPercentage.Size = new System.Drawing.Size(69, 28);
             this.tbDiscountPercentage.TabIndex = 74;
+            this.tbDiscountPercentage.Text = "0";
             // 
             // dtpTransDate
             // 
@@ -467,7 +470,7 @@
             this.Controls.Add(this.dtpTransDate);
             this.Controls.Add(this.tbDiscountAmount);
             this.Controls.Add(this.tbDiscountPercentage);
-            this.Controls.Add(this.tbTaxTotal);
+            this.Controls.Add(this.tbTaxAmount);
             this.Controls.Add(this.tbTaxPercentage);
             this.Controls.Add(this.tbNetTotal);
             this.Controls.Add(this.tbTotal);
@@ -538,7 +541,7 @@
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.TextBox tbNetTotal;
         private System.Windows.Forms.TextBox tbTaxPercentage;
-        private System.Windows.Forms.TextBox tbTaxTotal;
+        private System.Windows.Forms.TextBox tbTaxAmount;
         private System.Windows.Forms.TextBox tbDiscountAmount;
         private System.Windows.Forms.TextBox tbDiscountPercentage;
         private System.Windows.Forms.DateTimePicker dtpTransDate;
