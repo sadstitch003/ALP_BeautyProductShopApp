@@ -323,6 +323,7 @@
             this.button2.TabIndex = 66;
             this.button2.Text = "Create";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnCreate_click);
             // 
             // tbTransID
             // 
@@ -348,8 +349,10 @@
             this.tbTotal.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTotal.Location = new System.Drawing.Point(554, 92);
             this.tbTotal.Name = "tbTotal";
+            this.tbTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbTotal.Size = new System.Drawing.Size(201, 28);
             this.tbTotal.TabIndex = 70;
+            this.tbTotal.TextChanged += new System.EventHandler(this.tbTotal_TextChanged);
             // 
             // tbNetTotal
             // 
@@ -357,6 +360,7 @@
             this.tbNetTotal.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNetTotal.Location = new System.Drawing.Point(554, 186);
             this.tbNetTotal.Name = "tbNetTotal";
+            this.tbNetTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbNetTotal.Size = new System.Drawing.Size(201, 28);
             this.tbNetTotal.TabIndex = 71;
             // 
@@ -366,6 +370,7 @@
             this.tbTaxPercentage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTaxPercentage.Location = new System.Drawing.Point(554, 155);
             this.tbTaxPercentage.Name = "tbTaxPercentage";
+            this.tbTaxPercentage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbTaxPercentage.Size = new System.Drawing.Size(69, 28);
             this.tbTaxPercentage.TabIndex = 72;
             // 
@@ -375,6 +380,7 @@
             this.tbTaxTotal.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTaxTotal.Location = new System.Drawing.Point(629, 155);
             this.tbTaxTotal.Name = "tbTaxTotal";
+            this.tbTaxTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbTaxTotal.Size = new System.Drawing.Size(126, 28);
             this.tbTaxTotal.TabIndex = 73;
             // 
@@ -384,6 +390,7 @@
             this.tbDiscountAmount.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDiscountAmount.Location = new System.Drawing.Point(629, 123);
             this.tbDiscountAmount.Name = "tbDiscountAmount";
+            this.tbDiscountAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbDiscountAmount.Size = new System.Drawing.Size(126, 28);
             this.tbDiscountAmount.TabIndex = 75;
             // 
@@ -393,6 +400,7 @@
             this.tbDiscountPercentage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDiscountPercentage.Location = new System.Drawing.Point(554, 123);
             this.tbDiscountPercentage.Name = "tbDiscountPercentage";
+            this.tbDiscountPercentage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tbDiscountPercentage.Size = new System.Drawing.Size(69, 28);
             this.tbDiscountPercentage.TabIndex = 74;
             // 
@@ -403,6 +411,7 @@
             this.dtpTransDate.Name = "dtpTransDate";
             this.dtpTransDate.Size = new System.Drawing.Size(200, 23);
             this.dtpTransDate.TabIndex = 76;
+            this.dtpTransDate.ValueChanged += new System.EventHandler(this.dtpTransDate_ValueChanged);
             // 
             // label11
             // 
@@ -430,6 +439,7 @@
             this.cbCustID.Name = "cbCustID";
             this.cbCustID.Size = new System.Drawing.Size(201, 25);
             this.cbCustID.TabIndex = 79;
+            this.cbCustID.SelectedIndexChanged += new System.EventHandler(this.cbCustID_SelectedIndexChanged);
             // 
             // TransactionCreate
             // 

@@ -38,7 +38,6 @@
             this.btnTrash = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +103,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(487, 71);
+            this.btnDelete.Location = new System.Drawing.Point(334, 71);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(6);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(141, 29);
@@ -121,7 +120,7 @@
             this.btnDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDetails.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetails.ForeColor = System.Drawing.Color.White;
-            this.btnDetails.Location = new System.Drawing.Point(334, 71);
+            this.btnDetails.Location = new System.Drawing.Point(181, 71);
             this.btnDetails.Margin = new System.Windows.Forms.Padding(6);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(141, 29);
@@ -154,7 +153,7 @@
             this.btnTrash.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTrash.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrash.ForeColor = System.Drawing.Color.White;
-            this.btnTrash.Location = new System.Drawing.Point(640, 72);
+            this.btnTrash.Location = new System.Drawing.Point(487, 72);
             this.btnTrash.Margin = new System.Windows.Forms.Padding(6);
             this.btnTrash.Name = "btnTrash";
             this.btnTrash.Size = new System.Drawing.Size(141, 28);
@@ -181,23 +180,6 @@
             this.lblSearch.TabIndex = 14;
             this.lblSearch.Text = "Filter";
             // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.LightCoral;
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(181, 71);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(6);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(141, 29);
-            this.btnEdit.TabIndex = 15;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
             // TransactionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,7 +187,6 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnTrash);
             this.Controls.Add(this.btnSearch);
@@ -238,6 +219,5 @@
         private System.Windows.Forms.Button btnTrash;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.Button btnEdit;
     }
 }
