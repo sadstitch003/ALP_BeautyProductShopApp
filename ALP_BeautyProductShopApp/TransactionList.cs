@@ -91,7 +91,17 @@ namespace ALP_BeautyProductShopApp
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            if (tbSearch.Text != "")
+            {
+                dtTransList = new DataTable();
+                sqlQuery = $"select trans_id, staff_id, cust_id, trans_date, tax, discount, concat('Rp.', format(trans_total, 'C', 'id_ID')) as trans_total, concat('Rp.', format(net_total, 'C', 'id-ID')) as net_total from transaction where status_del = '0' and (trans_id like '%{tbSearch.Text.ToUpper()}%' or staff_id like '%{tbSearch.Text.ToUpper()}%' or cust_id like '%{tbSearch.Text.ToUpper()}%');";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtTransList);
+                dgvTransList.DataSource = dtTransList;
+                tbSearch.Text = "";
+            }
+            else updateTable();
         }
     }
 }
