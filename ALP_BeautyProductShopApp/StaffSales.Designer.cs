@@ -47,6 +47,9 @@ namespace ALP_BeautyProductShopApp
             // 
             // dgv_StaffSales
             // 
+            this.dgv_StaffSales.AllowUserToAddRows = false;
+            this.dgv_StaffSales.AllowUserToDeleteRows = false;
+            this.dgv_StaffSales.AllowUserToResizeRows = false;
             this.dgv_StaffSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
