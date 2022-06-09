@@ -18,19 +18,21 @@ namespace ALP_BeautyProductShopApp
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
+        static string staffID;
 
         Customer customer = new Customer();
         Product product = new Product();
         Staff staff = new Staff();
-        TransactionList trans = new TransactionList();
-        public FormMainMenu(string staffID)
+        TransactionList trans = new TransactionList(staffID);
+        public FormMainMenu(string StaffID)
         {
             InitializeComponent();
             sqlConnect.Open();
-            sqlQuery = $"SELECT staff_name FROM staff WHERE staff_id = '{staffID}';";
+            sqlQuery = $"SELECT staff_name FROM staff WHERE staff_id = '{StaffID}';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             lblUsername.Text = Convert.ToString(sqlCommand.ExecuteScalar());
             sqlConnect.Close();
+            staffID = StaffID;;
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -156,7 +158,7 @@ namespace ALP_BeautyProductShopApp
             closeForm();
             btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnTransaction.Enabled = false;
-            trans = new TransactionList();
+            trans = new TransactionList(staffID);
             trans.MdiParent = this;
             trans.Dock = DockStyle.Fill;
             trans.Show();

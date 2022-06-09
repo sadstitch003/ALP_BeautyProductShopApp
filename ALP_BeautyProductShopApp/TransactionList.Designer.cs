@@ -38,8 +38,6 @@
             this.btnTrash = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbSearchCategory = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +137,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(591, 151);
+            this.btnSearch.Location = new System.Drawing.Point(309, 152);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(111, 28);
             this.btnSearch.TabIndex = 7;
@@ -168,7 +166,7 @@
             this.tbSearch.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.Location = new System.Drawing.Point(28, 151);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(286, 28);
+            this.tbSearch.Size = new System.Drawing.Size(275, 28);
             this.tbSearch.TabIndex = 5;
             // 
             // lblSearch
@@ -181,25 +179,6 @@
             this.lblSearch.TabIndex = 14;
             this.lblSearch.Text = "Filter";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(339, 156);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Search by ";
-            // 
-            // cbSearchCategory
-            // 
-            this.cbSearchCategory.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.cbSearchCategory.FormattingEnabled = true;
-            this.cbSearchCategory.Location = new System.Drawing.Point(428, 150);
-            this.cbSearchCategory.Name = "cbSearchCategory";
-            this.cbSearchCategory.Size = new System.Drawing.Size(139, 29);
-            this.cbSearchCategory.TabIndex = 6;
-            // 
             // TransactionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,8 +186,6 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.cbSearchCategory);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnTrash);
             this.Controls.Add(this.btnSearch);
@@ -241,7 +218,5 @@
         private System.Windows.Forms.Button btnTrash;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbSearchCategory;
     }
 }

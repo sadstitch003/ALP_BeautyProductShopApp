@@ -13,10 +13,6 @@ namespace ALP_BeautyProductShopApp
 {
     public partial class TransactionList : Form
     {
-        public TransactionList()
-        {
-            InitializeComponent();
-        }
 
         MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
         MySqlCommand sqlCommand;
@@ -26,6 +22,13 @@ namespace ALP_BeautyProductShopApp
 
         string cellValue;
         int selectedrowindex;
+
+        string staffID;
+        public TransactionList(string StaffID)
+        {
+            InitializeComponent();
+            staffID = StaffID;
+        }
 
         private void TransactionList_Load(object sender, EventArgs e)
         {
@@ -54,7 +57,8 @@ namespace ALP_BeautyProductShopApp
 
         private void btnNewTrans_Click(object sender, EventArgs e)
         {
-
+            TransactionCreate form = new TransactionCreate(staffID);
+            form.Show();
         }
 
         private void btnDetails_Click(object sender, EventArgs e)
