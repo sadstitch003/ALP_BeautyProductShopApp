@@ -46,12 +46,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProductTrans = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tbProductID = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.tbTransID = new System.Windows.Forms.TextBox();
             this.tbStaffID = new System.Windows.Forms.TextBox();
             this.tbTotal = new System.Windows.Forms.TextBox();
@@ -62,11 +62,11 @@
             this.tbDiscountPercentage = new System.Windows.Forms.TextBox();
             this.dtpTransDate = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudProdQty = new System.Windows.Forms.NumericUpDown();
             this.cbCustID = new System.Windows.Forms.ComboBox();
             this.pnlBorder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductTrans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudProdQty)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -251,15 +251,18 @@
             this.label9.TabIndex = 52;
             this.label9.Text = "Product";
             // 
-            // dataGridView1
+            // dgvProductTrans
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 326);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 161);
-            this.dataGridView1.TabIndex = 61;
+            this.dgvProductTrans.AllowUserToAddRows = false;
+            this.dgvProductTrans.AllowUserToDeleteRows = false;
+            this.dgvProductTrans.AllowUserToResizeRows = false;
+            this.dgvProductTrans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductTrans.Location = new System.Drawing.Point(25, 326);
+            this.dgvProductTrans.Name = "dgvProductTrans";
+            this.dgvProductTrans.RowHeadersWidth = 51;
+            this.dgvProductTrans.RowTemplate.Height = 24;
+            this.dgvProductTrans.Size = new System.Drawing.Size(730, 161);
+            this.dgvProductTrans.TabIndex = 61;
             // 
             // label10
             // 
@@ -271,59 +274,60 @@
             this.label10.TabIndex = 62;
             this.label10.Text = "Product ID";
             // 
-            // textBox1
+            // tbProductID
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(117, 286);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 28);
-            this.textBox1.TabIndex = 63;
+            this.tbProductID.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProductID.Location = new System.Drawing.Point(117, 286);
+            this.tbProductID.Name = "tbProductID";
+            this.tbProductID.Size = new System.Drawing.Size(170, 28);
+            this.tbProductID.TabIndex = 63;
             // 
-            // btnSearch
+            // btnAdd
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.LightCoral;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(568, 286);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(86, 28);
-            this.btnSearch.TabIndex = 64;
-            this.btnSearch.Text = "Add";
-            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.LightCoral;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(568, 286);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(86, 28);
+            this.btnAdd.TabIndex = 64;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button1
+            // btnDelete
             // 
-            this.button1.BackColor = System.Drawing.Color.LightCoral;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(669, 286);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 28);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.LightCoral;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(669, 286);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(86, 28);
+            this.btnDelete.TabIndex = 65;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnCreate
             // 
-            this.button2.BackColor = System.Drawing.Color.LightCoral;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(644, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 25);
-            this.button2.TabIndex = 66;
-            this.button2.Text = "Create";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btnCreate_click);
+            this.btnCreate.BackColor = System.Drawing.Color.LightCoral;
+            this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.ForeColor = System.Drawing.Color.White;
+            this.btnCreate.Location = new System.Drawing.Point(644, 48);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(111, 25);
+            this.btnCreate.TabIndex = 66;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_click);
             // 
             // tbTransID
             // 
@@ -423,13 +427,23 @@
             this.label11.TabIndex = 77;
             this.label11.Text = "Quantity";
             // 
-            // numericUpDown1
+            // nudProdQty
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(408, 287);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 28);
-            this.numericUpDown1.TabIndex = 78;
+            this.nudProdQty.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudProdQty.Location = new System.Drawing.Point(408, 287);
+            this.nudProdQty.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudProdQty.Name = "nudProdQty";
+            this.nudProdQty.Size = new System.Drawing.Size(49, 28);
+            this.nudProdQty.TabIndex = 78;
+            this.nudProdQty.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cbCustID
             // 
@@ -448,7 +462,7 @@
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(787, 511);
             this.Controls.Add(this.cbCustID);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nudProdQty);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dtpTransDate);
             this.Controls.Add(this.tbDiscountAmount);
@@ -459,12 +473,12 @@
             this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.tbStaffID);
             this.Controls.Add(this.tbTransID);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.tbProductID);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProductTrans);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
@@ -487,8 +501,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionCreate";
             this.pnlBorder.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductTrans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudProdQty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,12 +527,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductTrans;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox tbProductID;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.TextBox tbTransID;
         private System.Windows.Forms.TextBox tbStaffID;
         private System.Windows.Forms.TextBox tbTotal;
@@ -529,7 +543,7 @@
         private System.Windows.Forms.TextBox tbDiscountPercentage;
         private System.Windows.Forms.DateTimePicker dtpTransDate;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudProdQty;
         private System.Windows.Forms.ComboBox cbCustID;
     }
 }

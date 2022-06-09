@@ -33,6 +33,9 @@ namespace ALP_BeautyProductShopApp
         DataTable dtCustList = new DataTable();
         string transactionNum;
 
+        DataTable dtProductList = new DataTable();
+        DataTable dtTransProduct = new DataTable();
+
         public TransactionCreate(string StaffID)
         {
             InitializeComponent();
@@ -57,6 +60,12 @@ namespace ALP_BeautyProductShopApp
             tbStaffID.Text = StaffID;
             tbTaxPercentage.Text = "10";
             tbTotal.Text = "0";
+
+            dtTransProduct.Columns.Add("prod_id");
+            dtTransProduct.Columns.Add("prod_name");
+            dtTransProduct.Columns.Add("qty_trans");
+            dtTransProduct.Columns.Add("price_trans");
+            dtTransProduct.Columns.Add("price_total");
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -86,9 +95,9 @@ namespace ALP_BeautyProductShopApp
 
         void calculateTotal()
         {
-            tbDiscountAmount.Text = Convert.ToString(Convert.ToInt16(tbTotal.Text) * (100 - Convert.ToInt16(tbDiscountPercentage.Text)) / 100);
-            tbTaxTotal.Text = Convert.ToString((Convert.ToInt16(tbTotal.Text) - Convert.ToInt16(tbDiscountAmount.Text)) * (100 + Convert.ToInt16(tbTaxPercentage.Text)) / 100);
-            tbNetTotal.Text = Convert.ToString(Convert.ToInt16(tbTotal.Text) - Convert.ToInt16(tbDiscountAmount.Text) + Convert.ToInt16(tbTaxTotal.Text));
+            if (tbTotal.Text != "0" & tbDiscountPercentage.Text != "0") tbDiscountAmount.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) * Convert.ToInt32(tbDiscountPercentage.Text) / 100);
+            tbTaxTotal.Text = Convert.ToString((Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text)) * Convert.ToInt32(tbTaxPercentage.Text) / 100);
+            tbNetTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text) + Convert.ToInt32(tbTaxTotal.Text));
         }
 
         private void dtpTransDate_ValueChanged(object sender, EventArgs e)
@@ -106,6 +115,38 @@ namespace ALP_BeautyProductShopApp
             if (tbTotal.Text == "0")
             {
                 MessageBox.Show("Transaksi Kosong !");
+            }
+
+
+            // Kurangin jumlah
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            sqlQuery = $"select * from product where status_del = '0' and prod_id = '{tbProductID.Text.ToUpper()}';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtProductList);
+
+            if (nudProdQty.Value > Convert.ToInt16(dtProductList.Rows[0]["prod_stock"]))
+            {
+                MessageBox.Show("Not enough stock !");
+            }
+            else
+            {
+                dtTransProduct.Rows.Add(new Object[]{
+                    dtProductList.Rows[0]["prod_id"],
+                    dtProductList.Rows[0]["prod_name"],
+                    nudProdQty.Value,
+                    dtProductList.Rows[0]["prod_price"],
+                    (Convert.ToInt32(dtProductList.Rows[0]["prod_price"]) * nudProdQty.Value)
+                });
+
+                dgvProductTrans.DataSource = dtTransProduct;
+
+                tbTotal.Text = "0";
+                for (int i = 0; i < dtTransProduct.Rows.Count; i++)
+                    tbTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) + Convert.ToInt32(dtTransProduct.Rows[i]["price_total"]));
             }
         }
     }
