@@ -26,18 +26,27 @@ namespace ALP_BeautyProductShopApp
 
         private void StaffSales_Load(object sender, EventArgs e)
         {
-            sqlQuery = "select t.staff_id, s.staff_name, s.staff_position, s.staff_phone, sum(t.net_total) from `transaction` t, staff s where s.staff_id = t.staff_id and t.staff_id = '20210731-S06';";
+            sqlQuery = "select t.staff_id, s.staff_name, s.staff_position, s.staff_phone, sum(t.net_total) from `transaction` t, staff s where s.staff_id = t.staff_id and t.staff_id = '" + Staff.staffid + "';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtStaffSales);
             dgv_StaffSales.DataSource = dtStaffSales;
-
-           
+            tBox_staffID.Text = dgv_StaffSales.CurrentRow.Cells[0].Value.ToString();
+            tBox_Name.Text = dgv_StaffSales.CurrentRow.Cells[1].Value.ToString();
+            tBox_Position.Text = dgv_StaffSales.CurrentRow.Cells[2].Value.ToString();
+            tBox_Phone.Text = dgv_StaffSales.CurrentRow.Cells[3].Value.ToString();
 
         }
 
         private void dgv_StaffSales_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
             
         }
     }

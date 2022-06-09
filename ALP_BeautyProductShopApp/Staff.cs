@@ -23,28 +23,39 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
         DataTable dtStaff = new DataTable();
+        DataTable dtPosition = new DataTable();
+
+        public static string staffid;
         private void Staff_Load(object sender, EventArgs e)
         {
+            
+            dtStaff = new DataTable();
             sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtStaff);
             dgv_Staff.DataSource = dtStaff;
-            cBox_Position.DataSource = dtStaff;
+
+            sqlQuery = "select distinct staff_position from staff;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtPosition);
+            cBox_Position.DataSource = dtPosition;
             cBox_Position.DisplayMember = "staff_position";
-            cBox_Position.ValueMember = "staff_id";
-            
+           
+            staffid = dtStaff.Rows[0][0].ToString();
+
         }
 
         private void btnViewSales_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             StaffSales sales = new StaffSales();
             sales.MdiParent = this.ParentForm;
             sales.Dock = DockStyle.Fill;
-            sales.ShowDialog();
+            sales.Show();
         }
-
+        int staffke;
         private void dgv_Staff_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -71,7 +82,7 @@ namespace ALP_BeautyProductShopApp
             sqlConnect.Close();
 
             MessageBox.Show("Data telah terupdate");
-
+            Staff_Load(sender, e);
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -82,6 +93,7 @@ namespace ALP_BeautyProductShopApp
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
             MessageBox.Show("Data telah terhapus");
+            Staff_Load(sender, e);
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -92,6 +104,54 @@ namespace ALP_BeautyProductShopApp
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
             MessageBox.Show("Data telah tersimpan");
+            Staff_Load(sender, e);
+        }
+
+        private void dgv_Staff_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            staffke = dgv_Staff.CurrentCell.RowIndex;
+            staffid = dtStaff.Rows[staffke][0].ToString();
+           
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            tBox_StaffID.Clear();
+            tBox_StaffName.Clear();
+            tBox_Password.Clear();
+            tBox_Phone.Clear();
+            
+
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            dtStaff = new DataTable();
+            sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0'and staff_name like '%" + tBox_Search.Text + "%';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtStaff);
+            sqlAdapter.Fill(dtPosition);
+            dgv_Staff.DataSource = dtStaff;
+            cBox_Position.DataSource = dtPosition;
+            cBox_Position.DisplayMember = "staff_position";
+            cBox_Position.ValueMember = "staff_id";
+            staffid = dtStaff.Rows[0][0].ToString();
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            dtStaff = new DataTable();
+            sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtStaff);
+            sqlAdapter.Fill(dtPosition);
+            dgv_Staff.DataSource = dtStaff;
+            cBox_Position.DataSource = dtPosition;
+            cBox_Position.DisplayMember = "staff_position";
+            cBox_Position.ValueMember = "staff_id";
+            staffid = dtStaff.Rows[0][0].ToString();
         }
     }
 }
