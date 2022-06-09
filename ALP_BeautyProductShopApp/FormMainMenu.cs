@@ -18,19 +18,21 @@ namespace ALP_BeautyProductShopApp
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
+        static string staffID;
 
         Customer customer = new Customer();
         Product product = new Product();
         Staff staff = new Staff();
-        TransactionList trans = new TransactionList();
-        public FormMainMenu(string staffID)
+        TransactionList trans = new TransactionList(staffID);
+        public FormMainMenu(string StaffID)
         {
             InitializeComponent();
             sqlConnect.Open();
-            sqlQuery = $"SELECT staff_name FROM staff WHERE staff_id = '{staffID}';";
+            sqlQuery = $"SELECT staff_name FROM staff WHERE staff_id = '{StaffID}';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             lblUsername.Text = Convert.ToString(sqlCommand.ExecuteScalar());
             sqlConnect.Close();
+            staffID = StaffID;;
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -87,6 +89,11 @@ namespace ALP_BeautyProductShopApp
             btnCustomer.BackColor = Color.MistyRose;
             btnTransaction.BackColor = Color.MistyRose;
             btnOrder.BackColor = Color.MistyRose;
+            pnlNavOrder.BackColor = Color.MistyRose;
+            pnlNavTrans.BackColor = Color.MistyRose;    
+            pnlNavCust.BackColor = Color.MistyRose;
+            pnlNavStaff.BackColor = Color.MistyRose;
+            pnlNavProd.BackColor = Color.MistyRose;
             btnOrder.Enabled = true;
             btnTransaction.Enabled = true;
             btnCustomer.Enabled = true;
@@ -105,6 +112,7 @@ namespace ALP_BeautyProductShopApp
         private void btnProduct_Click(object sender, EventArgs e)
         {
             resetWarna();
+            pnlNavProd.BackColor = Color.HotPink;
             closeForm();
             btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnProduct.Enabled = false;
@@ -118,6 +126,7 @@ namespace ALP_BeautyProductShopApp
         private void btnStaff_Click(object sender, EventArgs e)
         {
             resetWarna();
+            pnlNavStaff.BackColor = Color.HotPink;
             closeForm();
             btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnStaff.Enabled = false;
@@ -129,7 +138,9 @@ namespace ALP_BeautyProductShopApp
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
+            
             resetWarna();
+            pnlNavCust.BackColor = Color.HotPink;
             closeForm();
             btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnCustomer.Enabled = false;
@@ -141,11 +152,13 @@ namespace ALP_BeautyProductShopApp
          
         private void btnTransaction_Click(object sender, EventArgs e) 
         {
+             
             resetWarna();
+            pnlNavTrans.BackColor = Color.HotPink;
             closeForm();
             btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnTransaction.Enabled = false;
-            trans = new TransactionList();
+            trans = new TransactionList(staffID);
             trans.MdiParent = this;
             trans.Dock = DockStyle.Fill;
             trans.Show();
@@ -153,7 +166,9 @@ namespace ALP_BeautyProductShopApp
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            
             resetWarna();
+            pnlNavOrder.BackColor = Color.HotPink;
             closeForm();
             btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnOrder.Enabled = false;
@@ -184,6 +199,10 @@ namespace ALP_BeautyProductShopApp
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void pnlNavProd_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
