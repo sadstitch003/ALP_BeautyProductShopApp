@@ -186,7 +186,7 @@
             this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(24, 131);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(37, 17);
+            this.lblSearch.Size = new System.Drawing.Size(40, 19);
             this.lblSearch.TabIndex = 14;
             this.lblSearch.Text = "Filter";
             // 
@@ -196,7 +196,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(339, 156);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 15;
             this.label1.Text = "Search by ";
             // 
