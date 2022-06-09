@@ -40,11 +40,13 @@ namespace ALP_BeautyProductShopApp
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtCustomer);
-            sqlAdapter.Fill(dtCity);
             dgv_Customer.DataSource = dtCustomer;
+            sqlQuery = "select distinct cust_city from customer;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtCity);
             cBox_City.DataSource = dtCity;
             cBox_City.DisplayMember = "cust_city";
-            cBox_City.ValueMember = "cust_id";
             customerid = dtCustomer.Rows[0][0].ToString();
         }
 

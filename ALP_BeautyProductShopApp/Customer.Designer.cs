@@ -86,6 +86,9 @@ namespace ALP_BeautyProductShopApp
             // 
             // dgv_Customer
             // 
+            this.dgv_Customer.AllowUserToAddRows = false;
+            this.dgv_Customer.AllowUserToDeleteRows = false;
+            this.dgv_Customer.AllowUserToResizeRows = false;
             this.dgv_Customer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
