@@ -103,5 +103,12 @@ namespace ALP_BeautyProductShopApp
             }
             else updateTable();
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            DataRow data = dgvTransList.SelectedRows;
+            TransactionCreate form = new TransactionCreate(data);
+            form.Show();
+        }
     }
 }

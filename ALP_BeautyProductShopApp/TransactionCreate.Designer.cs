@@ -52,18 +52,18 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tbTransID = new System.Windows.Forms.TextBox();
+            this.tbStaffID = new System.Windows.Forms.TextBox();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.tbNetTotal = new System.Windows.Forms.TextBox();
+            this.tbTaxPercentage = new System.Windows.Forms.TextBox();
+            this.tbTaxTotal = new System.Windows.Forms.TextBox();
+            this.tbDiscountAmount = new System.Windows.Forms.TextBox();
+            this.tbDiscountPercentage = new System.Windows.Forms.TextBox();
+            this.dtpTransDate = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbCustID = new System.Windows.Forms.ComboBox();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -324,85 +324,85 @@
             this.button2.Text = "Create";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // tbTransID
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(177, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(201, 28);
-            this.textBox2.TabIndex = 67;
+            this.tbTransID.Enabled = false;
+            this.tbTransID.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTransID.Location = new System.Drawing.Point(177, 92);
+            this.tbTransID.Name = "tbTransID";
+            this.tbTransID.Size = new System.Drawing.Size(201, 28);
+            this.tbTransID.TabIndex = 67;
             // 
-            // textBox4
+            // tbStaffID
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(177, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(201, 28);
-            this.textBox4.TabIndex = 69;
+            this.tbStaffID.Enabled = false;
+            this.tbStaffID.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbStaffID.Location = new System.Drawing.Point(177, 155);
+            this.tbStaffID.Name = "tbStaffID";
+            this.tbStaffID.Size = new System.Drawing.Size(201, 28);
+            this.tbStaffID.TabIndex = 69;
             // 
-            // textBox5
+            // tbTotal
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(554, 92);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(201, 28);
-            this.textBox5.TabIndex = 70;
+            this.tbTotal.Enabled = false;
+            this.tbTotal.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTotal.Location = new System.Drawing.Point(554, 92);
+            this.tbTotal.Name = "tbTotal";
+            this.tbTotal.Size = new System.Drawing.Size(201, 28);
+            this.tbTotal.TabIndex = 70;
             // 
-            // textBox6
+            // tbNetTotal
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(554, 186);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(201, 28);
-            this.textBox6.TabIndex = 71;
+            this.tbNetTotal.Enabled = false;
+            this.tbNetTotal.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNetTotal.Location = new System.Drawing.Point(554, 186);
+            this.tbNetTotal.Name = "tbNetTotal";
+            this.tbNetTotal.Size = new System.Drawing.Size(201, 28);
+            this.tbNetTotal.TabIndex = 71;
             // 
-            // textBox7
+            // tbTaxPercentage
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(554, 155);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(69, 28);
-            this.textBox7.TabIndex = 72;
+            this.tbTaxPercentage.Enabled = false;
+            this.tbTaxPercentage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTaxPercentage.Location = new System.Drawing.Point(554, 155);
+            this.tbTaxPercentage.Name = "tbTaxPercentage";
+            this.tbTaxPercentage.Size = new System.Drawing.Size(69, 28);
+            this.tbTaxPercentage.TabIndex = 72;
             // 
-            // textBox8
+            // tbTaxTotal
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(629, 155);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(126, 28);
-            this.textBox8.TabIndex = 73;
+            this.tbTaxTotal.Enabled = false;
+            this.tbTaxTotal.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTaxTotal.Location = new System.Drawing.Point(629, 155);
+            this.tbTaxTotal.Name = "tbTaxTotal";
+            this.tbTaxTotal.Size = new System.Drawing.Size(126, 28);
+            this.tbTaxTotal.TabIndex = 73;
             // 
-            // textBox9
+            // tbDiscountAmount
             // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(629, 123);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(126, 28);
-            this.textBox9.TabIndex = 75;
+            this.tbDiscountAmount.Enabled = false;
+            this.tbDiscountAmount.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDiscountAmount.Location = new System.Drawing.Point(629, 123);
+            this.tbDiscountAmount.Name = "tbDiscountAmount";
+            this.tbDiscountAmount.Size = new System.Drawing.Size(126, 28);
+            this.tbDiscountAmount.TabIndex = 75;
             // 
-            // textBox10
+            // tbDiscountPercentage
             // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(554, 123);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(69, 28);
-            this.textBox10.TabIndex = 74;
+            this.tbDiscountPercentage.Enabled = false;
+            this.tbDiscountPercentage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDiscountPercentage.Location = new System.Drawing.Point(554, 123);
+            this.tbDiscountPercentage.Name = "tbDiscountPercentage";
+            this.tbDiscountPercentage.Size = new System.Drawing.Size(69, 28);
+            this.tbDiscountPercentage.TabIndex = 74;
             // 
-            // dateTimePicker1
+            // dtpTransDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(177, 190);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 76;
+            this.dtpTransDate.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTransDate.Location = new System.Drawing.Point(177, 190);
+            this.dtpTransDate.Name = "dtpTransDate";
+            this.dtpTransDate.Size = new System.Drawing.Size(200, 23);
+            this.dtpTransDate.TabIndex = 76;
             // 
             // label11
             // 
@@ -422,14 +422,14 @@
             this.numericUpDown1.Size = new System.Drawing.Size(49, 28);
             this.numericUpDown1.TabIndex = 78;
             // 
-            // comboBox1
+            // cbCustID
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(177, 125);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 25);
-            this.comboBox1.TabIndex = 79;
+            this.cbCustID.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCustID.FormattingEnabled = true;
+            this.cbCustID.Location = new System.Drawing.Point(177, 125);
+            this.cbCustID.Name = "cbCustID";
+            this.cbCustID.Size = new System.Drawing.Size(201, 25);
+            this.cbCustID.TabIndex = 79;
             // 
             // TransactionCreate
             // 
@@ -437,18 +437,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(787, 511);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCustID);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.dtpTransDate);
+            this.Controls.Add(this.tbDiscountAmount);
+            this.Controls.Add(this.tbDiscountPercentage);
+            this.Controls.Add(this.tbTaxTotal);
+            this.Controls.Add(this.tbTaxPercentage);
+            this.Controls.Add(this.tbNetTotal);
+            this.Controls.Add(this.tbTotal);
+            this.Controls.Add(this.tbStaffID);
+            this.Controls.Add(this.tbTransID);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSearch);
@@ -509,17 +509,17 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox tbTransID;
+        private System.Windows.Forms.TextBox tbStaffID;
+        private System.Windows.Forms.TextBox tbTotal;
+        private System.Windows.Forms.TextBox tbNetTotal;
+        private System.Windows.Forms.TextBox tbTaxPercentage;
+        private System.Windows.Forms.TextBox tbTaxTotal;
+        private System.Windows.Forms.TextBox tbDiscountAmount;
+        private System.Windows.Forms.TextBox tbDiscountPercentage;
+        private System.Windows.Forms.DateTimePicker dtpTransDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCustID;
     }
 }

@@ -14,9 +14,18 @@ namespace ALP_BeautyProductShopApp
 {
     public partial class TransactionCreate : Form
     {
-        public TransactionCreate(string staffID)
+        string staffID;
+        public TransactionCreate(string StaffID)
         {
             InitializeComponent();
+            staffID = StaffID;
+        }
+
+        public TransactionCreate(DataRow SelectedData)
+        {
+            InitializeComponent();
+            cbCustID.Enabled = false;
+            dtpTransDate.Enabled = false;
         }
 
         MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
