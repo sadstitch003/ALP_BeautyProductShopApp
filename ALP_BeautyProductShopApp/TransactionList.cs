@@ -88,5 +88,10 @@ namespace ALP_BeautyProductShopApp
             form.ShowDialog();
             updateTable();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
