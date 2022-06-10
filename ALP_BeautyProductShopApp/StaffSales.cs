@@ -23,18 +23,36 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
         DataTable dtStaffSales = new DataTable();
+        DataTable dtTotal = new DataTable();
 
         private void StaffSales_Load(object sender, EventArgs e)
         {
-            sqlQuery = "select t.staff_id, s.staff_name, s.staff_position, s.staff_phone, sum(t.net_total) from `transaction` t, staff s where s.staff_id = t.staff_id and t.staff_id = '" + Staff.staffid + "';";
+            sqlQuery = "select t.staff_id, s.staff_name, s.staff_position, s.staff_phone, t.net_total from `transaction` t, staff s where s.staff_id = t.staff_id and t.staff_id = '" + Staff.staffid + "';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtStaffSales);
             dgv_StaffSales.DataSource = dtStaffSales;
-            tBox_staffID.Text = dgv_StaffSales.CurrentRow.Cells[0].Value.ToString();
-            tBox_Name.Text = dgv_StaffSales.CurrentRow.Cells[1].Value.ToString();
-            tBox_Position.Text = dgv_StaffSales.CurrentRow.Cells[2].Value.ToString();
-            tBox_Phone.Text = dgv_StaffSales.CurrentRow.Cells[3].Value.ToString();
+            if (dgv_StaffSales.CurrentCell != null)
+            {
+                sqlQuery = "select t.staff_id, s.staff_name, s.staff_position, s.staff_phone, t.net_total from `transaction` t, staff s where s.staff_id = t.staff_id and t.staff_id = '" + Staff.staffid + "';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtStaffSales);
+                dgv_StaffSales.DataSource = dtStaffSales;
+                tBox_staffID.Text = dgv_StaffSales.CurrentRow.Cells[0].Value.ToString();
+                tBox_Name.Text = dgv_StaffSales.CurrentRow.Cells[1].Value.ToString();
+                tBox_Position.Text = dgv_StaffSales.CurrentRow.Cells[2].Value.ToString();
+                tBox_Phone.Text = dgv_StaffSales.CurrentRow.Cells[3].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Belum ada transaksi");
+            }
+            sqlQuery = "select t.staff_id, s.staff_name, s.staff_position, s.staff_phone, sum(t.net_total) from `transaction` t, staff s where s.staff_id = t.staff_id and t.staff_id = '" + Staff.staffid + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtTotal);
+            lbl_Total.Text = dtTotal.Rows[0][4].ToString();
 
         }
 

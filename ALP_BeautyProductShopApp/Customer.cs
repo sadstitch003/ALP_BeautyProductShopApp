@@ -43,13 +43,15 @@ namespace ALP_BeautyProductShopApp
             sqlAdapter.Fill(dtCustomer);
             dgv_Customer.DataSource = dtCustomer;
 
-            sqlQuery = "select distinct membership_id from membership;";
+            sqlQuery = "select * from membership;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtMembership);
+
             cBox_MemberID.DataSource = dtMembership;
             cBox_MemberID.DisplayMember = "membership_id";
             cBox_MemberID.ValueMember = "membership_id";
+            
             customerid = dtCustomer.Rows[0][0].ToString();
             dTP_memberjoin.Enabled = false;
         }
@@ -91,27 +93,50 @@ namespace ALP_BeautyProductShopApp
             Customer_Load(sender, e);
         }
 
+       
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            dtMembership = new DataTable();
             if (cBox_MemberID.Text == null)
             {
+                for (int item = 0; item < dgv_Customer.Rows.Count; item++)
+                {
+                    if (tBox_CustID.Text == dgv_Customer.Rows[item].Cells[0].Value.ToString())
+                    {
+                        MessageBox.Show("data sudah ada");
+                        return;
+                    }
+
+                }
                 sqlQuery = "insert into customer values ('" + tBox_CustID.Text + "','','','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
-                sqlConnect.Open();
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-                MessageBox.Show("Data telah tersimpan");
-                Customer_Load(sender, e);
+                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Data telah tersimpan");
+                    Customer_Load(sender, e);
+                
             }
             else
             {
+                for (int item = 0; item < dgv_Customer.Rows.Count; item++)
+                {
+                    if (tBox_CustID.Text == dgv_Customer.Rows[item].Cells[0].Value.ToString())
+                    {
+                        MessageBox.Show("data sudah ada");
+                        return;
+                    }
+
+                }
                 sqlQuery = "insert into customer values ('" + tBox_CustID.Text + "','" + cBox_MemberID.Text + "','" + dTP_memberjoin.Value.ToString("yyyyMMdd") + "','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
-                sqlConnect.Open();
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
-                MessageBox.Show("Data telah tersimpan");
-                Customer_Load(sender, e);
+                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Data telah tersimpan");
+                    Customer_Load(sender, e);
+                
+                
             }
         }
 
@@ -130,7 +155,6 @@ namespace ALP_BeautyProductShopApp
                 {
                     dTP_memberjoin.Format = DateTimePickerFormat.Long;
                     dTP_memberjoin.Value = Convert.ToDateTime(dgv_Customer.CurrentRow.Cells[2].Value);
-
                 }
 
                 tBox_CustName.Text = dgv_Customer.CurrentRow.Cells[3].Value.ToString();
