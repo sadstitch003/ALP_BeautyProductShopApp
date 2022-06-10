@@ -183,5 +183,10 @@ namespace ALP_BeautyProductShopApp
                 MessageBox.Show("Data deleted !");
             }
         }
+
+        private void TransactionCreate_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
