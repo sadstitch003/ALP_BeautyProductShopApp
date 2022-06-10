@@ -22,7 +22,8 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
         DataTable dtCustomer = new DataTable();
-        DataTable dtCity = new DataTable();
+        DataTable dtMembership = new DataTable();
+       
         public static string customerid;
         private void btnViewTrans_Click(object sender, EventArgs e)
         {
@@ -41,25 +42,42 @@ namespace ALP_BeautyProductShopApp
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtCustomer);
             dgv_Customer.DataSource = dtCustomer;
-            sqlQuery = "select distinct cust_city from customer;";
+
+            sqlQuery = "select distinct membership_id from membership;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtCity);
-            cBox_City.DataSource = dtCity;
-            cBox_City.DisplayMember = "cust_city";
+            sqlAdapter.Fill(dtMembership);
+            cBox_MemberID.DataSource = dtMembership;
+            cBox_MemberID.DisplayMember = "membership_id";
+            cBox_MemberID.ValueMember = "membership_id";
             customerid = dtCustomer.Rows[0][0].ToString();
+            dTP_memberjoin.Enabled = false;
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            sqlQuery = "update customer set membership_id = '"+tBox_memberID.Text+"',cust_name = '"+tBox_CustName.Text+"', cust_address = '"+tBox_Address+"', cust_city = '"+cBox_City+"', cust_phone = '"+tBox_Phone+"', cust_email = '"+tBox_Email+"'where cust_id = '"+ tBox_CustID.Text+"'; ";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            Customer_Load(sender, e);
-
-            MessageBox.Show("Data telah terupdate");
+            if(cBox_MemberID.Text == null)
+            {
+                sqlQuery = "update customer set membership_id = '',cust_name = '" + tBox_CustName.Text + "', cust_address = '" + tBox_Address.Text + "', cust_city = '" + tBox_City.Text + "', cust_phone = '" + tBox_Phone.Text + "', cust_email = '" + tBox_Email.Text + "'where cust_id = '" + tBox_CustID.Text + "'; ";
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                Customer_Load(sender, e);
+                MessageBox.Show("Data telah terupdate");
+            }
+            else
+            {
+                sqlQuery = "update customer set membership_id = '" + cBox_MemberID.Text + "',cust_name = '" + tBox_CustName.Text + "', cust_address = '" + tBox_Address.Text + "', cust_city = '" + tBox_City.Text + "', cust_phone = '" + tBox_Phone.Text + "', cust_email = '" + tBox_Email.Text + "'where cust_id = '" + tBox_CustID.Text + "'; ";
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                Customer_Load(sender, e);
+                MessageBox.Show("Data telah terupdate");
+            }
+           
+            
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -75,26 +93,59 @@ namespace ALP_BeautyProductShopApp
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            sqlQuery = "insert into customer values ('"+tBox_CustID.Text+"','"+tBox_memberID.Text+"','"+ dTP_memberjoin.Value.ToString("yyyyMMdd") + "','"+tBox_CustName.Text+"','"+tBox_Address.Text+"','"+cBox_City.Text+"','"+tBox_Phone.Text+"','"+tBox_Email.Text+"','"+ dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            MessageBox.Show("Data telah tersimpan");
-            Customer_Load(sender, e);
+            if (cBox_MemberID.Text == null)
+            {
+                sqlQuery = "insert into customer values ('" + tBox_CustID.Text + "','','','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                MessageBox.Show("Data telah tersimpan");
+                Customer_Load(sender, e);
+            }
+            else
+            {
+                sqlQuery = "insert into customer values ('" + tBox_CustID.Text + "','" + cBox_MemberID.Text + "','" + dTP_memberjoin.Value.ToString("yyyyMMdd") + "','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                MessageBox.Show("Data telah tersimpan");
+                Customer_Load(sender, e);
+            }
         }
 
         private void dgv_Customer_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            tBox_CustID.Text = dgv_Customer.CurrentRow.Cells[0].Value.ToString();
-            tBox_memberID.Text = dgv_Customer.CurrentRow.Cells[1].Value.ToString();
-            dTP_memberjoin.Text = dgv_Customer.CurrentRow.Cells[2].Value.ToString();
-            tBox_CustName.Text = dgv_Customer.CurrentRow.Cells[3].Value.ToString();
-            tBox_Address.Text = dgv_Customer.CurrentRow.Cells[4].Value.ToString();
-            cBox_City.Text = dgv_Customer.CurrentRow.Cells[5].Value.ToString();
-            tBox_Phone.Text = dgv_Customer.CurrentRow.Cells[6].Value.ToString();
-            tBox_Email.Text = dgv_Customer.CurrentRow.Cells[7].Value.ToString();
-            dTP_dob.Text = dgv_Customer.CurrentRow.Cells[8].Value.ToString();
+            try
+            {
+                tBox_CustID.Text = dgv_Customer.CurrentRow.Cells[0].Value.ToString();
+                cBox_MemberID.Text = dgv_Customer.CurrentRow.Cells[1].Value.ToString();
+                if (dgv_Customer.CurrentRow.Cells[2].Value == null || dgv_Customer.CurrentRow.Cells[2].Value == DBNull.Value)
+                {
+                    dTP_memberjoin.CustomFormat = " ";
+                    dTP_memberjoin.Format = DateTimePickerFormat.Custom;
+                }
+                else
+                {
+                    dTP_memberjoin.Format = DateTimePickerFormat.Long;
+                    dTP_memberjoin.Value = Convert.ToDateTime(dgv_Customer.CurrentRow.Cells[2].Value);
+
+                }
+
+                tBox_CustName.Text = dgv_Customer.CurrentRow.Cells[3].Value.ToString();
+                tBox_Address.Text = dgv_Customer.CurrentRow.Cells[4].Value.ToString();
+                tBox_City.Text = dgv_Customer.CurrentRow.Cells[5].Value.ToString();
+                tBox_Phone.Text = dgv_Customer.CurrentRow.Cells[6].Value.ToString();
+                tBox_Email.Text = dgv_Customer.CurrentRow.Cells[7].Value.ToString();
+                dTP_dob.Text = dgv_Customer.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show(dgv_Customer.CurrentRow.Cells[2].Value.ToString());
+            }
+            
         }
         int customerke;
         private void dgv_Customer_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -109,8 +160,8 @@ namespace ALP_BeautyProductShopApp
             tBox_Address.Clear();
             tBox_CustID.Clear();
             tBox_CustName.Clear();
+            tBox_City.Clear();
             tBox_Email.Clear();
-            tBox_memberID.Clear();
             tBox_Phone.Clear();
         }
 
@@ -121,11 +172,7 @@ namespace ALP_BeautyProductShopApp
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtCustomer);
-            sqlAdapter.Fill(dtCity);
             dgv_Customer.DataSource = dtCustomer;
-            cBox_City.DataSource = dtCity;
-            cBox_City.DisplayMember = "cust_city";
-            cBox_City.ValueMember = "cust_id";
             customerid = dtCustomer.Rows[0][0].ToString();
         }
 
@@ -136,12 +183,40 @@ namespace ALP_BeautyProductShopApp
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtCustomer);
-            sqlAdapter.Fill(dtCity);
+           
             dgv_Customer.DataSource = dtCustomer;
-            cBox_City.DataSource = dtCity;
-            cBox_City.DisplayMember = "cust_city";
-            cBox_City.ValueMember = "cust_id";
+        
             customerid = dtCustomer.Rows[0][0].ToString();
+        }
+
+        private void dTP_memberjoin_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dTP_memberjoin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Back) || (e.KeyCode == Keys.Delete))
+            {
+               
+            }
+        }
+
+        private void tBox_memberID_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cBox_MemberID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBox_MemberID.Text == "")
+            {
+                dTP_memberjoin.Enabled = false;
+            }
+            else
+            {
+                dTP_memberjoin.Enabled = true;
+            }
         }
     }
 }

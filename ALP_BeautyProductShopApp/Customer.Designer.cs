@@ -32,7 +32,6 @@ namespace ALP_BeautyProductShopApp
             this.btn_Search = new System.Windows.Forms.Button();
             this.tBox_Search = new System.Windows.Forms.TextBox();
             this.dgv_Customer = new System.Windows.Forms.DataGridView();
-            this.cBox_City = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_View = new System.Windows.Forms.Button();
             this.dTP_dob = new System.Windows.Forms.DateTimePicker();
@@ -43,7 +42,6 @@ namespace ALP_BeautyProductShopApp
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
-            this.tBox_memberID = new System.Windows.Forms.TextBox();
             this.tBox_CustID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,6 +56,8 @@ namespace ALP_BeautyProductShopApp
             this.lblTitle = new System.Windows.Forms.Label();
             this.btn_clear = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
+            this.tBox_City = new System.Windows.Forms.TextBox();
+            this.cBox_MemberID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Customer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,530 +102,6 @@ namespace ALP_BeautyProductShopApp
             this.dgv_Customer.TabIndex = 172;
             this.dgv_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Customer_CellClick);
             this.dgv_Customer.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Customer_CellEnter);
-            // 
-            // cBox_City
-            // 
-            this.cBox_City.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.cBox_City.FormattingEnabled = true;
-            this.cBox_City.Items.AddRange(new object[] {
-            "Kabupaten Aceh Barat",
-            "Kabupaten Aceh Barat Daya",
-            "Kabupaten Aceh Besar",
-            "Kabupaten Aceh Jaya",
-            "Kabupaten Aceh Selatan",
-            "Kabupaten Aceh Singkil",
-            "Kabupaten Aceh Tamiang",
-            "Kabupaten Aceh Tengah",
-            "Kabupaten Aceh Tenggara",
-            "Kabupaten Aceh Timur",
-            "Kabupaten Aceh Utara",
-            "Kabupaten Bener Meriah",
-            "Kabupaten Bireuen",
-            "Kabupaten Gayo Lues",
-            "Kabupaten Nagan Raya",
-            "Kabupaten Pidie",
-            "Kabupaten Pidie Jaya",
-            "Kabupaten Simeulue",
-            "Kota Banda Aceh",
-            "Kota Langsa",
-            "Kota Lhokseumawe",
-            "Kota Sabang",
-            "Kota Subulussalam",
-            "Kabupaten Asahan",
-            "Kabupaten Batubara",
-            "Kabupaten Dairi",
-            "Kabupaten Deli Serdang",
-            "Kabupaten Humbang Hasundutan",
-            "Kabupaten Karo",
-            "Kabupaten Labuhanbatu",
-            "Kabupaten Labuhanbatu Selatan",
-            "Kabupaten Labuhanbatu Utara",
-            "Kabupaten Langkat",
-            "Kabupaten Mandailing Natal",
-            "Kabupaten Nias",
-            "Kabupaten Nias Barat",
-            "Kabupaten Nias Selatan",
-            "Kabupaten Nias Utara",
-            "Kabupaten Padang Lawas",
-            "Kabupaten Padang Lawas Utara",
-            "Kabupaten Pakpak Bharat",
-            "Kabupaten Samosir",
-            "Kabupaten Serdang Bedagai",
-            "Kabupaten Simalungun",
-            "Kabupaten Tapanuli Selatan",
-            "Kabupaten Tapanuli Tengah",
-            "Kabupaten Tapanuli Utara",
-            "Kabupaten Toba Samosir",
-            "Kota Binjai",
-            "Kota Gunungsitoli",
-            "Kota Medan",
-            "Kota Padangsidempuan",
-            "Kota Pematangsiantar",
-            "Kota Sibolga",
-            "Kota Tanjungbalai",
-            "Kota Tebing Tinggi",
-            "Kabupaten Agam",
-            "Kabupaten Dharmasraya",
-            "Kabupaten Kepulauan Mentawai",
-            "Kabupaten Lima Puluh Kota",
-            "Kabupaten Padang Pariaman",
-            "Kabupaten Pasaman",
-            "Kabupaten Pasaman Barat",
-            "Kabupaten Pesisir Selatan",
-            "Kabupaten Sijunjung",
-            "Kabupaten Solok",
-            "Kabupaten Solok Selatan",
-            "Kabupaten Tanah Datar",
-            "Kota Bukittinggi",
-            "Kota Padang",
-            "Kota Padangpanjang",
-            "Kota Pariaman",
-            "Kota Payakumbuh",
-            "Kota Sawahlunto",
-            "Kota Solok",
-            "Kabupaten Banyuasin",
-            "Kabupaten Empat Lawang",
-            "Kabupaten Lahat",
-            "Kabupaten Muara Enim",
-            "Kabupaten Musi Banyuasin",
-            "Kabupaten Musi Rawas",
-            "Kabupaten Musi Rawas Utara",
-            "Kabupaten Ogan Ilir",
-            "Kabupaten Ogan Komering Ilir",
-            "Kabupaten Ogan Komering Ulu",
-            "Kabupaten Ogan Komering Ulu Selatan",
-            "Kabupaten Ogan Komering Ulu Timur",
-            "Kabupaten Penukal Abab Lematang Ilir",
-            "Kota Lubuklinggau",
-            "Kota Pagar Alam",
-            "Kota Palembang",
-            "Kota Prabumulih",
-            "Kabupaten Bengkalis",
-            "Kabupaten Indragiri Hilir",
-            "Kabupaten Indragiri Hulu",
-            "Kabupaten Kampar",
-            "Kabupaten Kepulauan Meranti",
-            "Kabupaten Kuantan Singingi",
-            "Kabupaten Pelalawan",
-            "Kabupaten Rokan Hilir",
-            "Kabupaten Rokan Hulu",
-            "Kabupaten Siak",
-            "Kota Dumai",
-            "Kota Pekanbaru",
-            "Kabupaten Bintan",
-            "Kabupaten Karimun",
-            "Kabupaten Kepulauan Anambas",
-            "Kabupaten Lingga",
-            "Kabupaten Natuna",
-            "Kota Batam",
-            "Kota Tanjung Pinang",
-            "Kabupaten Batanghari",
-            "Kabupaten Bungo",
-            "Kabupaten Kerinci",
-            "Kabupaten Merangin",
-            "Kabupaten Muaro Jambi",
-            "Kabupaten Sarolangun",
-            "Kabupaten Tanjung Jabung Barat",
-            "Kabupaten Tanjung Jabung Timur",
-            "Kabupaten Tebo",
-            "Kota Jambi",
-            "Kota Sungai Penuh",
-            "Kabupaten Bengkulu Selatan",
-            "Kabupaten Bengkulu Tengah",
-            "Kabupaten Bengkulu Utara",
-            "Kabupaten Kaur",
-            "Kabupaten Kepahiang",
-            "Kabupaten Lebong",
-            "Kabupaten Mukomuko",
-            "Kabupaten Rejang Lebong",
-            "Kabupaten Seluma",
-            "Kota Bengkulu",
-            "Kabupaten Bangka",
-            "Kabupaten Bangka Barat",
-            "Kabupaten Bangka Selatan",
-            "Kabupaten Bangka Tengah",
-            "Kabupaten Belitung",
-            "Kabupaten Belitung Timur",
-            "Kota Pangkal Pinang",
-            "Kabupaten Lampung Tengah",
-            "Kabupaten Lampung Utara",
-            "Kabupaten Lampung Selatan",
-            "Kabupaten Lampung Barat",
-            "Kabupaten Lampung Timur",
-            "Kabupaten Mesuji",
-            "Kabupaten Pesawaran",
-            "Kabupaten Pesisir Barat",
-            "Kabupaten Pringsewu",
-            "Kabupaten Tulang Bawang",
-            "Kabupaten Tulang Bawang Barat",
-            "Kabupaten Tanggamus",
-            "Kabupaten Way Kanan",
-            "Kota Bandar Lampung",
-            "Kota Metro",
-            "Kabupaten Lebak",
-            "Kabupaten Pandeglang",
-            "Kabupaten Serang",
-            "Kabupaten Tangerang",
-            "Kota Cilegon",
-            "Kota Serang",
-            "Kota Tangerang",
-            "Kota Tangerang Selatan",
-            "Kabupaten Bandung",
-            "Kabupaten Bandung Barat",
-            "Kabupaten Bekasi",
-            "Kabupaten Bogor",
-            "Kabupaten Ciamis",
-            "Kabupaten Cianjur",
-            "Kabupaten Cirebon",
-            "Kabupaten Garut",
-            "Kabupaten Indramayu",
-            "Kabupaten Karawang",
-            "Kabupaten Kuningan",
-            "Kabupaten Majalengka",
-            "Kabupaten Pangandaran",
-            "Kabupaten Purwakarta",
-            "Kabupaten Subang",
-            "Kabupaten Sukabumi",
-            "Kabupaten Sumedang",
-            "Kabupaten Tasikmalaya",
-            "Kota Bandung",
-            "Kota Banjar",
-            "Kota Bekasi",
-            "Kota Bogor",
-            "Kota Cimahi",
-            "Kota Cirebon",
-            "Kota Depok",
-            "Kota Sukabumi",
-            "Kota Tasikmalaya",
-            "Kabupaten Banjarnegara",
-            "Kabupaten Banyumas",
-            "Kabupaten Batang",
-            "Kabupaten Blora",
-            "Kabupaten Boyolali",
-            "Kabupaten Brebes",
-            "Kabupaten Cilacap",
-            "Kabupaten Demak",
-            "Kabupaten Grobogan",
-            "Kabupaten Jepara",
-            "Kabupaten Karanganyar",
-            "Kabupaten Kebumen",
-            "Kabupaten Kendal",
-            "Kabupaten Klaten",
-            "Kabupaten Kudus",
-            "Kabupaten Magelang",
-            "Kabupaten Pati",
-            "Kabupaten Pekalongan",
-            "Kabupaten Pemalang",
-            "Kabupaten Purbalingga",
-            "Kabupaten Purworejo",
-            "Kabupaten Rembang",
-            "Kabupaten Semarang",
-            "Kabupaten Sragen",
-            "Kabupaten Sukoharjo",
-            "Kabupaten Tegal",
-            "Kabupaten Temanggung",
-            "Kabupaten Wonogiri",
-            "Kabupaten Wonosobo",
-            "Kota Magelang",
-            "Kota Pekalongan",
-            "Kota Salatiga",
-            "Kota Semarang",
-            "Kota Surakarta",
-            "Kota Tegal",
-            "Kabupaten Bangkalan",
-            "Kabupaten Banyuwangi",
-            "Kabupaten Blitar",
-            "Kabupaten Bojonegoro",
-            "Kabupaten Bondowoso",
-            "Kabupaten Gresik",
-            "Kabupaten Jember",
-            "Kabupaten Jombang",
-            "Kabupaten Kediri",
-            "Kabupaten Lamongan",
-            "Kabupaten Lumajang",
-            "Kabupaten Madiun",
-            "Kabupaten Magetan",
-            "Kabupaten Malang",
-            "Kabupaten Mojokerto",
-            "Kabupaten Nganjuk",
-            "Kabupaten Ngawi",
-            "Kabupaten Pacitan",
-            "Kabupaten Pamekasan",
-            "Kabupaten Pasuruan",
-            "Kabupaten Ponorogo",
-            "Kabupaten Probolinggo",
-            "Kabupaten Sampang",
-            "Kabupaten Sidoarjo",
-            "Kabupaten Situbondo",
-            "Kabupaten Sumenep",
-            "Kabupaten Trenggalek",
-            "Kabupaten Tuban",
-            "Kabupaten Tulungagung",
-            "Kota Batu",
-            "Kota Blitar",
-            "Kota Kediri",
-            "Kota Madiun",
-            "Kota Malang",
-            "Kota Mojokerto",
-            "Kota Pasuruan",
-            "Kota Probolinggo",
-            "Kota Surabaya",
-            "Kota Administrasi Jakarta Barat",
-            "Kota Administrasi Jakarta Pusat",
-            "Kota Administrasi Jakarta Selatan",
-            "Kota Administrasi Jakarta Timur",
-            "Kota Administrasi Jakarta Utara",
-            "Kabupaten Administrasi Kepulauan Seribu",
-            "Kabupaten Bantul",
-            "Kabupaten Gunungkidul",
-            "Kabupaten Kulon Progo",
-            "Kabupaten Sleman",
-            "Kota Yogyakarta",
-            "Kabupaten Badung",
-            "Kabupaten Bangli",
-            "Kabupaten Buleleng",
-            "Kabupaten Gianyar",
-            "Kabupaten Jembrana",
-            "Kabupaten Karangasem",
-            "Kabupaten Klungkung",
-            "Kabupaten Tabanan",
-            "Kota Denpasar",
-            "Kabupaten Bima",
-            "Kabupaten Dompu",
-            "Kabupaten Lombok Barat",
-            "Kabupaten Lombok Tengah",
-            "Kabupaten Lombok Timur",
-            "Kabupaten Lombok Utara",
-            "Kabupaten Sumbawa",
-            "Kabupaten Sumbawa Barat",
-            "Kota Bima",
-            "Kota Mataram",
-            "Kabupaten Alor",
-            "Kabupaten Belu",
-            "Kabupaten Ende",
-            "Kabupaten Flores Timur",
-            "Kabupaten Kupang",
-            "Kabupaten Lembata",
-            "Kabupaten Malaka",
-            "Kabupaten Manggarai",
-            "Kabupaten Manggarai Barat",
-            "Kabupaten Manggarai Timur",
-            "Kabupaten Ngada",
-            "Kabupaten Nagekeo",
-            "Kabupaten Rote Ndao",
-            "Kabupaten Sabu Raijua",
-            "Kabupaten Sikka",
-            "Kabupaten Sumba Barat",
-            "Kabupaten Sumba Barat Daya",
-            "Kabupaten Sumba Tengah",
-            "Kabupaten Sumba Timur",
-            "Kabupaten Timor Tengah Selatan",
-            "Kabupaten Timor Tengah Utara",
-            "Kota Kupang",
-            "Kabupaten Bengkayang",
-            "Kabupaten Kapuas Hulu",
-            "Kabupaten Kayong Utara",
-            "Kabupaten Ketapang",
-            "Kabupaten Kubu Raya",
-            "Kabupaten Landak",
-            "Kabupaten Melawi",
-            "Kabupaten Mempawah",
-            "Kabupaten Sambas",
-            "Kabupaten Sanggau",
-            "Kabupaten Sekadau",
-            "Kabupaten Sintang",
-            "Kota Pontianak",
-            "Kota Singkawang",
-            "Kabupaten Balangan",
-            "Kabupaten Banjar",
-            "Kabupaten Barito Kuala",
-            "Kabupaten Hulu Sungai Selatan",
-            "Kabupaten Hulu Sungai Tengah",
-            "Kabupaten Hulu Sungai Utara",
-            "Kabupaten Kotabaru",
-            "Kabupaten Tabalong",
-            "Kabupaten Tanah Bumbu",
-            "Kabupaten Tanah Laut",
-            "Kabupaten Tapin",
-            "Kota Banjarbaru",
-            "Kota Banjarmasin",
-            "Kabupaten Barito Selatan",
-            "Kabupaten Barito Timur",
-            "Kabupaten Barito Utara",
-            "Kabupaten Gunung Mas",
-            "Kabupaten Kapuas",
-            "Kabupaten Katingan",
-            "Kabupaten Kotawaringin Barat",
-            "Kabupaten Kotawaringin Timur",
-            "Kabupaten Lamandau",
-            "Kabupaten Murung Raya",
-            "Kabupaten Pulang Pisau",
-            "Kabupaten Sukamara",
-            "Kabupaten Seruyan",
-            "Kota Palangka Raya",
-            "Kabupaten Berau",
-            "Kabupaten Kutai Barat",
-            "Kabupaten Kutai Kartanegara",
-            "Kabupaten Kutai Timur",
-            "Kabupaten Mahakam Ulu",
-            "Kabupaten Paser",
-            "Kabupaten Penajam Paser Utara",
-            "Kota Balikpapan",
-            "Kota Bontang",
-            "Kota Samarinda",
-            "Kabupaten Bulungan",
-            "Kabupaten Malinau",
-            "Kabupaten Nunukan",
-            "Kabupaten Tana Tidung",
-            "Kota Tarakan",
-            "Kabupaten Boalemo",
-            "Kabupaten Bone Bolango",
-            "Kabupaten Gorontalo",
-            "Kabupaten Gorontalo Utara",
-            "Kabupaten Pohuwato",
-            "Kota Gorontalo",
-            "Kabupaten Bantaeng",
-            "Kabupaten Barru",
-            "Kabupaten Bone",
-            "Kabupaten Bulukumba",
-            "Kabupaten Enrekang",
-            "Kabupaten Gowa",
-            "Kabupaten Jeneponto",
-            "Kabupaten Kepulauan Selayar",
-            "Kabupaten Luwu",
-            "Kabupaten Luwu Timur",
-            "Kabupaten Luwu Utara",
-            "Kabupaten Maros",
-            "Kabupaten Pangkajene dan Kepulauan",
-            "Kabupaten Pinrang",
-            "Kabupaten Sidenreng Rappang",
-            "Kabupaten Sinjai",
-            "Kabupaten Soppeng",
-            "Kabupaten Takalar",
-            "Kabupaten Tana Toraja",
-            "Kabupaten Toraja Utara",
-            "Kabupaten Wajo",
-            "Kota Makassar",
-            "Kota Palopo",
-            "Kota Parepare",
-            "Kabupaten Bombana",
-            "Kabupaten Buton",
-            "Kabupaten Buton Selatan",
-            "Kabupaten Buton Tengah",
-            "Kabupaten Buton Utara",
-            "Kabupaten Kolaka",
-            "Kabupaten Kolaka Timur",
-            "Kabupaten Kolaka Utara",
-            "Kabupaten Konawe",
-            "Kabupaten Konawe Kepulauan",
-            "Kabupaten Konawe Selatan",
-            "Kabupaten Konawe Utara",
-            "Kabupaten Muna",
-            "Kabupaten Muna Barat",
-            "Kabupaten Wakatobi",
-            "Kota Bau-Bau",
-            "Kota Kendari",
-            "Kabupaten Banggai",
-            "Kabupaten Banggai Kepulauan",
-            "Kabupaten Banggai Laut",
-            "Kabupaten Buol",
-            "Kabupaten Donggala",
-            "Kabupaten Morowali",
-            "Kabupaten Morowali Utara",
-            "Kabupaten Parigi Moutong",
-            "Kabupaten Poso",
-            "Kabupaten Sigi",
-            "Kabupaten Tojo Una-Una",
-            "Kabupaten Toli-Toli",
-            "Kota Palu",
-            "Kabupaten Bolaang Mongondow",
-            "Kabupaten Bolaang Mongondow Selatan",
-            "Kabupaten Bolaang Mongondow Timur",
-            "Kabupaten Bolaang Mongondow Utara",
-            "Kabupaten Kepulauan Sangihe",
-            "Kabupaten Kepulauan Siau Tagulandang Biaro",
-            "Kabupaten Kepulauan Talaud",
-            "Kabupaten Minahasa",
-            "Kabupaten Minahasa Selatan",
-            "Kabupaten Minahasa Tenggara",
-            "Kabupaten Minahasa Utara",
-            "Kota Bitung",
-            "Kota Kotamobagu",
-            "Kota Manado",
-            "Kota Tomohon",
-            "Kabupaten Majene",
-            "Kabupaten Mamasa",
-            "Kabupaten Mamuju",
-            "Kabupaten Mamuju Tengah",
-            "Kabupaten Mamuju Utara",
-            "Kabupaten Polewali Mandar",
-            "Kota Mamuju",
-            "Kabupaten Buru",
-            "Kabupaten Buru Selatan",
-            "Kabupaten Kepulauan Aru",
-            "Kabupaten Maluku Barat Daya",
-            "Kabupaten Maluku Tengah",
-            "Kabupaten Maluku Tenggara",
-            "Kabupaten Maluku Tenggara Barat",
-            "Kabupaten Seram Bagian Barat",
-            "Kabupaten Seram Bagian Timur",
-            "Kota Ambon",
-            "Kota Tual",
-            "Kabupaten Halmahera Barat",
-            "Kabupaten Halmahera Tengah",
-            "Kabupaten Halmahera Utara",
-            "Kabupaten Halmahera Selatan",
-            "Kabupaten Kepulauan Sula",
-            "Kabupaten Halmahera Timur",
-            "Kabupaten Pulau Morotai",
-            "Kabupaten Pulau Taliabu",
-            "Kota Ternate",
-            "Kota Tidore Kepulauan",
-            "Kabupaten Asmat",
-            "Kabupaten Biak Numfor",
-            "Kabupaten Boven Digoel",
-            "Kabupaten Deiyai",
-            "Kabupaten Dogiyai",
-            "Kabupaten Intan Jaya",
-            "Kabupaten Jayapura",
-            "Kabupaten Jayawijaya",
-            "Kabupaten Keerom",
-            "Kabupaten Kepulauan Yapen",
-            "Kabupaten Lanny Jaya",
-            "Kabupaten Mamberamo Raya",
-            "Kabupaten Mamberamo Tengah",
-            "Kabupaten Mappi",
-            "Kabupaten Merauke",
-            "Kabupaten Mimika",
-            "Kabupaten Nabire",
-            "Kabupaten Nduga",
-            "Kabupaten Paniai",
-            "Kabupaten Pegunungan Bintang",
-            "Kabupaten Puncak",
-            "Kabupaten Puncak Jaya",
-            "Kabupaten Sarmi",
-            "Kabupaten Supiori",
-            "Kabupaten Tolikara",
-            "Kabupaten Waropen",
-            "Kabupaten Yahukimo",
-            "Kabupaten Yalimo",
-            "Kota Jayapura",
-            "Kabupaten Fakfak",
-            "Kabupaten Kaimana",
-            "Kabupaten Manokwari",
-            "Kabupaten Manokwari Selatan",
-            "Kabupaten Maybrat",
-            "Kabupaten Pegunungan Arfak",
-            "Kabupaten Raja Ampat",
-            "Kabupaten Sorong",
-            "Kabupaten Sorong Selatan",
-            "Kabupaten Tambrauw",
-            "Kabupaten Teluk Bintuni",
-            "Kabupaten Teluk Wondama"});
-            this.cBox_City.Location = new System.Drawing.Point(155, 160);
-            this.cBox_City.Name = "cBox_City";
-            this.cBox_City.Size = new System.Drawing.Size(242, 25);
-            this.cBox_City.TabIndex = 197;
             // 
             // label6
             // 
@@ -683,11 +159,14 @@ namespace ALP_BeautyProductShopApp
             // 
             // dTP_memberjoin
             // 
+            this.dTP_memberjoin.CustomFormat = " ";
             this.dTP_memberjoin.Font = new System.Drawing.Font("Century Gothic", 7.8F);
             this.dTP_memberjoin.Location = new System.Drawing.Point(661, 68);
             this.dTP_memberjoin.Name = "dTP_memberjoin";
             this.dTP_memberjoin.Size = new System.Drawing.Size(211, 23);
             this.dTP_memberjoin.TabIndex = 189;
+            this.dTP_memberjoin.ValueChanged += new System.EventHandler(this.dTP_memberjoin_ValueChanged);
+            this.dTP_memberjoin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dTP_memberjoin_KeyDown);
             // 
             // btn_Delete
             // 
@@ -724,14 +203,6 @@ namespace ALP_BeautyProductShopApp
             this.btn_Save.Text = "Save";
             this.btn_Save.UseVisualStyleBackColor = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
-            // tBox_memberID
-            // 
-            this.tBox_memberID.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.tBox_memberID.Location = new System.Drawing.Point(403, 68);
-            this.tBox_memberID.Name = "tBox_memberID";
-            this.tBox_memberID.Size = new System.Drawing.Size(89, 23);
-            this.tBox_memberID.TabIndex = 185;
             // 
             // tBox_CustID
             // 
@@ -874,17 +345,35 @@ namespace ALP_BeautyProductShopApp
             this.btn_refresh.UseVisualStyleBackColor = false;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
+            // tBox_City
+            // 
+            this.tBox_City.Font = new System.Drawing.Font("Century Gothic", 7.8F);
+            this.tBox_City.Location = new System.Drawing.Point(155, 157);
+            this.tBox_City.Name = "tBox_City";
+            this.tBox_City.Size = new System.Drawing.Size(242, 23);
+            this.tBox_City.TabIndex = 202;
+            // 
+            // cBox_MemberID
+            // 
+            this.cBox_MemberID.FormattingEnabled = true;
+            this.cBox_MemberID.Location = new System.Drawing.Point(407, 68);
+            this.cBox_MemberID.Name = "cBox_MemberID";
+            this.cBox_MemberID.Size = new System.Drawing.Size(89, 24);
+            this.cBox_MemberID.TabIndex = 203;
+            this.cBox_MemberID.SelectedIndexChanged += new System.EventHandler(this.cBox_MemberID_SelectedIndexChanged);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(900, 600);
+            this.Controls.Add(this.cBox_MemberID);
+            this.Controls.Add(this.tBox_City);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.cBox_City);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_View);
             this.Controls.Add(this.dTP_dob);
@@ -896,7 +385,6 @@ namespace ALP_BeautyProductShopApp
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.tBox_memberID);
             this.Controls.Add(this.tBox_CustID);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -925,7 +413,6 @@ namespace ALP_BeautyProductShopApp
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox tBox_Search;
         private System.Windows.Forms.DataGridView dgv_Customer;
-        private System.Windows.Forms.ComboBox cBox_City;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_View;
         private System.Windows.Forms.DateTimePicker dTP_dob;
@@ -936,7 +423,6 @@ namespace ALP_BeautyProductShopApp
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.TextBox tBox_memberID;
         private System.Windows.Forms.TextBox tBox_CustID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -951,5 +437,7 @@ namespace ALP_BeautyProductShopApp
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.TextBox tBox_City;
+        private System.Windows.Forms.ComboBox cBox_MemberID;
     }
 }
