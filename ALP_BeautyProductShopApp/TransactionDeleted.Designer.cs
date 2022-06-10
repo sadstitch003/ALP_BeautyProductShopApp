@@ -133,6 +133,7 @@
             this.dgvDeletedData.Name = "dgvDeletedData";
             this.dgvDeletedData.RowHeadersWidth = 51;
             this.dgvDeletedData.RowTemplate.Height = 24;
+            this.dgvDeletedData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDeletedData.Size = new System.Drawing.Size(726, 284);
             this.dgvDeletedData.TabIndex = 50;
             this.dgvDeletedData.SelectionChanged += new System.EventHandler(this.dgvDeletedData_SelectionChanged);
