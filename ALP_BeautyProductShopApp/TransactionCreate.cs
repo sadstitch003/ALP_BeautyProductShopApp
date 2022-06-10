@@ -65,6 +65,18 @@ namespace ALP_BeautyProductShopApp
             dtTransProduct.Columns.Add("qty_trans");
             dtTransProduct.Columns.Add("price_trans");
             dtTransProduct.Columns.Add("price_total");
+
+            sqlQuery = "select prod_id from product where status_del = '0' order by 1;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtProductList);
+            
+            sqlQuery = "select prod_name from product where status_del = '0' order by 1;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtProductList);
+
+            
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -124,6 +136,7 @@ namespace ALP_BeautyProductShopApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            dtProductList = new DataTable();
             sqlQuery = $"select * from product where status_del = '0' and prod_id = '{tbProductID.Text.ToUpper()}';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
@@ -158,6 +171,16 @@ namespace ALP_BeautyProductShopApp
                 selectedrowindex = dgvProductTrans.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvProductTrans.Rows[selectedrowindex];
                 cellValue = Convert.ToString(selectedRow.Cells["prod_id"].Value);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvProductTrans.Rows.Count > 0)
+            {
+                dgvProductTrans.Rows.RemoveAt(selectedrowindex);
+                dtProductList.Rows.RemoveAt(selectedrowindex);
+                MessageBox.Show("Data deleted !");
             }
         }
     }
