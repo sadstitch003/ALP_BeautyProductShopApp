@@ -30,8 +30,8 @@ namespace ALP_BeautyProductShopApp
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        DataTable dtCustList = new DataTable();
         string transactionNum;
+        DataTable dtCustList = new DataTable();
 
         DataTable dtProductList = new DataTable();
         DataTable dtTransProduct = new DataTable();
@@ -66,17 +66,17 @@ namespace ALP_BeautyProductShopApp
             dtTransProduct.Columns.Add("price_trans");
             dtTransProduct.Columns.Add("price_total");
 
-            sqlQuery = "select prod_id from product where status_del = '0' order by 1;";
+            sqlQuery = "select prod_id from product where status_del = '0' union select prod_name from product where status_del = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtProductList);
-            
-            sqlQuery = "select prod_name from product where status_del = '0' order by 1;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtProductList);
 
-            
+            sqlConnect.Open();
+            MySqlDataReader sdr = sqlCommand.ExecuteReader();
+            AutoCompleteStringCollection autotext = new AutoCompleteStringCollection();
+            while (sdr.Read()) autotext.Add(sdr.GetString(0));
+            tbProductID.AutoCompleteMode = AutoCompleteMode.Suggest;
+            tbProductID.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tbProductID.AutoCompleteCustomSource = autotext;
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -93,6 +93,13 @@ namespace ALP_BeautyProductShopApp
             }
         }
 
+        void calculateTotal()
+        {
+            tbDiscountAmount.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) * Convert.ToInt32(tbDiscountPercentage.Text) / 100);
+            tbTaxAmount.Text = Convert.ToString((Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text)) * Convert.ToInt32(tbTaxPercentage.Text) / 100);
+            tbNetTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text) + Convert.ToInt32(tbTaxAmount.Text));
+        }
+
         private void cbCustID_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "SIL")
@@ -106,13 +113,6 @@ namespace ALP_BeautyProductShopApp
             calculateTotal();
         }
 
-        void calculateTotal()
-        {
-            tbDiscountAmount.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) * Convert.ToInt32(tbDiscountPercentage.Text) / 100);
-            tbTaxAmount.Text = Convert.ToString((Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text)) * Convert.ToInt32(tbTaxPercentage.Text) / 100);
-            tbNetTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text) + Convert.ToInt32(tbTaxAmount.Text));
-        }
-
         private void dtpTransDate_ValueChanged(object sender, EventArgs e)
         {
             tbTransID.Text = dtpTransDate.Value.ToString("yyyyMMdd") + "-T" + transactionNum;
@@ -121,17 +121,6 @@ namespace ALP_BeautyProductShopApp
         private void tbTotal_TextChanged(object sender, EventArgs e)
         {
             calculateTotal();
-        }
-
-        private void btnCreate_click(object sender, EventArgs e)
-        {
-            if (tbTotal.Text == "0")
-            {
-                MessageBox.Show("Transaksi Kosong !");
-            }
-
-
-            // Kurangin jumlah
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -184,9 +173,15 @@ namespace ALP_BeautyProductShopApp
             }
         }
 
-        private void TransactionCreate_Load(object sender, EventArgs e)
+        private void btnCreate_click(object sender, EventArgs e)
         {
+            if (tbTotal.Text == "0")
+            {
+                MessageBox.Show("Transaksi Kosong !");
+            }
 
+
+            // Kurangin jumlah
         }
     }
 }
