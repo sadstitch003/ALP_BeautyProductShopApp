@@ -13,16 +13,24 @@ namespace ALP_BeautyProductShopApp
 {
     public partial class Customer : Form
     {
-        public Customer()
-        {
-            InitializeComponent();
-        }
         MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
         DataTable dtCustomer = new DataTable();
         DataTable dtMembership = new DataTable();
+        public Customer()
+        {
+            InitializeComponent();
+            sqlQuery = "select distinct membership_id from membership;";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlAdapter.Fill(dtMembership);
+            dtMembership.Rows.Add(new Object[] { "-" });
+            cBox_MemberID.DataSource = dtMembership;
+            cBox_MemberID.DisplayMember = "membership_id";
+            cBox_MemberID.ValueMember = "membership_id";
+        }
        
         public static string customerid;
         private void btnViewTrans_Click(object sender, EventArgs e)
@@ -42,23 +50,15 @@ namespace ALP_BeautyProductShopApp
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtCustomer);
             dgv_Customer.DataSource = dtCustomer;
-
-            sqlQuery = "select distinct membership_id from membership;";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtMembership);
-            cBox_MemberID.DataSource = dtMembership;
-            cBox_MemberID.DisplayMember = "membership_id";
-            cBox_MemberID.ValueMember = "membership_id";
             customerid = dtCustomer.Rows[0][0].ToString();
             dTP_memberjoin.Enabled = false;
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            if(cBox_MemberID.Text == null)
+            if(cBox_MemberID.Text == "" || cBox_MemberID.Text == "-")
             {
-                sqlQuery = "update customer set membership_id = '',cust_name = '" + tBox_CustName.Text + "', cust_address = '" + tBox_Address.Text + "', cust_city = '" + tBox_City.Text + "', cust_phone = '" + tBox_Phone.Text + "', cust_email = '" + tBox_Email.Text + "'where cust_id = '" + tBox_CustID.Text + "'; ";
+                sqlQuery = "update customer set membership_id = '',cust_name = '" + tBox_CustName.Text + "', cust_address = '" + tBox_Address.Text + "', cust_city = '" + tBox_City.Text + "', cust_phone = '" + tBox_Phone.Text + "', cust_email = '" + tBox_Email.Text + "',  membership_id = null, membership_joindate = null where cust_id = '" + tBox_CustID.Text + "'; ";
                 sqlConnect.Open();
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
@@ -93,9 +93,9 @@ namespace ALP_BeautyProductShopApp
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (cBox_MemberID.Text == null)
+            if (cBox_MemberID.Text == "" || cBox_MemberID.Text == "-")
             {
-                sqlQuery = "insert into customer values ('" + tBox_CustID.Text + "','','','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+                sqlQuery = "insert into customer(cust_id, cust_name, cust_address, cust_city, cust_phone, cust_email, cust_dob, status_del) values ('" + tBox_CustID.Text + "','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
                 sqlConnect.Open();
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
@@ -121,15 +121,13 @@ namespace ALP_BeautyProductShopApp
             {
                 tBox_CustID.Text = dgv_Customer.CurrentRow.Cells[0].Value.ToString();
                 cBox_MemberID.Text = dgv_Customer.CurrentRow.Cells[1].Value.ToString();
-                if (dgv_Customer.CurrentRow.Cells[2].Value == null || dgv_Customer.CurrentRow.Cells[2].Value == DBNull.Value)
+                if (cBox_MemberID.Text == "" || cBox_MemberID.Text == "-")
                 {
-                    dTP_memberjoin.CustomFormat = " ";
-                    dTP_memberjoin.Format = DateTimePickerFormat.Custom;
+                    dTP_memberjoin.Enabled = false;
                 }
                 else
                 {
-                    dTP_memberjoin.Format = DateTimePickerFormat.Long;
-                    dTP_memberjoin.Value = Convert.ToDateTime(dgv_Customer.CurrentRow.Cells[2].Value);
+                    dTP_memberjoin.Enabled = true;
 
                 }
 
@@ -189,11 +187,6 @@ namespace ALP_BeautyProductShopApp
             customerid = dtCustomer.Rows[0][0].ToString();
         }
 
-        private void dTP_memberjoin_ValueChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void dTP_memberjoin_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Back) || (e.KeyCode == Keys.Delete))
@@ -209,7 +202,7 @@ namespace ALP_BeautyProductShopApp
 
         private void cBox_MemberID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBox_MemberID.Text == "")
+            if (cBox_MemberID.Text == "" || cBox_MemberID.Text == "-")
             {
                 dTP_memberjoin.Enabled = false;
             }
