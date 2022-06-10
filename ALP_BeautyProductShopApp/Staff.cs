@@ -24,6 +24,7 @@ namespace ALP_BeautyProductShopApp
         string sqlQuery;
         DataTable dtStaff = new DataTable();
         DataTable dtPosition = new DataTable();
+        
 
         public static string staffid;
         private void Staff_Load(object sender, EventArgs e)
@@ -98,13 +99,26 @@ namespace ALP_BeautyProductShopApp
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            sqlQuery = "insert into staff values ('" + tBox_StaffID.Text + "','" + tBox_StaffName.Text + "','"+tBox_Password.Text+"','"+ cBox_Position.Text + "','"+ tBox_Phone.Text + "','"+ dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+            dtPosition = new DataTable();
+            for (int item = 0; item < dgv_Staff.Rows.Count; item++)
+            {
+                if (tBox_StaffID.Text == dgv_Staff.Rows[item].Cells[0].Value.ToString())
+                {
+                    MessageBox.Show("data sudah ada");
+                    return;
+                }
+
+            }
+
+            sqlQuery = "insert into staff values ('" + tBox_StaffID.Text + "','" + tBox_StaffName.Text + "','" + tBox_Password.Text + "','" + cBox_Position.Text + "','" + tBox_Phone.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
             sqlConnect.Open();
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
+                sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
             MessageBox.Show("Data telah tersimpan");
-            Staff_Load(sender, e);
+                Staff_Load(sender, e);
+            
+            
         }
 
         private void dgv_Staff_CellClick(object sender, DataGridViewCellEventArgs e)

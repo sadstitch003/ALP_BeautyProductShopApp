@@ -44,6 +44,8 @@ namespace ALP_BeautyProductShopApp
             this.BtnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_Total = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Transaction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@ namespace ALP_BeautyProductShopApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_Transaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Transaction.Location = new System.Drawing.Point(15, 262);
+            this.dgv_Transaction.Location = new System.Drawing.Point(15, 228);
             this.dgv_Transaction.Name = "dgv_Transaction";
             this.dgv_Transaction.RowHeadersWidth = 51;
             this.dgv_Transaction.RowTemplate.Height = 24;
@@ -201,12 +203,38 @@ namespace ALP_BeautyProductShopApp
             this.lblTitle.TabIndex = 107;
             this.lblTitle.Text = "Transaction History";
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 7.8F);
+            this.label3.Location = new System.Drawing.Point(519, 638);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 19);
+            this.label3.TabIndex = 109;
+            this.label3.Text = "Total: ";
+            // 
+            // lbl_Total
+            // 
+            this.lbl_Total.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Total.AutoSize = true;
+            this.lbl_Total.Font = new System.Drawing.Font("Century Gothic", 7.8F);
+            this.lbl_Total.Location = new System.Drawing.Point(600, 638);
+            this.lbl_Total.Name = "lbl_Total";
+            this.lbl_Total.Size = new System.Drawing.Size(14, 19);
+            this.lbl_Total.TabIndex = 110;
+            this.lbl_Total.Text = "-";
+            // 
             // TransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(864, 675);
+            this.Controls.Add(this.lbl_Total);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.BtnExit);
@@ -247,5 +275,7 @@ namespace ALP_BeautyProductShopApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_Total;
     }
 }

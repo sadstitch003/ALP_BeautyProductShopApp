@@ -33,7 +33,6 @@ namespace ALP_BeautyProductShopApp
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlCommand.ExecuteNonQuery();
             sqlConnect.Close();
-
             MessageBox.Show("Data telah terupdate");
             Product_Load(sender, e);
         }
@@ -56,20 +55,23 @@ namespace ALP_BeautyProductShopApp
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtProduct);
+
             sqlQuery = "select * from category where status_del ='0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtCategory);
+
             sqlQuery = "select * from supplier where status_del ='0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtSupplier);
+
             cBox_CategoryID.DataSource = dtCategory;
             cBox_CategoryID.DisplayMember = "category_id";
             cBox_CategoryID.ValueMember = "category_id";
+
             cBox_SupplierID.DataSource = dtSupplier;
             cBox_SupplierID.DisplayMember = "supplier_id";
-            
             dgv_Product.DataSource = dtProduct;
            
         }
@@ -88,15 +90,28 @@ namespace ALP_BeautyProductShopApp
         }
         private void btn_Save_Click(object sender, EventArgs e)
         {
+
             dtCategory = new DataTable();
             dtSupplier = new DataTable();
-            sqlQuery = "insert into product values ('" + tBox_ProdID.Text + "','" + cBox_CategoryID.Text + "','" + cBox_SupplierID.Text + "','" + tBox_ProdName.Text + "','" + tBox_Stock.Text + "','" + tBox_Price.Text + "'," + dTP_Input.Value.ToString("yyyyMMdd") + "," + dTP_Expire.Value.ToString("yyyyMMdd") + ",'0');";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            MessageBox.Show("Data telah tersimpan");
-            Product_Load(sender, e);
+           
+            for (int item = 0; item < dgv_Product.Rows.Count; item++)
+            {
+                if (tBox_ProdID.Text == dgv_Product.Rows[item].Cells[0].Value.ToString())
+                {
+                    MessageBox.Show("data sudah ada");
+                    return;
+                }
+
+            }
+                sqlQuery = "insert into product values ('" + tBox_ProdID.Text + "','" + cBox_CategoryID.Text + "','" + cBox_SupplierID.Text + "','" + tBox_ProdName.Text + "','" + tBox_Stock.Text + "','" + tBox_Price.Text + "'," + dTP_Input.Value.ToString("yyyyMMdd") + "," + dTP_Expire.Value.ToString("yyyyMMdd") + ",'0');";
+                sqlConnect.Open();
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnect.Close();
+                MessageBox.Show("Data telah tersimpan");
+                Product_Load(sender, e);
+            
+            
         }
 
         private void btn_clear_Click(object sender, EventArgs e)

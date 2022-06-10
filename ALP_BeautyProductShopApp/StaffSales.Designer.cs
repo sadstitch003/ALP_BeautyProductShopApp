@@ -42,6 +42,8 @@ namespace ALP_BeautyProductShopApp
             this.BtnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lbl_Total = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_StaffSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,15 +52,14 @@ namespace ALP_BeautyProductShopApp
             this.dgv_StaffSales.AllowUserToAddRows = false;
             this.dgv_StaffSales.AllowUserToDeleteRows = false;
             this.dgv_StaffSales.AllowUserToResizeRows = false;
-            this.dgv_StaffSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgv_StaffSales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_StaffSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_StaffSales.Location = new System.Drawing.Point(12, 223);
             this.dgv_StaffSales.Name = "dgv_StaffSales";
             this.dgv_StaffSales.RowHeadersWidth = 51;
             this.dgv_StaffSales.RowTemplate.Height = 24;
-            this.dgv_StaffSales.Size = new System.Drawing.Size(840, 440);
+            this.dgv_StaffSales.Size = new System.Drawing.Size(840, 379);
             this.dgv_StaffSales.TabIndex = 117;
             this.dgv_StaffSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_StaffSales_CellContentClick);
             // 
@@ -181,12 +182,38 @@ namespace ALP_BeautyProductShopApp
             this.lblTitle.TabIndex = 119;
             this.lblTitle.Text = "Staff Sales History";
             // 
+            // lbl_Total
+            // 
+            this.lbl_Total.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Total.AutoSize = true;
+            this.lbl_Total.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Total.Location = new System.Drawing.Point(651, 621);
+            this.lbl_Total.Name = "lbl_Total";
+            this.lbl_Total.Size = new System.Drawing.Size(24, 34);
+            this.lbl_Total.TabIndex = 122;
+            this.lbl_Total.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(541, 621);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 34);
+            this.label3.TabIndex = 121;
+            this.label3.Text = "Total: ";
+            // 
             // StaffSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(864, 675);
+            this.Controls.Add(this.lbl_Total);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.BtnExit);
@@ -222,5 +249,7 @@ namespace ALP_BeautyProductShopApp
         private System.Windows.Forms.Label lbl_staffID;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lbl_Total;
+        private System.Windows.Forms.Label label3;
     }
 }
