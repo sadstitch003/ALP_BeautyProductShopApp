@@ -80,6 +80,7 @@
             // 
             this.btnOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrder.Enabled = false;
             this.btnOrder.FlatAppearance.BorderSize = 0;
             this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrder.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +102,7 @@
             // 
             this.btnTransaction.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTransaction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTransaction.Enabled = false;
             this.btnTransaction.FlatAppearance.BorderSize = 0;
             this.btnTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransaction.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,6 +124,7 @@
             // 
             this.btnCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCustomer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomer.Enabled = false;
             this.btnCustomer.FlatAppearance.BorderSize = 0;
             this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomer.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,6 +146,7 @@
             // 
             this.btnStaff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStaff.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStaff.Enabled = false;
             this.btnStaff.FlatAppearance.BorderSize = 0;
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStaff.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,6 +168,7 @@
             // 
             this.btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProduct.Enabled = false;
             this.btnProduct.FlatAppearance.BorderSize = 0;
             this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduct.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,7 +261,6 @@
             this.pnlBorder.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.pnlBorder.Size = new System.Drawing.Size(1000, 35);
             this.pnlBorder.TabIndex = 20;
-            this.pnlBorder.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBorder_Paint);
             this.pnlBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove);
             // 
             // btnMinimize
@@ -368,7 +372,6 @@
             this.pnlNavProd.Name = "pnlNavProd";
             this.pnlNavProd.Size = new System.Drawing.Size(7, 48);
             this.pnlNavProd.TabIndex = 27;
-            this.pnlNavProd.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNavProd_Paint);
             // 
             // pnlNavStaff
             // 
@@ -427,7 +430,6 @@
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMainMenu";
-            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.pnlMenuBar.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlUser.PerformLayout();

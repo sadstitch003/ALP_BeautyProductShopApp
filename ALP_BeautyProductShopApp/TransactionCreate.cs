@@ -81,7 +81,7 @@ namespace ALP_BeautyProductShopApp
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); 
         }
 
         private void pnlBorder_MouseMove(object sender, MouseEventArgs e)
@@ -95,22 +95,36 @@ namespace ALP_BeautyProductShopApp
 
         void calculateTotal()
         {
-            tbDiscountAmount.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) * Convert.ToInt32(tbDiscountPercentage.Text) / 100);
-            tbTaxAmount.Text = Convert.ToString((Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text)) * Convert.ToInt32(tbTaxPercentage.Text) / 100);
-            tbNetTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text) + Convert.ToInt32(tbTaxAmount.Text));
+            try
+            {
+                tbDiscountAmount.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) * Convert.ToInt32(tbDiscountPercentage.Text) / 100);
+                tbTaxAmount.Text = Convert.ToString((Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text)) * Convert.ToInt32(tbTaxPercentage.Text) / 100);
+                tbNetTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) - Convert.ToInt32(tbDiscountAmount.Text) + Convert.ToInt32(tbTaxAmount.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error !");
+            }
         }
 
         private void cbCustID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "SIL")
-                tbDiscountPercentage.Text = "5";
-            else if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "GLD")
-                tbDiscountPercentage.Text = "10";
-            else if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "DIA")
-                tbDiscountPercentage.Text = "15";
-            else tbDiscountPercentage.Text = "0";
+            try
+            {
+                if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "SIL")
+                    tbDiscountPercentage.Text = "5";
+                else if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "GLD")
+                    tbDiscountPercentage.Text = "10";
+                else if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "DIA")
+                    tbDiscountPercentage.Text = "15";
+                else tbDiscountPercentage.Text = "0";
 
-            calculateTotal();
+                calculateTotal();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error !");
+            }
         }
 
         private void dtpTransDate_ValueChanged(object sender, EventArgs e)
@@ -125,86 +139,114 @@ namespace ALP_BeautyProductShopApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            dtProductList = new DataTable();
-            sqlQuery = $"select * from product where status_del = '0' and prod_id = '{tbProductID.Text.ToUpper()}' or prod_name = '{tbProductID.Text.ToUpper()}';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtProductList);
-            if (tbProductID.Text == "" | dtProductList.Rows.Count < 1)
+            try
             {
-                MessageBox.Show("Product not found !");
-            }
-            else if (nudProdQty.Value > Convert.ToInt16(dtProductList.Rows[0]["prod_stock"]))
-            {
-                MessageBox.Show("Not enough stock !");
-            }
-            else
-            {
-                dtTransProduct.Rows.Add(new Object[]{
-                    dtProductList.Rows[0]["prod_id"],
-                    dtProductList.Rows[0]["prod_name"],
-                    nudProdQty.Value,
-                    dtProductList.Rows[0]["prod_price"],
-                    (Convert.ToInt32(dtProductList.Rows[0]["prod_price"]) * nudProdQty.Value)
-                });
+                dtProductList = new DataTable();
+                sqlQuery = $"select * from product where status_del = '0' and prod_id = '{tbProductID.Text.ToUpper()}' or prod_name = '{tbProductID.Text.ToUpper()}';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtProductList);
 
-                dgvProductTrans.DataSource = dtTransProduct;
+                if (tbProductID.Text == "" | dtProductList.Rows.Count < 1)
+                {
+                    MessageBox.Show("Product not found !");
+                }
+                else if (nudProdQty.Value > Convert.ToInt16(dtProductList.Rows[0]["prod_stock"]))
+                {
+                    MessageBox.Show("Not enough stock !");
+                }
+                else
+                {
+                    dtTransProduct.Rows.Add(new Object[]{
+                        dtProductList.Rows[0]["prod_id"],
+                        dtProductList.Rows[0]["prod_name"],
+                        nudProdQty.Value,
+                        dtProductList.Rows[0]["prod_price"],
+                        (Convert.ToInt32(dtProductList.Rows[0]["prod_price"]) * nudProdQty.Value)
+                    });
 
-                tbTotal.Text = "0";
-                for (int i = 0; i < dtTransProduct.Rows.Count; i++)
-                    tbTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) + Convert.ToInt32(dtTransProduct.Rows[i]["price_total"]));
+                    dgvProductTrans.DataSource = dtTransProduct;
+
+                    tbTotal.Text = "0";
+                    for (int i = 0; i < dtTransProduct.Rows.Count; i++)
+                        tbTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) + Convert.ToInt32(dtTransProduct.Rows[i]["price_total"]));
+                }
+                nudProdQty.Value = 1;
+                tbProductID.Text = "";
             }
-            nudProdQty.Value = 1;
-            tbProductID.Text = "";
-        }
+            catch (Exception)
+            {
+                MessageBox.Show("Error !");
+            }
+}
 
         private void dgvProductTrans_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvProductTrans.SelectedCells.Count > 0)
+            try
             {
-                selectedrowindex = dgvProductTrans.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dgvProductTrans.Rows[selectedrowindex];
-                cellValue = Convert.ToString(selectedRow.Cells["prod_id"].Value);
+                if (dgvProductTrans.SelectedCells.Count > 0)
+                {
+                    selectedrowindex = dgvProductTrans.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dgvProductTrans.Rows[selectedrowindex];
+                    cellValue = Convert.ToString(selectedRow.Cells["prod_id"].Value);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error !");
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvProductTrans.Rows.Count > 0)
+            try
             {
-                dgvProductTrans.Rows.RemoveAt(selectedrowindex);
-                dtProductList.Rows.RemoveAt(selectedrowindex);
-                MessageBox.Show("Data deleted !");
+                if (dgvProductTrans.Rows.Count > 0)
+                {
+                    dgvProductTrans.Rows.RemoveAt(selectedrowindex);
+                    dtProductList.Rows.RemoveAt(selectedrowindex);
+                    MessageBox.Show("Data deleted !");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error !");
             }
         }
 
         private void btnCreate_click(object sender, EventArgs e)
         {
-            if (tbTotal.Text == "0")
+            try
             {
-                MessageBox.Show("Transaksi Kosong !");
-            }
-            else
-            {
-                sqlConnect.Open();
-                sqlQuery = $"insert into transaction(trans_id, staff_id, cust_id, trans_date, tax, discount, trans_total, net_total) values ('{tbTransID.Text}', '{tbStaffID.Text}', '{cbCustID.SelectedValue}', '{dtpTransDate.Value.ToString("yyyy-MM-dd")}', '{tbTaxPercentage.Text}', '{tbDiscountPercentage.Text}', '{tbTotal.Text}', '{tbNetTotal.Text}');";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-
-                for (int i = 0; i < dtTransProduct.Rows.Count; i++)
+                if (tbTotal.Text == "0") MessageBox.Show("Transaksi Kosong !");
+                else
                 {
-                    sqlQuery = $"insert into transaction_product (trans_id, prod_id, qty_trans, price_trans) values ('{tbTransID.Text}', '{dtTransProduct.Rows[i]["prod_id"].ToString()}', '{dtTransProduct.Rows[i]["qty_trans"].ToString()}', '{dtTransProduct.Rows[i]["price_trans"].ToString()}');";
+                    sqlConnect.Open();
+                    sqlQuery = $"insert into transaction(trans_id, staff_id, cust_id, trans_date, tax, discount, trans_total, net_total) values ('{tbTransID.Text}', '{tbStaffID.Text}', '{cbCustID.SelectedValue}', '{dtpTransDate.Value.ToString("yyyy-MM-dd")}', '{tbTaxPercentage.Text}', '{tbDiscountPercentage.Text}', '{tbTotal.Text}', '{tbNetTotal.Text}');";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlCommand.ExecuteNonQuery();
 
-                    sqlQuery = $"UPDATE product SET prod_stock = prod_stock - {dtTransProduct.Rows[i]["qty_trans"].ToString()} WHERE prod_id = '{dtTransProduct.Rows[i]["prod_id"].ToString()}';";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlCommand.ExecuteNonQuery();
+                    for (int i = 0; i < dtTransProduct.Rows.Count; i++)
+                    {
+                        sqlQuery = $"insert into transaction_product (trans_id, prod_id, qty_trans, price_trans) values ('{tbTransID.Text}', '{dtTransProduct.Rows[i]["prod_id"].ToString()}', '{dtTransProduct.Rows[i]["qty_trans"].ToString()}', '{dtTransProduct.Rows[i]["price_trans"].ToString()}');";
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlCommand.ExecuteNonQuery();
+
+                        sqlQuery = $"UPDATE product SET prod_stock = prod_stock - {dtTransProduct.Rows[i]["qty_trans"].ToString()} WHERE prod_id = '{dtTransProduct.Rows[i]["prod_id"].ToString()}';";
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                    sqlConnect.Close();
+                    MessageBox.Show("Transaction created !");
+                    this.Close();
+
                 }
-                sqlConnect.Close();
-                MessageBox.Show("Transaction created !");
-                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error !");
             }
         }
     }
 }
+
