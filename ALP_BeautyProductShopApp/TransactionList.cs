@@ -58,7 +58,8 @@ namespace ALP_BeautyProductShopApp
         private void btnNewTrans_Click(object sender, EventArgs e)
         {
             TransactionCreate form = new TransactionCreate(staffID);
-            form.Show();
+            form.ShowDialog();
+            updateTable();
         }
 
         private void btnDetails_Click(object sender, EventArgs e)

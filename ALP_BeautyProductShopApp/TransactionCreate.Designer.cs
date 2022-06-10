@@ -437,13 +437,18 @@
             // 
             this.nudProdQty.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudProdQty.Location = new System.Drawing.Point(408, 287);
+            this.nudProdQty.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudProdQty.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudProdQty.Name = "nudProdQty";
-            this.nudProdQty.Size = new System.Drawing.Size(49, 28);
+            this.nudProdQty.Size = new System.Drawing.Size(90, 28);
             this.nudProdQty.TabIndex = 78;
             this.nudProdQty.Value = new decimal(new int[] {
             1,

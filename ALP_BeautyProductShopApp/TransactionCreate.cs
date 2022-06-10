@@ -41,9 +41,9 @@ namespace ALP_BeautyProductShopApp
             InitializeComponent();
 
             sqlConnect.Open();
-            sqlQuery = $"SELECT LPAD(COUNT(trans_id), 2, '0') FROM transaction;";
+            sqlQuery = $"SELECT LPAD(COUNT(trans_id) + 1, 2, '0') FROM transaction;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            transactionNum = Convert.ToString(Convert.ToInt32(sqlCommand.ExecuteScalar()) + 1);
+            transactionNum = Convert.ToString(sqlCommand.ExecuteScalar());
             sqlConnect.Close();
 
             tbTransID.Text = dtpTransDate.Value.ToString("yyyyMMdd") + "-T" + transactionNum;
@@ -68,7 +68,6 @@ namespace ALP_BeautyProductShopApp
 
             sqlQuery = "select prod_id from product where status_del = '0' union select prod_name from product where status_del = '0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
 
             sqlConnect.Open();
             MySqlDataReader sdr = sqlCommand.ExecuteReader();
@@ -127,12 +126,15 @@ namespace ALP_BeautyProductShopApp
         private void btnAdd_Click(object sender, EventArgs e)
         {
             dtProductList = new DataTable();
-            sqlQuery = $"select * from product where status_del = '0' and prod_id = '{tbProductID.Text.ToUpper()}';";
+            sqlQuery = $"select * from product where status_del = '0' and prod_id = '{tbProductID.Text.ToUpper()}' or prod_name = '{tbProductID.Text.ToUpper()}';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtProductList);
-
-            if (nudProdQty.Value > Convert.ToInt16(dtProductList.Rows[0]["prod_stock"]))
+            if (tbProductID.Text == "" | dtProductList.Rows.Count < 1)
+            {
+                MessageBox.Show("Product not found !");
+            }
+            else if (nudProdQty.Value > Convert.ToInt16(dtProductList.Rows[0]["prod_stock"]))
             {
                 MessageBox.Show("Not enough stock !");
             }
@@ -152,6 +154,8 @@ namespace ALP_BeautyProductShopApp
                 for (int i = 0; i < dtTransProduct.Rows.Count; i++)
                     tbTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) + Convert.ToInt32(dtTransProduct.Rows[i]["price_total"]));
             }
+            nudProdQty.Value = 1;
+            tbProductID.Text = "";
         }
 
         private void dgvProductTrans_SelectionChanged(object sender, EventArgs e)
@@ -183,11 +187,24 @@ namespace ALP_BeautyProductShopApp
             else
             {
                 sqlConnect.Open();
-                // Kurangin jumlah
+                sqlQuery = $"insert into transaction(trans_id, staff_id, cust_id, trans_date, tax, discount, trans_total, net_total) values ('{tbTransID.Text}', '{tbStaffID.Text}', '{cbCustID.SelectedValue}', '{dtpTransDate.Value.ToString("yyyy-MM-dd")}', '{tbTaxPercentage.Text}', '{tbDiscountPercentage.Text}', '{tbTotal.Text}', '{tbNetTotal.Text}');";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
 
+                for (int i = 0; i < dtTransProduct.Rows.Count; i++)
+                {
+                    sqlQuery = $"insert into transaction_product (trans_id, prod_id, qty_trans, price_trans) values ('{tbTransID.Text}', '{dtTransProduct.Rows[i]["prod_id"].ToString()}', '{dtTransProduct.Rows[i]["qty_trans"].ToString()}', '{dtTransProduct.Rows[i]["price_trans"].ToString()}');";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+
+                    sqlQuery = $"UPDATE product SET prod_stock = prod_stock - {dtTransProduct.Rows[i]["qty_trans"].ToString()} WHERE prod_id = '{dtTransProduct.Rows[i]["prod_id"].ToString()}';";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                }
                 sqlConnect.Close();
+                MessageBox.Show("Transaction created !");
+                this.Close();
             }
-
         }
     }
 }
