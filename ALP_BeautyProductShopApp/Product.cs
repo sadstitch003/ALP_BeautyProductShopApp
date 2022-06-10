@@ -68,8 +68,8 @@ namespace ALP_BeautyProductShopApp
             cBox_CategoryID.DisplayMember = "category_id";
             cBox_CategoryID.ValueMember = "category_id";
             cBox_SupplierID.DataSource = dtSupplier;
-            cBox_SupplierID.DisplayMember = "supplier_name";
             cBox_SupplierID.DisplayMember = "supplier_id";
+            
             dgv_Product.DataSource = dtProduct;
            
         }
