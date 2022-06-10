@@ -261,8 +261,10 @@
             this.dgvProductTrans.Name = "dgvProductTrans";
             this.dgvProductTrans.RowHeadersWidth = 51;
             this.dgvProductTrans.RowTemplate.Height = 24;
+            this.dgvProductTrans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductTrans.Size = new System.Drawing.Size(730, 161);
             this.dgvProductTrans.TabIndex = 61;
+            this.dgvProductTrans.SelectionChanged += new System.EventHandler(this.dgvProductTrans_SelectionChanged);
             // 
             // label10
             // 

@@ -64,6 +64,7 @@
             this.dgvTransList.Name = "dgvTransList";
             this.dgvTransList.RowHeadersWidth = 51;
             this.dgvTransList.RowTemplate.Height = 24;
+            this.dgvTransList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransList.Size = new System.Drawing.Size(845, 386);
             this.dgvTransList.TabIndex = 8;
             this.dgvTransList.SelectionChanged += new System.EventHandler(this.dgvTransList_SelectionChanged);

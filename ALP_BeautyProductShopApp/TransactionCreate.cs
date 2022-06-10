@@ -43,7 +43,7 @@ namespace ALP_BeautyProductShopApp
             sqlConnect.Open();
             sqlQuery = $"SELECT LPAD(COUNT(trans_id), 2, '0') FROM transaction;";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            transactionNum = Convert.ToString(sqlCommand.ExecuteScalar());
+            transactionNum = Convert.ToString(Convert.ToInt32(sqlCommand.ExecuteScalar()) + 1);
             sqlConnect.Close();
 
             tbTransID.Text = dtpTransDate.Value.ToString("yyyyMMdd") + "-T" + transactionNum;
@@ -59,7 +59,6 @@ namespace ALP_BeautyProductShopApp
 
             tbStaffID.Text = StaffID;
             tbTaxPercentage.Text = "10";
-            tbTotal.Text = "0";
 
             dtTransProduct.Columns.Add("prod_id");
             dtTransProduct.Columns.Add("prod_name");
@@ -149,6 +148,16 @@ namespace ALP_BeautyProductShopApp
                 tbTotal.Text = "0";
                 for (int i = 0; i < dtTransProduct.Rows.Count; i++)
                     tbTotal.Text = Convert.ToString(Convert.ToInt32(tbTotal.Text) + Convert.ToInt32(dtTransProduct.Rows[i]["price_total"]));
+            }
+        }
+
+        private void dgvProductTrans_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProductTrans.SelectedCells.Count > 0)
+            {
+                selectedrowindex = dgvProductTrans.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvProductTrans.Rows[selectedrowindex];
+                cellValue = Convert.ToString(selectedRow.Cells["prod_id"].Value);
             }
         }
     }
