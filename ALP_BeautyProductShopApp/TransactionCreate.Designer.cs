@@ -32,6 +32,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlBorder = new System.Windows.Forms.Panel();
+            this.BtnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTransID = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -63,7 +64,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.nudProdQty = new System.Windows.Forms.NumericUpDown();
             this.cbCustID = new System.Windows.Forms.ComboBox();
-            this.BtnExit = new System.Windows.Forms.Button();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductTrans)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudProdQty)).BeginInit();
@@ -100,6 +100,24 @@
             this.pnlBorder.Size = new System.Drawing.Size(787, 35);
             this.pnlBorder.TabIndex = 46;
             this.pnlBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove);
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
+            this.BtnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnExit.BackgroundImage")));
+            this.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnExit.FlatAppearance.BorderSize = 0;
+            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Location = new System.Drawing.Point(727, 0);
+            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(60, 30);
+            this.BtnExit.TabIndex = 6;
+            this.BtnExit.UseVisualStyleBackColor = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // panel1
             // 
@@ -306,7 +324,7 @@
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(644, 48);
+            this.btnCreate.Location = new System.Drawing.Point(644, 50);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(111, 25);
             this.btnCreate.TabIndex = 66;
@@ -443,24 +461,6 @@
             this.cbCustID.TabIndex = 79;
             this.cbCustID.SelectedIndexChanged += new System.EventHandler(this.cbCustID_SelectedIndexChanged);
             // 
-            // BtnExit
-            // 
-            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
-            this.BtnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnExit.BackgroundImage")));
-            this.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnExit.FlatAppearance.BorderSize = 0;
-            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExit.Location = new System.Drawing.Point(727, 0);
-            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(60, 30);
-            this.BtnExit.TabIndex = 6;
-            this.BtnExit.UseVisualStyleBackColor = false;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
             // TransactionCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -506,7 +506,6 @@
             this.Name = "TransactionCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionCreate";
-            this.Load += new System.EventHandler(this.TransactionCreate_Load);
             this.pnlBorder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductTrans)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudProdQty)).EndInit();

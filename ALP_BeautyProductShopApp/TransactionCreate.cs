@@ -77,6 +77,7 @@ namespace ALP_BeautyProductShopApp
             tbProductID.AutoCompleteMode = AutoCompleteMode.Suggest;
             tbProductID.AutoCompleteSource = AutoCompleteSource.CustomSource;
             tbProductID.AutoCompleteCustomSource = autotext;
+            sqlConnect.Close();
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -179,9 +180,14 @@ namespace ALP_BeautyProductShopApp
             {
                 MessageBox.Show("Transaksi Kosong !");
             }
+            else
+            {
+                sqlConnect.Open();
+                // Kurangin jumlah
 
+                sqlConnect.Close();
+            }
 
-            // Kurangin jumlah
         }
     }
 }
