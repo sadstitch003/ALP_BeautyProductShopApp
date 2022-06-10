@@ -36,6 +36,8 @@
             this.btnStaff = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.pnlUser = new System.Windows.Forms.Panel();
+            this.pnlNavProduct = new System.Windows.Forms.Panel();
+            this.pnlNav = new System.Windows.Forms.Panel();
             this.lblBorder = new System.Windows.Forms.Label();
             this.pBoxUser = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.pnlSizerLeft = new System.Windows.Forms.Panel();
             this.pnlBorder1 = new System.Windows.Forms.Panel();
             this.pnlSizerBot = new System.Windows.Forms.Panel();
-            this.pnlNavProduct = new System.Windows.Forms.Panel();
-            this.pnlNav = new System.Windows.Forms.Panel();
             this.pnlNavProd = new System.Windows.Forms.Panel();
             this.pnlNavStaff = new System.Windows.Forms.Panel();
             this.pnlNavCust = new System.Windows.Forms.Panel();
@@ -56,9 +56,9 @@
             this.pnlNavOrder = new System.Windows.Forms.Panel();
             this.pnlMenuBar.SuspendLayout();
             this.pnlUser.SuspendLayout();
+            this.pnlNavProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxUser)).BeginInit();
             this.pnlBorder.SuspendLayout();
-            this.pnlNavProduct.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuBar
@@ -193,6 +193,25 @@
             this.pnlUser.Size = new System.Drawing.Size(237, 184);
             this.pnlUser.TabIndex = 0;
             // 
+            // pnlNavProduct
+            // 
+            this.pnlNavProduct.BackColor = System.Drawing.Color.MistyRose;
+            this.pnlNavProduct.Controls.Add(this.pnlNav);
+            this.pnlNavProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            this.pnlNavProduct.Location = new System.Drawing.Point(-7, 184);
+            this.pnlNavProduct.Name = "pnlNavProduct";
+            this.pnlNavProduct.Size = new System.Drawing.Size(16, 32);
+            this.pnlNavProduct.TabIndex = 22;
+            // 
+            // pnlNav
+            // 
+            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            this.pnlNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
+            this.pnlNav.Location = new System.Drawing.Point(105, 0);
+            this.pnlNav.Name = "pnlNav";
+            this.pnlNav.Size = new System.Drawing.Size(12, 42);
+            this.pnlNav.TabIndex = 2;
+            // 
             // lblBorder
             // 
             this.lblBorder.AutoSize = true;
@@ -237,6 +256,7 @@
             this.pnlBorder.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.pnlBorder.Size = new System.Drawing.Size(1000, 35);
             this.pnlBorder.TabIndex = 20;
+            this.pnlBorder.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBorder_Paint);
             this.pnlBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove);
             // 
             // btnMinimize
@@ -341,25 +361,6 @@
             this.pnlSizerBot.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SizerMouseMove);
             this.pnlSizerBot.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SizerMouseUp);
             // 
-            // pnlNavProduct
-            // 
-            this.pnlNavProduct.BackColor = System.Drawing.Color.MistyRose;
-            this.pnlNavProduct.Controls.Add(this.pnlNav);
-            this.pnlNavProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
-            this.pnlNavProduct.Location = new System.Drawing.Point(-7, 184);
-            this.pnlNavProduct.Name = "pnlNavProduct";
-            this.pnlNavProduct.Size = new System.Drawing.Size(16, 32);
-            this.pnlNavProduct.TabIndex = 22;
-            // 
-            // pnlNav
-            // 
-            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
-            this.pnlNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
-            this.pnlNav.Location = new System.Drawing.Point(105, 0);
-            this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(12, 42);
-            this.pnlNav.TabIndex = 2;
-            // 
             // pnlNavProd
             // 
             this.pnlNavProd.BackColor = System.Drawing.Color.MistyRose;
@@ -426,12 +427,13 @@
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMainMenu";
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.pnlMenuBar.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlUser.PerformLayout();
+            this.pnlNavProduct.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxUser)).EndInit();
             this.pnlBorder.ResumeLayout(false);
-            this.pnlNavProduct.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

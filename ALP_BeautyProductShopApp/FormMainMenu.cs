@@ -19,11 +19,14 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
         static string staffID;
+        static string supplierID;
 
         Customer customer = new Customer();
         Product product = new Product();
         Staff staff = new Staff();
+        
         TransactionList trans = new TransactionList(staffID);
+        Order order = new Order(supplierID);
         public FormMainMenu(string StaffID)
         {
             InitializeComponent();
@@ -172,6 +175,10 @@ namespace ALP_BeautyProductShopApp
             closeForm();
             btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnOrder.Enabled = false;
+            order = new Order(supplierID);
+            order.MdiParent = this;
+            order.Dock = DockStyle.Fill;
+            order.Show();
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -200,6 +207,16 @@ namespace ALP_BeautyProductShopApp
         }
 
         private void pnlNavProd_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlBorder_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
         {
 
         }
