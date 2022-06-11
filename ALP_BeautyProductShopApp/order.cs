@@ -29,7 +29,7 @@ namespace ALP_BeautyProductShopApp
         public Order(string StaffID)
         {
             InitializeComponent();
-            staffID = StaffID;
+            StaffID = StaffID;
         }
 
         void resetTable()
@@ -50,8 +50,7 @@ namespace ALP_BeautyProductShopApp
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
             NewOrder form = new NewOrder(staffID);
-            form.ShowDialog();
-            resetTable();
+            form.Show();
         }
 
         private void dgvTransList_SelectionChanged(object sender, EventArgs e)
@@ -90,21 +89,6 @@ namespace ALP_BeautyProductShopApp
             OrderDeleted form = new OrderDeleted();
             form.ShowDialog();
             resetTable();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (tbSearch.Text != "")
-            {
-                dtOrderList = new DataTable();
-                sqlQuery = $"select order_id, staff_id, supplier_id, order_date, tax, discount, concat('Rp.', format(order_total, 'C', 'id_ID')) as order_total, concat('Rp.', format(net_total, 'C', 'id-ID')) as net_total from `order` where status_del = '0' and (order_id like '%{tbSearch.Text.ToUpper()}%' or staff_id like '%{tbSearch.Text.ToUpper()}%' or supplier_id like '%{tbSearch.Text.ToUpper()}%');";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                sqlAdapter.Fill(dtOrderList);
-                dgvOrderList.DataSource = dtOrderList;
-                tbSearch.Text = "";
-            }
-            else resetTable();
         }
     }
 }
