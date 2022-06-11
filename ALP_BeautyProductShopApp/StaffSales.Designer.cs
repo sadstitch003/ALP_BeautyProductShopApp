@@ -188,7 +188,7 @@ namespace ALP_BeautyProductShopApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Total.AutoSize = true;
             this.lbl_Total.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Total.Location = new System.Drawing.Point(651, 621);
+            this.lbl_Total.Location = new System.Drawing.Point(680, 621);
             this.lbl_Total.Name = "lbl_Total";
             this.lbl_Total.Size = new System.Drawing.Size(24, 34);
             this.lbl_Total.TabIndex = 122;
@@ -200,7 +200,7 @@ namespace ALP_BeautyProductShopApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(541, 621);
+            this.label3.Location = new System.Drawing.Point(479, 621);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 34);
             this.label3.TabIndex = 121;

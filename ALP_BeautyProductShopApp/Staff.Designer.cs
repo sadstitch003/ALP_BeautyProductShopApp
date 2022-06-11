@@ -143,7 +143,6 @@ namespace ALP_BeautyProductShopApp
             this.dgv_Staff.Size = new System.Drawing.Size(860, 258);
             this.dgv_Staff.TabIndex = 200;
             this.dgv_Staff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Staff_CellClick);
-            this.dgv_Staff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Staff_CellContentClick);
             this.dgv_Staff.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Staff_CellEnter);
             // 
             // cBox_Position

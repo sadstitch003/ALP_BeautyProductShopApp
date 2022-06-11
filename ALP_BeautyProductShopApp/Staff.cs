@@ -24,9 +24,8 @@ namespace ALP_BeautyProductShopApp
         string sqlQuery;
         DataTable dtStaff = new DataTable();
         DataTable dtPosition = new DataTable();
-        
-
         public static string staffid;
+        int staffke;
         private void Staff_Load(object sender, EventArgs e)
         {
             
@@ -47,35 +46,41 @@ namespace ALP_BeautyProductShopApp
             staffid = dtStaff.Rows[0][0].ToString();
 
         }
-
-        private void btnViewSales_Click(object sender, EventArgs e)
-        {
-            
-            StaffSales sales = new StaffSales();
-            sales.MdiParent = this.ParentForm;
-            sales.Dock = DockStyle.Fill;
-            sales.Show();
-        }
-        int staffke;
-        private void dgv_Staff_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgv_Staff_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             tBox_StaffID.Text = dgv_Staff.CurrentRow.Cells[0].Value.ToString();
             tBox_StaffName.Text = dgv_Staff.CurrentRow.Cells[1].Value.ToString();
             tBox_Password.Text = dgv_Staff.CurrentRow.Cells[2].Value.ToString();
-            cBox_Position.Text  = dgv_Staff.CurrentRow.Cells[3].Value.ToString();
+            cBox_Position.Text = dgv_Staff.CurrentRow.Cells[3].Value.ToString();
             tBox_Phone.Text = dgv_Staff.CurrentRow.Cells[4].Value.ToString();
             dTP_dob.Text = dgv_Staff.CurrentRow.Cells[5].Value.ToString();
-           
-            
         }
-
+       
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            dtPosition = new DataTable();
+            sqlQuery = "select count(staff_id) from staff where staff_id = '" + tBox_StaffID.Text + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlConnect.Open();
+            int temp = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
+            if (temp > 0)
+            {
+                MessageBox.Show("data sudah ada");
+                tBox_StaffID.Text = null;
+            }
+            else
+            {
+                sqlQuery = "insert into staff values ('" + tBox_StaffID.Text + "','" + tBox_StaffName.Text + "','" + tBox_Password.Text + "','" + cBox_Position.Text + "','" + tBox_Phone.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Data telah tersimpan");
+                Staff_Load(sender, e);
+            }
+            sqlConnect.Close();
+        }
         private void btn_Update_Click(object sender, EventArgs e)
         {
+            dtPosition = new DataTable();
             sqlQuery = " UPDATE staff SET staff_name = '" + tBox_StaffName.Text + "', staff_password = '"+ tBox_Password.Text + "', staff_position = '" + cBox_Position.Text + "', staff_phone = '" + tBox_Phone.Text + "', staff_dob = '" + dTP_dob.Value.ToString("yyyyMMdd") + "' WHERE staff_id = '" + tBox_StaffID.Text + "'; ";
             sqlConnect.Open();
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
@@ -88,6 +93,7 @@ namespace ALP_BeautyProductShopApp
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
+            dtPosition = new DataTable();
             sqlQuery = "UPDATE staff SET status_del = '1'WHERE staff_id = '" + tBox_StaffID.Text + "';";
             sqlConnect.Open();
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
@@ -97,35 +103,19 @@ namespace ALP_BeautyProductShopApp
             Staff_Load(sender, e);
         }
 
-        private void btn_Save_Click(object sender, EventArgs e)
+        private void btnViewSales_Click(object sender, EventArgs e)
         {
-            dtPosition = new DataTable();
-            for (int item = 0; item < dgv_Staff.Rows.Count; item++)
-            {
-                if (tBox_StaffID.Text == dgv_Staff.Rows[item].Cells[0].Value.ToString())
-                {
-                    MessageBox.Show("data sudah ada");
-                    return;
-                }
 
-            }
-
-            sqlQuery = "insert into staff values ('" + tBox_StaffID.Text + "','" + tBox_StaffName.Text + "','" + tBox_Password.Text + "','" + cBox_Position.Text + "','" + tBox_Phone.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            MessageBox.Show("Data telah tersimpan");
-                Staff_Load(sender, e);
-            
-            
+            StaffSales sales = new StaffSales();
+            sales.MdiParent = this.ParentForm;
+            sales.Dock = DockStyle.Fill;
+            sales.Show();
         }
 
         private void dgv_Staff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             staffke = dgv_Staff.CurrentCell.RowIndex;
             staffid = dtStaff.Rows[staffke][0].ToString();
-           
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
@@ -134,8 +124,6 @@ namespace ALP_BeautyProductShopApp
             tBox_StaffName.Clear();
             tBox_Password.Clear();
             tBox_Phone.Clear();
-            
-
         }
 
         private void btn_Search_Click(object sender, EventArgs e)

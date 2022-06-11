@@ -24,29 +24,6 @@ namespace ALP_BeautyProductShopApp
         DataTable dtProduct = new DataTable();
         DataTable dtCategory = new DataTable();
         DataTable dtSupplier = new DataTable();
-        
-
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-            sqlQuery = "update product set prod_stock = '"+ tBox_Stock.Text + "', prod_price = '" + tBox_Price.Text + "', prod_inputdate = '" + dTP_Input.Value.ToString("yyyyMMdd") + "', prod_expdate = '" + dTP_Expire.Value.ToString("yyyyMMdd") + "'where prod_id = '"+ tBox_ProdID.Text + "'; ";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            MessageBox.Show("Data telah terupdate");
-            Product_Load(sender, e);
-        }
-
-        private void btn_Delete_Click(object sender, EventArgs e)
-        {
-            sqlQuery = "UPDATE product SET status_del = '1' WHERE prod_id = '" + tBox_ProdID.Text + "';";
-            sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
-            MessageBox.Show("Data telah terhapus");
-            Product_Load(sender, e);
-        }
 
         private void Product_Load(object sender, EventArgs e)
         {
@@ -93,34 +70,58 @@ namespace ALP_BeautyProductShopApp
 
             dtCategory = new DataTable();
             dtSupplier = new DataTable();
-           
-            for (int item = 0; item < dgv_Product.Rows.Count; item++)
+            sqlQuery = "select count(prod_id) from product where prod_id = '" + tBox_ProdID.Text + "';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlConnect.Open();
+            int temp = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
+            if (temp > 0)
             {
-                if (tBox_ProdID.Text == dgv_Product.Rows[item].Cells[0].Value.ToString())
-                {
-                    MessageBox.Show("data sudah ada");
-                    return;
-                }
-
+                MessageBox.Show("data sudah ada");
+                tBox_ProdID.Text = null;
             }
+            else
+            {
+
                 sqlQuery = "insert into product values ('" + tBox_ProdID.Text + "','" + cBox_CategoryID.Text + "','" + cBox_SupplierID.Text + "','" + tBox_ProdName.Text + "','" + tBox_Stock.Text + "','" + tBox_Price.Text + "'," + dTP_Input.Value.ToString("yyyyMMdd") + "," + dTP_Expire.Value.ToString("yyyyMMdd") + ",'0');";
-                sqlConnect.Open();
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
-                sqlConnect.Close();
                 MessageBox.Show("Data telah tersimpan");
                 Product_Load(sender, e);
-            
-            
+            }
+            sqlConnect.Close();
         }
 
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            dtCategory = new DataTable();
+            dtSupplier = new DataTable();
+            sqlQuery = "update product set prod_stock = '" + tBox_Stock.Text + "', prod_price = '" + tBox_Price.Text + "', prod_inputdate = '" + dTP_Input.Value.ToString("yyyyMMdd") + "', prod_expdate = '" + dTP_Expire.Value.ToString("yyyyMMdd") + "'where prod_id = '" + tBox_ProdID.Text + "'; ";
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+            MessageBox.Show("Data telah terupdate");
+            Product_Load(sender, e);
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            dtCategory = new DataTable();
+            dtSupplier = new DataTable();
+            sqlQuery = "UPDATE product SET status_del = '1' WHERE prod_id = '" + tBox_ProdID.Text + "';";
+            sqlConnect.Open();
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
+            MessageBox.Show("Data telah terhapus");
+            Product_Load(sender, e);
+        }
         private void btn_clear_Click(object sender, EventArgs e)
         {
             tBox_Price.Clear();
             tBox_ProdID.Clear();
             tBox_ProdName.Clear();
             tBox_Stock.Clear();
-            
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
