@@ -217,7 +217,6 @@ namespace ALP_BeautyProductShopApp
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            
             resetWarna();
             pnlNavOrder.BackColor = Color.HotPink;
             closeForm();

@@ -169,6 +169,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlBorder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderDeleted";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderDeleted";
