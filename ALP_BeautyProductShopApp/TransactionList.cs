@@ -24,17 +24,12 @@ namespace ALP_BeautyProductShopApp
         int selectedrowindex;
 
         string staffID;
+
         public TransactionList(string StaffID)
         {
             InitializeComponent();
             staffID = StaffID;
         }
-
-        private void TransactionList_Load(object sender, EventArgs e)
-        {
-            updateTable();
-        }
-
         void updateTable()
         {
             dtTransList = new DataTable();
@@ -43,6 +38,11 @@ namespace ALP_BeautyProductShopApp
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtTransList);
             dgvTransList.DataSource = dtTransList;
+        }
+
+        private void TransactionList_Load(object sender, EventArgs e)
+        {
+            updateTable();
         }
 
         private void dgvTransList_SelectionChanged(object sender, EventArgs e)
@@ -58,7 +58,8 @@ namespace ALP_BeautyProductShopApp
         private void btnNewTrans_Click(object sender, EventArgs e)
         {
             TransactionCreate form = new TransactionCreate(staffID);
-            form.Show();
+            form.ShowDialog();
+            updateTable();
         }
 
         private void btnDetails_Click(object sender, EventArgs e)

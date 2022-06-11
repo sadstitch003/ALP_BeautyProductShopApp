@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace ALP_BeautyProductShopApp
 {
-    public partial class TransactionDeleted : Form
+    public partial class OrderDeleted : Form
     {
         MySqlConnection sqlConnect = new MySqlConnection("server=139.255.11.84;uid=student;pwd=isbmantap;database=DBD_08_BEAUTYPRODUCTSHOP");
         MySqlCommand sqlCommand;
@@ -32,24 +32,14 @@ namespace ALP_BeautyProductShopApp
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public TransactionDeleted()
+        public OrderDeleted()
         {
             InitializeComponent();
-            sqlQuery = "select * from transaction where status_del = '1';";
+            sqlQuery = "select * from `order` where status_del = '1';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtDeletedData);
             dgvDeletedData.DataSource = dtDeletedData;
-        }
-
-        private void dgvDeletedData_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDeletedData.SelectedCells.Count > 0)
-            {
-                selectedrowindex = dgvDeletedData.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dgvDeletedData.Rows[selectedrowindex];
-                cellValue = Convert.ToString(selectedRow.Cells["trans_id"].Value);
-            }
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -66,12 +56,22 @@ namespace ALP_BeautyProductShopApp
             }
         }
 
+        private void dgvDeletedData_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDeletedData.SelectedCells.Count > 0)
+            {
+                selectedrowindex = dgvDeletedData.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvDeletedData.Rows[selectedrowindex];
+                cellValue = Convert.ToString(selectedRow.Cells["order_id"].Value);
+            }
+        }
+
         private void btnRestore_Click(object sender, EventArgs e)
         {
             try
             {
                 sqlConnect.Open();
-                sqlQuery = $"update transaction set status_del = '0' where trans_id = '{cellValue}';";
+                sqlQuery = $"update `order` set status_del = '0' where order_id = '{cellValue}';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnect.Close();

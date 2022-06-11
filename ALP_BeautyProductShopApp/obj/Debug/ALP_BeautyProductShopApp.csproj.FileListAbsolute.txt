@@ -320,3 +320,7 @@ C:\Users\Vanessa\Source\Repos\ALP_BeautyProductShopApp3\ALP_BeautyProductShopApp
 C:\Users\Vanessa\Source\Repos\ALP_BeautyProductShopApp3\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Order.resources
 C:\Users\ASUS\source\repos\alppp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.NewOrder.resources
 C:\Users\ASUS\source\repos\alppp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Order.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp7\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.NewOrder.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp7\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Order.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp7\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDeleted.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp7\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDetails.resources

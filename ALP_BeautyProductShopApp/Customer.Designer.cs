@@ -165,7 +165,6 @@ namespace ALP_BeautyProductShopApp
             this.dTP_memberjoin.Name = "dTP_memberjoin";
             this.dTP_memberjoin.Size = new System.Drawing.Size(211, 23);
             this.dTP_memberjoin.TabIndex = 189;
-            this.dTP_memberjoin.ValueChanged += new System.EventHandler(this.dTP_memberjoin_ValueChanged);
             this.dTP_memberjoin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dTP_memberjoin_KeyDown);
             // 
             // btn_Delete

@@ -19,24 +19,14 @@ namespace ALP_BeautyProductShopApp
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
         static string staffID;
-        static string supplierID;
+        string staffPosition;
 
         Customer customer = new Customer();
         Product product = new Product();
         Staff staff = new Staff();
         
         TransactionList trans = new TransactionList(staffID);
-        Order order = new Order(supplierID);
-        public FormMainMenu(string StaffID)
-        {
-            InitializeComponent();
-            sqlConnect.Open();
-            sqlQuery = $"SELECT staff_name FROM staff WHERE staff_id = '{StaffID}';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            lblUsername.Text = Convert.ToString(sqlCommand.ExecuteScalar());
-            sqlConnect.Close();
-            staffID = StaffID;;
-        }
+        Order order = new Order(staffID);
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -46,6 +36,52 @@ namespace ALP_BeautyProductShopApp
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        int Mx;
+        int My;
+        int Sw;
+        int Sh;
+        bool mov;
+
+        public FormMainMenu(string StaffID)
+        {
+            InitializeComponent();
+            sqlConnect.Open();
+            sqlQuery = $"SELECT staff_name FROM staff WHERE staff_id = '{StaffID}';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            lblUsername.Text = Convert.ToString(sqlCommand.ExecuteScalar());
+
+            sqlQuery = $"SELECT staff_position FROM staff WHERE staff_id = '{StaffID}';";
+            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            staffPosition = Convert.ToString(sqlCommand.ExecuteScalar());
+
+            if (staffPosition == "Manager")
+            {
+                btnProduct.Enabled = true;
+                btnStaff.Enabled = true;
+                btnCustomer.Enabled = true;
+                btnTransaction.Enabled = true;
+                btnOrder.Enabled = true;
+            }
+            else if (staffPosition == "HRD")
+            {
+                btnStaff.Enabled = true;
+            }
+            else if (staffPosition == "Order Staff")
+            {
+                btnProduct.Enabled = true;
+                btnOrder.Enabled = true;
+            }
+            else if (staffPosition == "Cashier")
+            {
+                btnCustomer.Enabled = true;
+                btnTransaction.Enabled = true;
+                btnProduct.Enabled = true;
+            }
+
+            sqlConnect.Close();
+            staffID = StaffID;;
+        }
+
         private void pnlBorder_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -54,13 +90,6 @@ namespace ALP_BeautyProductShopApp
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
-        int Mx;
-        int My;
-        int Sw;
-        int Sh;
-
-        bool mov;
 
         void SizerMouseDown(object sender, MouseEventArgs e)
         {
@@ -97,11 +126,30 @@ namespace ALP_BeautyProductShopApp
             pnlNavCust.BackColor = Color.MistyRose;
             pnlNavStaff.BackColor = Color.MistyRose;
             pnlNavProd.BackColor = Color.MistyRose;
-            btnOrder.Enabled = true;
-            btnTransaction.Enabled = true;
-            btnCustomer.Enabled = true;
-            btnStaff.Enabled = true;
-            btnProduct.Enabled = true;
+
+            if (staffPosition == "Manager")
+            {
+                btnProduct.Enabled = true;
+                btnStaff.Enabled = true;
+                btnCustomer.Enabled = true;
+                btnTransaction.Enabled = true;
+                btnOrder.Enabled = true;
+            }
+            else if (staffPosition == "HRD")
+            {
+                btnStaff.Enabled = true;
+            }
+            else if (staffPosition == "Order Staff")
+            {
+                btnProduct.Enabled = true;
+                btnOrder.Enabled = true;
+            }
+            else if (staffPosition == "Cashier")
+            {
+                btnCustomer.Enabled = true;
+                btnTransaction.Enabled = true;
+                btnProduct.Enabled = true;
+            }
         }
 
         void closeForm()
@@ -169,13 +217,12 @@ namespace ALP_BeautyProductShopApp
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            
             resetWarna();
             pnlNavOrder.BackColor = Color.HotPink;
             closeForm();
             btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(180)))), ((int)(((byte)(179)))));
             btnOrder.Enabled = false;
-            order = new Order(supplierID);
+            order = new Order(staffID);
             order.MdiParent = this;
             order.Dock = DockStyle.Fill;
             order.Show();
@@ -204,21 +251,6 @@ namespace ALP_BeautyProductShopApp
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pnlNavProd_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pnlBorder_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void FormMainMenu_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
