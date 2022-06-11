@@ -326,3 +326,26 @@ E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp7\ALP_BeautyProd
 E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp7\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDetails.resources
 C:\Users\ASUS\source\repos\alppp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDeleted.resources
 C:\Users\ASUS\source\repos\alppp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDetails.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.AssemblyReference.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.SuggestedBindingRedirects.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.exe.config
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Customer.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.FormMainMenu.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.LoginForm.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.NewOrder.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Order.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDeleted.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDetails.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Product.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Properties.Resources.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Staff.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.StaffSales.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionCreate.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionDeleted.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionDetails.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionHistory.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionList.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.GenerateResource.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.CoreCompileInputs.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.exe
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopApp8\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.pdb
