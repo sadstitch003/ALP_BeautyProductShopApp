@@ -29,7 +29,7 @@ namespace ALP_BeautyProductShopApp
         public Order(string StaffID)
         {
             InitializeComponent();
-            StaffID = StaffID;
+            staffID = StaffID;
         }
 
         void resetTable()
