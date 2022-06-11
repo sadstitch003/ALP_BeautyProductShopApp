@@ -80,15 +80,24 @@ namespace ALP_BeautyProductShopApp
         }
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            dtPosition = new DataTable();
-            sqlQuery = " UPDATE staff SET staff_name = '" + tBox_StaffName.Text + "', staff_password = '"+ tBox_Password.Text + "', staff_position = '" + cBox_Position.Text + "', staff_phone = '" + tBox_Phone.Text + "', staff_dob = '" + dTP_dob.Value.ToString("yyyyMMdd") + "' WHERE staff_id = '" + tBox_StaffID.Text + "'; ";
             sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
-            sqlConnect.Close();
+            try
+            {
+                dtPosition = new DataTable();
+                sqlQuery = " UPDATE staff SET staff_name = '" + tBox_StaffName.Text + "', staff_password = '" + tBox_Password.Text + "', staff_position = '" + cBox_Position.Text + "', staff_phone = '" + tBox_Phone.Text + "', staff_dob = '" + dTP_dob.Value.ToString("yyyyMMdd") + "' WHERE staff_id = '" + tBox_StaffID.Text + "'; ";
+                
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                
+                MessageBox.Show("Data telah terupdate");
+                Staff_Load(sender, e);
+            }
+            catch (Exception)
+            {
 
-            MessageBox.Show("Data telah terupdate");
-            Staff_Load(sender, e);
+                MessageBox.Show("Masukkan data!");
+            }
+            sqlConnect.Close();
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -129,7 +138,7 @@ namespace ALP_BeautyProductShopApp
         private void btn_Search_Click(object sender, EventArgs e)
         {
             dtStaff = new DataTable();
-            sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0'and staff_name like '%" + tBox_Search.Text + "%';";
+            sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0'and (staff_name like '%" + tBox_Search.Text + "%' or staff_id like '%" + tBox_Search.Text + "%' or staff_phone like '%"+tBox_Search.Text+"%');";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtStaff);
@@ -138,22 +147,21 @@ namespace ALP_BeautyProductShopApp
             cBox_Position.DataSource = dtPosition;
             cBox_Position.DisplayMember = "staff_position";
             cBox_Position.ValueMember = "staff_id";
-            staffid = dtStaff.Rows[0][0].ToString();
+            if (dgv_Staff.Rows.Count > 0)
+            {
+                staffid = dtStaff.Rows[0][0].ToString();
+            }
+            else
+            {
+                MessageBox.Show("ulangi");
+            }
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            dtStaff = new DataTable();
-            sqlQuery = "select staff_id, staff_name, staff_password, staff_position, staff_phone, staff_dob from staff where status_del ='0';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtStaff);
-            sqlAdapter.Fill(dtPosition);
-            dgv_Staff.DataSource = dtStaff;
-            cBox_Position.DataSource = dtPosition;
-            cBox_Position.DisplayMember = "staff_position";
-            cBox_Position.ValueMember = "staff_id";
-            staffid = dtStaff.Rows[0][0].ToString();
+            dtPosition = new DataTable();
+            Staff_Load(sender, e);
+            tBox_Search.Text = "";
         }
     }
 }

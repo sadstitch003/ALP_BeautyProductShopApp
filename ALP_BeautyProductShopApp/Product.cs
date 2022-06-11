@@ -70,23 +70,33 @@ namespace ALP_BeautyProductShopApp
 
             dtCategory = new DataTable();
             dtSupplier = new DataTable();
-            sqlQuery = "select count(prod_id) from product where prod_id = '" + tBox_ProdID.Text + "';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlConnect.Open();
-            int temp = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
-            if (temp > 0)
+            try
             {
-                MessageBox.Show("data sudah ada");
-                tBox_ProdID.Text = null;
-            }
-            else
-            {
-
-                sqlQuery = "insert into product values ('" + tBox_ProdID.Text + "','" + cBox_CategoryID.Text + "','" + cBox_SupplierID.Text + "','" + tBox_ProdName.Text + "','" + tBox_Stock.Text + "','" + tBox_Price.Text + "'," + dTP_Input.Value.ToString("yyyyMMdd") + "," + dTP_Expire.Value.ToString("yyyyMMdd") + ",'0');";
+                sqlQuery = "select count(prod_id) from product where prod_id = '" + tBox_ProdID.Text + "';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Data telah tersimpan");
-                Product_Load(sender, e);
+                
+                int temp = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
+                if (temp > 0)
+                {
+                    MessageBox.Show("data sudah ada");
+                    tBox_ProdID.Text = null;
+                }
+                else
+                {
+
+                    sqlQuery = "insert into product values ('" + tBox_ProdID.Text + "','" + cBox_CategoryID.Text + "','" + cBox_SupplierID.Text + "','" + tBox_ProdName.Text + "','" + tBox_Stock.Text + "','" + tBox_Price.Text + "'," + dTP_Input.Value.ToString("yyyyMMdd") + "," + dTP_Expire.Value.ToString("yyyyMMdd") + ",'0');";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Data telah tersimpan");
+                    Product_Load(sender, e);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                MessageBox.Show("masukkan data");
             }
             sqlConnect.Close();
         }
@@ -95,13 +105,23 @@ namespace ALP_BeautyProductShopApp
         {
             dtCategory = new DataTable();
             dtSupplier = new DataTable();
-            sqlQuery = "update product set prod_stock = '" + tBox_Stock.Text + "', prod_price = '" + tBox_Price.Text + "', prod_inputdate = '" + dTP_Input.Value.ToString("yyyyMMdd") + "', prod_expdate = '" + dTP_Expire.Value.ToString("yyyyMMdd") + "'where prod_id = '" + tBox_ProdID.Text + "'; ";
             sqlConnect.Open();
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlCommand.ExecuteNonQuery();
+            try
+            {
+                
+                sqlQuery = "update product set prod_stock = '" + tBox_Stock.Text + "', prod_price = '" + tBox_Price.Text + "', prod_inputdate = '" + dTP_Input.Value.ToString("yyyyMMdd") + "', prod_expdate = '" + dTP_Expire.Value.ToString("yyyyMMdd") + "'where prod_id = '" + tBox_ProdID.Text + "'; ";
+                
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand.ExecuteNonQuery();
+                
+                MessageBox.Show("Data telah terupdate");
+                Product_Load(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Masukkan data!");
+            }
             sqlConnect.Close();
-            MessageBox.Show("Data telah terupdate");
-            Product_Load(sender, e);
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -127,8 +147,9 @@ namespace ALP_BeautyProductShopApp
         private void btn_Search_Click(object sender, EventArgs e)
         {
             dtProduct = new DataTable();
-
-            sqlQuery = "select prod_id,	category_id, supplier_id, prod_name, prod_stock, prod_price, prod_inputdate, prod_expdate from product where status_del ='0' and prod_name like  '%"+tBox_Search.Text+"%';";
+            dtCategory = new DataTable();
+            dtSupplier = new DataTable();
+            sqlQuery = "select prod_id,	category_id, supplier_id, prod_name, prod_stock, prod_price, prod_inputdate, prod_expdate from product where status_del ='0' and (prod_name like  '%"+tBox_Search.Text+"%' or prod_id like '%"+tBox_Search.Text+ "%' or category_id like '%" + tBox_Search.Text +"%' or supplier_id like '%" + tBox_Search.Text +"%');";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtProduct);
@@ -145,21 +166,10 @@ namespace ALP_BeautyProductShopApp
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            dtProduct = new DataTable();
-            sqlQuery = "select prod_id,	category_id, supplier_id, prod_name, prod_stock, prod_price, prod_inputdate, prod_expdate from product where status_del ='0';";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-            sqlAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dtProduct);
-            sqlAdapter.Fill(dtCategory);
-            sqlAdapter.Fill(dtSupplier);
-            cBox_CategoryID.DataSource = dtCategory;
-            cBox_CategoryID.DisplayMember = "category_name";
-            cBox_CategoryID.ValueMember = "category_id";
-            cBox_SupplierID.DataSource = dtSupplier;
-            cBox_SupplierID.DisplayMember = "supplier_name";
-            cBox_SupplierID.DisplayMember = "supplier_id";
-            dgv_Product.DataSource = dtProduct;
-            tBox_Search.Text = "Type Name";
+            dtCategory = new DataTable();
+            dtSupplier = new DataTable();
+            Product_Load(sender,e);
+            tBox_Search.Text = "";
         }
     }
 }

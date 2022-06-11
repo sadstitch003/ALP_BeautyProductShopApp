@@ -98,7 +98,7 @@
             this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(24, 105);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(37, 17);
+            this.lblSearch.Size = new System.Drawing.Size(40, 19);
             this.lblSearch.TabIndex = 15;
             this.lblSearch.Text = "Filter";
             // 
@@ -124,6 +124,7 @@
             this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvOrderList
             // 
