@@ -33,11 +33,13 @@ namespace ALP_BeautyProductShopApp
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtProduct);
 
+            dtCategory = new DataTable();
             sqlQuery = "select * from category where status_del ='0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtCategory);
 
+            dtSupplier = new DataTable();
             sqlQuery = "select * from supplier where status_del ='0';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);

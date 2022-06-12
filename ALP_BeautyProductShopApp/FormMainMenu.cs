@@ -225,7 +225,7 @@ namespace ALP_BeautyProductShopApp
             order = new Order(staffID);
             order.MdiParent = this;
             order.Dock = DockStyle.Fill;
-            order.Show();
+            order.ShowDialog();
         }
 
         private void BtnExit_Click(object sender, EventArgs e)

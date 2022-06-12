@@ -137,6 +137,23 @@ namespace ALP_BeautyProductShopApp
             calculateTotal();
         }
 
+        private void dgvProductTrans_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvProductTrans.SelectedCells.Count > 0)
+                {
+                    selectedrowindex = dgvProductTrans.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dgvProductTrans.Rows[selectedrowindex];
+                    cellValue = Convert.ToString(selectedRow.Cells["prod_id"].Value);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error !");
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -173,23 +190,6 @@ namespace ALP_BeautyProductShopApp
                 }
                 nudProdQty.Value = 1;
                 tbProductID.Text = "";
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error !");
-            }
-}
-
-        private void dgvProductTrans_SelectionChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvProductTrans.SelectedCells.Count > 0)
-                {
-                    selectedrowindex = dgvProductTrans.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = dgvProductTrans.Rows[selectedrowindex];
-                    cellValue = Convert.ToString(selectedRow.Cells["prod_id"].Value);
-                }
             }
             catch (Exception)
             {

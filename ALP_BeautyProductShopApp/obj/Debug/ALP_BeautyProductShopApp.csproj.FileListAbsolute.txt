@@ -439,3 +439,41 @@ C:\Users\michell\Source\Repos\ALP_BeautyProductShopApp1\ALP_BeautyProductShopApp
 C:\Users\michell\Source\Repos\ALP_BeautyProductShopApp1\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.CopyComplete
 C:\Users\michell\Source\Repos\ALP_BeautyProductShopApp1\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.exe
 C:\Users\michell\Source\Repos\ALP_BeautyProductShopApp1\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.pdb
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\ALP_BeautyProductShopApp.exe.config
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\ALP_BeautyProductShopApp.exe
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\ALP_BeautyProductShopApp.pdb
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\MySql.Data.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\Google.Protobuf.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\ZstdNet.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\BouncyCastle.Crypto.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\Ubiety.Dns.Core.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\System.Memory.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\System.Buffers.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\K4os.Compression.LZ4.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\K4os.Hash.xxHash.dll
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\bin\Debug\MySql.Data.xml
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.AssemblyReference.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.SuggestedBindingRedirects.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.exe.config
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Customer.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.FormMainMenu.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.LoginForm.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.NewOrder.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Order.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDeleted.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDetails.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Product.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Properties.Resources.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Staff.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.StaffSales.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionCreate.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionDeleted.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionDetails.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionHistory.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionList.resources
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.GenerateResource.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.CoreCompileInputs.cache
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.CopyComplete
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.exe
+E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.pdb
