@@ -322,7 +322,7 @@ namespace ALP_BeautyProductShopApp
             // 
             this.btn_clear.BackColor = System.Drawing.Color.LightCoral;
             this.btn_clear.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.btn_clear.Location = new System.Drawing.Point(767, 207);
+            this.btn_clear.Location = new System.Drawing.Point(547, 251);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(111, 29);
             this.btn_clear.TabIndex = 200;

@@ -477,3 +477,11 @@ E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyPr
 E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.csproj.CopyComplete
 E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.exe
 E:\Folder An\Coding Stuff\Visual Studio\ALP_BeautyProductShopAppFix\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.pdb
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.NewOrder.resources
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.Order.resources
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDeleted.resources
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.OrderDetails.resources
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionCreate.resources
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionDeleted.resources
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionDetails.resources
+C:\Users\ASUS\Source\Repos\ALP_BeautyProductShopApp\ALP_BeautyProductShopApp\obj\Debug\ALP_BeautyProductShopApp.TransactionList.resources
