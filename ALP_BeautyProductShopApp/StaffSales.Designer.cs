@@ -55,11 +55,12 @@ namespace ALP_BeautyProductShopApp
             this.dgv_StaffSales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_StaffSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_StaffSales.Location = new System.Drawing.Point(12, 223);
+            this.dgv_StaffSales.Location = new System.Drawing.Point(9, 181);
+            this.dgv_StaffSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_StaffSales.Name = "dgv_StaffSales";
             this.dgv_StaffSales.RowHeadersWidth = 51;
             this.dgv_StaffSales.RowTemplate.Height = 24;
-            this.dgv_StaffSales.Size = new System.Drawing.Size(840, 379);
+            this.dgv_StaffSales.Size = new System.Drawing.Size(630, 308);
             this.dgv_StaffSales.TabIndex = 117;
             this.dgv_StaffSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_StaffSales_CellContentClick);
             // 
@@ -67,30 +68,33 @@ namespace ALP_BeautyProductShopApp
             // 
             this.tBox_Position.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tBox_Position.Enabled = false;
-            this.tBox_Position.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.tBox_Position.Location = new System.Drawing.Point(582, 124);
+            this.tBox_Position.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.tBox_Position.Location = new System.Drawing.Point(397, 95);
+            this.tBox_Position.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBox_Position.Name = "tBox_Position";
-            this.tBox_Position.Size = new System.Drawing.Size(270, 28);
+            this.tBox_Position.Size = new System.Drawing.Size(204, 23);
             this.tBox_Position.TabIndex = 116;
             // 
             // tBox_Phone
             // 
             this.tBox_Phone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tBox_Phone.Enabled = false;
-            this.tBox_Phone.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.tBox_Phone.Location = new System.Drawing.Point(582, 170);
+            this.tBox_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.tBox_Phone.Location = new System.Drawing.Point(397, 135);
+            this.tBox_Phone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBox_Phone.Name = "tBox_Phone";
-            this.tBox_Phone.Size = new System.Drawing.Size(270, 28);
+            this.tBox_Phone.Size = new System.Drawing.Size(204, 23);
             this.tBox_Phone.TabIndex = 115;
             // 
             // lbl_Phone
             // 
             this.lbl_Phone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Phone.AutoSize = true;
-            this.lbl_Phone.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.lbl_Phone.Location = new System.Drawing.Point(481, 173);
+            this.lbl_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbl_Phone.Location = new System.Drawing.Point(328, 141);
+            this.lbl_Phone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Phone.Name = "lbl_Phone";
-            this.lbl_Phone.Size = new System.Drawing.Size(53, 19);
+            this.lbl_Phone.Size = new System.Drawing.Size(38, 13);
             this.lbl_Phone.TabIndex = 114;
             this.lbl_Phone.Text = "Phone";
             // 
@@ -98,48 +102,53 @@ namespace ALP_BeautyProductShopApp
             // 
             this.lbl_Position.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Position.AutoSize = true;
-            this.lbl_Position.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.lbl_Position.Location = new System.Drawing.Point(481, 127);
+            this.lbl_Position.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbl_Position.Location = new System.Drawing.Point(328, 101);
+            this.lbl_Position.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Position.Name = "lbl_Position";
-            this.lbl_Position.Size = new System.Drawing.Size(60, 19);
+            this.lbl_Position.Size = new System.Drawing.Size(44, 13);
             this.lbl_Position.TabIndex = 113;
             this.lbl_Position.Text = "Position";
             // 
             // tBox_Name
             // 
             this.tBox_Name.Enabled = false;
-            this.tBox_Name.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.tBox_Name.Location = new System.Drawing.Point(165, 170);
+            this.tBox_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.tBox_Name.Location = new System.Drawing.Point(81, 135);
+            this.tBox_Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBox_Name.Name = "tBox_Name";
-            this.tBox_Name.Size = new System.Drawing.Size(292, 28);
+            this.tBox_Name.Size = new System.Drawing.Size(220, 23);
             this.tBox_Name.TabIndex = 112;
             // 
             // lbl_Name
             // 
             this.lbl_Name.AutoSize = true;
-            this.lbl_Name.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.lbl_Name.Location = new System.Drawing.Point(27, 173);
+            this.lbl_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbl_Name.Location = new System.Drawing.Point(20, 141);
+            this.lbl_Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Name.Name = "lbl_Name";
-            this.lbl_Name.Size = new System.Drawing.Size(51, 19);
+            this.lbl_Name.Size = new System.Drawing.Size(35, 13);
             this.lbl_Name.TabIndex = 111;
             this.lbl_Name.Text = "Name";
             // 
             // tBox_staffID
             // 
             this.tBox_staffID.Enabled = false;
-            this.tBox_staffID.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.tBox_staffID.Location = new System.Drawing.Point(165, 124);
+            this.tBox_staffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.tBox_staffID.Location = new System.Drawing.Point(81, 95);
+            this.tBox_staffID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBox_staffID.Name = "tBox_staffID";
-            this.tBox_staffID.Size = new System.Drawing.Size(292, 28);
+            this.tBox_staffID.Size = new System.Drawing.Size(220, 23);
             this.tBox_staffID.TabIndex = 109;
             // 
             // lbl_staffID
             // 
             this.lbl_staffID.AutoSize = true;
-            this.lbl_staffID.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.lbl_staffID.Location = new System.Drawing.Point(27, 124);
+            this.lbl_staffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbl_staffID.Location = new System.Drawing.Point(20, 101);
+            this.lbl_staffID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_staffID.Name = "lbl_staffID";
-            this.lbl_staffID.Size = new System.Drawing.Size(56, 19);
+            this.lbl_staffID.Size = new System.Drawing.Size(43, 13);
             this.lbl_staffID.TabIndex = 107;
             this.lbl_staffID.Text = "Staff ID";
             // 
@@ -152,11 +161,11 @@ namespace ALP_BeautyProductShopApp
             this.BtnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnExit.FlatAppearance.BorderSize = 0;
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExit.Location = new System.Drawing.Point(792, 18);
+            this.BtnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Location = new System.Drawing.Point(594, 15);
             this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
             this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(60, 40);
+            this.BtnExit.Size = new System.Drawing.Size(45, 32);
             this.BtnExit.TabIndex = 118;
             this.BtnExit.TabStop = false;
             this.BtnExit.UseVisualStyleBackColor = false;
@@ -167,18 +176,20 @@ namespace ALP_BeautyProductShopApp
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightCoral;
-            this.panel1.Location = new System.Drawing.Point(12, 63);
+            this.panel1.Location = new System.Drawing.Point(9, 51);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(845, 1);
+            this.panel1.Size = new System.Drawing.Size(634, 1);
             this.panel1.TabIndex = 120;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, 35);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(9, 28);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(177, 23);
+            this.lblTitle.Size = new System.Drawing.Size(141, 20);
             this.lblTitle.TabIndex = 119;
             this.lblTitle.Text = "Staff Sales History";
             // 
@@ -187,10 +198,11 @@ namespace ALP_BeautyProductShopApp
             this.lbl_Total.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Total.AutoSize = true;
-            this.lbl_Total.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Total.Location = new System.Drawing.Point(680, 621);
+            this.lbl_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Total.Location = new System.Drawing.Point(510, 505);
+            this.lbl_Total.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Total.Name = "lbl_Total";
-            this.lbl_Total.Size = new System.Drawing.Size(24, 34);
+            this.lbl_Total.Size = new System.Drawing.Size(19, 26);
             this.lbl_Total.TabIndex = 122;
             this.lbl_Total.Text = "-";
             // 
@@ -199,19 +211,20 @@ namespace ALP_BeautyProductShopApp
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(479, 621);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(359, 505);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 34);
+            this.label3.Size = new System.Drawing.Size(71, 26);
             this.label3.TabIndex = 121;
             this.label3.Text = "Total: ";
             // 
             // StaffSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.ClientSize = new System.Drawing.Size(864, 675);
+            this.ClientSize = new System.Drawing.Size(648, 548);
             this.Controls.Add(this.lbl_Total);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
@@ -227,6 +240,7 @@ namespace ALP_BeautyProductShopApp
             this.Controls.Add(this.tBox_staffID);
             this.Controls.Add(this.lbl_staffID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "StaffSales";
             this.Text = "StaffSales";
             this.Load += new System.EventHandler(this.StaffSales_Load);
