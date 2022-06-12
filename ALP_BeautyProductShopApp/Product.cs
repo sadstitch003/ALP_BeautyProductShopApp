@@ -76,8 +76,8 @@ namespace ALP_BeautyProductShopApp
                 sqlQuery = "select count(prod_id) from product where prod_id = '" + tBox_ProdID.Text + "';";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 
-                int temp = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
-                if (temp > 0)
+                int cek = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
+                if (cek > 0)
                 {
                     MessageBox.Show("data sudah ada");
                     tBox_ProdID.Text = null;
@@ -93,9 +93,8 @@ namespace ALP_BeautyProductShopApp
                 }
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
                 MessageBox.Show("masukkan data");
             }
             sqlConnect.Close();
@@ -117,7 +116,7 @@ namespace ALP_BeautyProductShopApp
                 MessageBox.Show("Data telah terupdate");
                 Product_Load(sender, e);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Masukkan data!");
             }

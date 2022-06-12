@@ -44,8 +44,6 @@ namespace ALP_BeautyProductShopApp
             sqlAdapter.Fill(dtCustomer);
             dgv_Customer.DataSource = dtCustomer;
 
-            
-            
             customerid = dtCustomer.Rows[0][0].ToString();
             dTP_memberjoin.Enabled = false;
         }
@@ -71,58 +69,65 @@ namespace ALP_BeautyProductShopApp
                 tBox_Email.Text = dgv_Customer.CurrentRow.Cells[7].Value.ToString();
                 dTP_dob.Text = dgv_Customer.CurrentRow.Cells[8].Value.ToString();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show(dgv_Customer.CurrentRow.Cells[2].Value.ToString());
+                MessageBox.Show("ulangi");
+               
             }
 
         }
         private void btn_Save_Click(object sender, EventArgs e)
         {
             dtMembership = new DataTable();
-            if (cBox_MemberID.Text == "" || cBox_MemberID.Text == "-")
+            try
             {
-                sqlQuery = "select count(cust_id) from customer where cust_id = '" + tBox_CustID.Text + "';";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlConnect.Open();
-                int temp = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
-                if (temp > 0)
+                if (cBox_MemberID.Text == "" || cBox_MemberID.Text == "-")
                 {
-                    MessageBox.Show("data sudah ada");
-                    tBox_CustID.Text = null;
+                    sqlQuery = "select count(cust_id) from customer where cust_id = '" + tBox_CustID.Text + "';";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlConnect.Open();
+                    int tes = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
+                    if (tes > 0)
+                    {
+                        MessageBox.Show("data sudah ada");
+                        tBox_CustID.Text = null;
+                    }
+                    else
+                    {
+                        sqlQuery = "insert into customer(cust_id, cust_name, cust_address, cust_city, cust_phone, cust_email, cust_dob, status_del) values ('" + tBox_CustID.Text + "','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlCommand.ExecuteNonQuery();
+                        MessageBox.Show("Data telah tersimpan");
+                        Customer_Load(sender, e);
+                    }
+                    sqlConnect.Close();
                 }
                 else
                 {
-                    sqlQuery = "insert into customer(cust_id, cust_name, cust_address, cust_city, cust_phone, cust_email, cust_dob, status_del) values ('" + tBox_CustID.Text + "','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+                    sqlQuery = "select count(cust_id) from customer where cust_id = '" + tBox_CustID.Text + "';";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Data telah tersimpan");
-                    Customer_Load(sender, e);
-                }
-                sqlConnect.Close();
-            }
-            else
-            {
-                sqlQuery = "select count(cust_id) from customer where cust_id = '" + tBox_CustID.Text + "';";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                sqlConnect.Open();
-                int temp = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
-                if (temp > 0)
-                {
-                    MessageBox.Show("data sudah ada");
-                    tBox_CustID.Text = null;
-                }
-                else
-                {
-                    sqlQuery = "insert into customer values ('" + tBox_CustID.Text + "','" + cBox_MemberID.Text + "','" + dTP_memberjoin.Value.ToString("yyyyMMdd") + "','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Data telah tersimpan");
-                    Customer_Load(sender, e);
+                    sqlConnect.Open();
+                    int tes = Convert.ToInt32(sqlCommand.ExecuteScalar().ToString());
+                    if (tes > 0)
+                    {
+                        MessageBox.Show("data sudah ada");
+                        tBox_CustID.Text = null;
+                    }
+                    else
+                    {
+                        sqlQuery = "insert into customer values ('" + tBox_CustID.Text + "','" + cBox_MemberID.Text + "','" + dTP_memberjoin.Value.ToString("yyyyMMdd") + "','" + tBox_CustName.Text + "','" + tBox_Address.Text + "','" + tBox_City.Text + "','" + tBox_Phone.Text + "','" + tBox_Email.Text + "','" + dTP_dob.Value.ToString("yyyyMMdd") + "','0');";
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlCommand.ExecuteNonQuery();
+                        MessageBox.Show("Data telah tersimpan");
+                        Customer_Load(sender, e);
 
+                    }
+                    sqlConnect.Close();
                 }
-                sqlConnect.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ulangi");
             }
         }
         private void btn_Update_Click(object sender, EventArgs e)
@@ -151,9 +156,9 @@ namespace ALP_BeautyProductShopApp
                     MessageBox.Show("Data telah terupdate");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+              
                 MessageBox.Show("Masukkan data!");
             }
 
@@ -174,7 +179,6 @@ namespace ALP_BeautyProductShopApp
 
         private void btnViewTrans_Click(object sender, EventArgs e)
         {
-
             TransactionHistory trans = new TransactionHistory();
             trans.MdiParent = this.ParentForm;
             trans.Dock = DockStyle.Fill;

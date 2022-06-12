@@ -53,7 +53,6 @@ namespace ALP_BeautyProductShopApp
                 MessageBox.Show("Belum ada transaksi");
             }
             
-
             sqlQuery = "select c.cust_id, c.membership_id, c.cust_name, c.cust_phone, c.cust_email, sum(t.net_total) from customer c, transaction t where c.cust_id = t.cust_id and c.cust_id = '" + Customer.customerid + "';";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
