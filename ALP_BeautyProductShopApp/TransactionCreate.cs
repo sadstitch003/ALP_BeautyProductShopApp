@@ -111,19 +111,19 @@ namespace ALP_BeautyProductShopApp
         {
             try
             {
-                if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "SIL")
-                    tbDiscountPercentage.Text = "5";
-                else if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "GLD")
-                    tbDiscountPercentage.Text = "10";
-                else if (dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString() == "DIA")
-                    tbDiscountPercentage.Text = "15";
-                else tbDiscountPercentage.Text = "0";
+                DataTable dtDiscount = new DataTable();
+                sqlQuery = $"select * from membership where membership_id = '{dtCustList.Rows[cbCustID.SelectedIndex]["membership_id"].ToString()}';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtDiscount);
+                if (dtDiscount.Rows.Count > 0)
+                    tbDiscountPercentage.Text = dtDiscount.Rows[0]["membership_discount"].ToString();
 
                 calculateTotal();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error !");
+                MessageBox.Show(ex.Message);
             }
         }
 
