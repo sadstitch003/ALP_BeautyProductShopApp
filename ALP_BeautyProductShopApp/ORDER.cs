@@ -50,7 +50,8 @@ namespace ALP_BeautyProductShopApp
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
             NewOrder form = new NewOrder(staffID);
-            form.Show();
+            form.ShowDialog();
+            resetTable();
         }
 
         private void dgvTransList_SelectionChanged(object sender, EventArgs e)
